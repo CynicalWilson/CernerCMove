@@ -34,6 +34,10 @@ namespace CernerCMove
             // now we'll set the version that'll display on the main screen
             labelVersion.Text = AppVersion;
 
+            // this method will check if the Logs dir exists in the exe root
+            // and create it if it's not 
+            GlobalVars.CreateLogDirectory();
+
             // hide the below fields on startup
             sourceVerifyProgress.Visible = false;
             targetVerifyProgress.Visible = false;

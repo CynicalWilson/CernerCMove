@@ -36,11 +36,23 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>E:\VisualStudioProjects\GUI FRAMEWORKS\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="LollipoUi">
+      <HintPath>..\..\CernerSkyVueUtility\RefernceDLLs\LollipoUi.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialWinforms">
+      <HintPath>..\..\CernerSkyVueUtility\RefernceDLLs\MaterialWinforms.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>E:\VisualStudioProjects\GUI FRAMEWORKS\MetroFrameWork-DLLS\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\CernerSkyVueUtility\RefernceDLLs\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\CernerSkyVueUtility\RefernceDLLs\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

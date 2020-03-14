@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,5 +44,16 @@ namespace CernerCMove
 
         // this var will be used for the location of the Accession search results
         public static string searchAccessionResults = ApplicationStartPath + @"\Logs\searchAccessionResults.txt";
+
+        // this method will be callsed on the main form file to make sure the exe root folder 
+        // has a Logs folder, and if not, it'll create it. 
+        public static void CreateLogDirectory()
+        {
+            var directoryPath = ApplicationStartPath + @"\Logs";
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
     }
 }
