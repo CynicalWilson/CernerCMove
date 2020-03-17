@@ -1,6 +1,7 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +26,8 @@ namespace CernerCMove
         public Form1()
         {
             InitializeComponent();
+
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 
             // the below wil invoke the material design
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -51,7 +55,7 @@ namespace CernerCMove
             pictureBoxCAMMSourceDBCheck.Visible = false;
             label4.Visible = false;
             pictureBox4.Visible = false;
-            pictureBox8.Visible = false;
+            pictureBox9.Visible = false;
             label19.Visible = false;
 
         }
@@ -76,16 +80,16 @@ namespace CernerCMove
                 sourcePort.Focus();
                 return;
             }
-            if (sourceTransferSyntax.selectedIndex < 0)
+            if (sourceTransferSyntax1.SelectedIndex < 0)
             {
                 MessageBox.Show("Please select a transfer syntax first. ", "Error: Verify Transfer Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                sourceTransferSyntax.Focus();
+                sourceTransferSyntax1.Focus();
                 return;
             }
 
             var transferSyntax = "";
             var transferSyntaxValue = "";
-            if (sourceTransferSyntax.selectedIndex == 0)
+            if (sourceTransferSyntax1.SelectedIndex == 0)
             {
                 transferSyntax = "1";
                 transferSyntaxValue = "Implicit Little Endian";
@@ -125,6 +129,17 @@ namespace CernerCMove
                 pictureBoxCAMMSourceDBCheck.Visible = true;
 
                 // we'll now populate the search camm selection dropdown 
+                // we'll now populate the search camm selection dropdown 
+                for (int i = 0; i < searchCAMMSelect.Items.Count; ++i)
+                {
+                    var line = searchCAMMSelect.Items[i].ToString();
+
+                    if (line.Contains("[SOURCE]"))
+                    {
+                        searchCAMMSelect.Items.Remove(line);
+                    }
+                }
+
                 searchCAMMSelect.Items.Add("[SOURCE] " + sourceHostIP.Text);
             }
             else
@@ -150,7 +165,7 @@ namespace CernerCMove
                     {
                         FileName = $"{GlobalVars.ApplicationStartPath}\\echoscu.exe",
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
-                        Arguments = $"-v -pts {_transferSyntax} {_hostname} {_port} -aec {_aet} -aet CERNERCMOVE",
+                        Arguments = $"-v -pts {_transferSyntax} {_hostname} {_port} -aec {_aet} -aet {utilityAET.Text.Trim()}",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         CreateNoWindow = true
@@ -225,14 +240,14 @@ namespace CernerCMove
                 targetPort.Focus();
                 return;
             }
-            if (targetTransferSyntax1.selectedIndex < 0)
+            if (targetTransferSyntax2.SelectedIndex < 0)
             {
                 MessageBox.Show("Please select a transfer syntax first. ", "Error: Verify Transfer Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                targetTransferSyntax1.Focus();
+                targetTransferSyntax2.Focus();
                 return;
             }
 
-            if (sourceTransferSyntax.selectedIndex == 0)
+            if (targetTransferSyntax2.SelectedIndex == 0)
             {
                 GlobalVars.TransferSyntax = "1";
                 GlobalVars.TransferSyntaxValue = "Implicit Little Endian";
@@ -272,6 +287,16 @@ namespace CernerCMove
                 pictureBox4.Visible = true;
 
                 // we'll now populate the search camm selection dropdown 
+                for (int i = 0; i < searchCAMMSelect.Items.Count; ++i)
+                {
+                    var line = searchCAMMSelect.Items[i].ToString();
+
+                    if (line.Contains("[TARGET]"))
+                    {
+                        searchCAMMSelect.Items.Remove(line);
+                    }
+                }
+
                 searchCAMMSelect.Items.Add("[TARGET] " + targetHostIP.Text);
             }
             else
@@ -312,6 +337,14 @@ namespace CernerCMove
 
         private async void materialFlatButton1_Click(object sender, EventArgs e)
         {
+            searchMrnAccProgress.Visible = true;
+
+            if (searchCAMMSelect.SelectedIndex < 0)
+            {
+                MessageBox.Show($"Please select a CAMM server first.", "CAMM Server Field Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(searchACCtxtbox.Text) && string.IsNullOrWhiteSpace(searchMRNtxtbox.Text))
             {
                 MessageBox.Show($"Please enter an MRN or Accession first.", "MRN and Accession Field Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -323,13 +356,18 @@ namespace CernerCMove
                 return;
             }
 
+            if ((searchACCtxtbox.Text == "*") || (searchMRNtxtbox.Text == "*"))
+            {
+                MessageBox.Show($"Full WildCard Searches are NOT allowed; only partial ones can be used!", "Full Wildcard Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             metroGrid1.Rows.Clear();
             pictureBox7.Visible = false;
             label17.Visible = false;
             pictureBoxSearchFailed.Visible = false;
             label18.Visible = false;
 
-            searchResultsProgress.Visible = true;
             var patientFindResults = "";
             var accessionFindResults = "";
 
@@ -340,65 +378,123 @@ namespace CernerCMove
                 await Task.Run(() =>
                 {
                     accessionFindResults = (FindAccessionNumber(GlobalVars.searchHostIPValue, GlobalVars.searchAETValue,
-                      GlobalVars.searchPortValue, GlobalVars.searchAccStringValue, "CERNERCMOVE"));
+                      GlobalVars.searchPortValue, GlobalVars.searchAccStringValue, utilityAET.Text.Trim()));
                 });
 
-                if ((accessionFindResults.Contains("I: Received Final Find Response (Success)") && ((accessionFindResults.Contains("I: (0008,0050) SH ["))) && ((accessionFindResults.Contains("I: (0020,000d) UI ["))) ))
+                // check how many studies were found based on the PID
+                int studyCount = Regex.Matches(accessionFindResults, "D: [(]0020,000d[)] UI [[]").Count;
+
+                var afterSBTrim = accessionFindResults.ToString().Replace("\0", "");
+
+                //if ((patientFindResults.Contains("Received Final Find Response (Success)") && ((patientFindResults.Contains("I: (0010,0010) PN [")) || patientFindResults.Contains($"I: (0010,0020) LO [{GlobalVars.searchMRNStringValue} ]"))))
+                if ((afterSBTrim.Contains("D: DIMSE Status                  : 0x0000: Success")) && (afterSBTrim.Contains("D: (0020,000d) UI [")))
                 {
                     GlobalVars.AccessionFindResultsSuccess = true;
 
                     pictureBox7.Visible = true;
                     label17.Visible = true;
-                    label17.Text = $"[SUCCESS] Accession {GlobalVars.searchAccStringValue} FOUND!";
+                    label17.Text = $"[SUCCESS] {studyCount} Studies Found for Accession {GlobalVars.searchAccStringValue}!";
 
-                    List<string> newRow = new List<string>();
-                    using (StringReader reader = new StringReader(accessionFindResults))
+                    //var newRow = new List<string>();
+                    //var newRow = new List<KeyValuePair<string, string>>();
+                    ////List<List<string>> newRow = new List<List<string>>();
+
+                    using (StringReader reader = new StringReader(afterSBTrim))
                     {
                         string line = string.Empty;
+                        var outputPNremoveCarrot = "";
+                        var outputMRNpost = "";
+                        var outputAccpost = "";
+                        var outputDTpost = "";
+                        var outputSUIDpost = "";
+                        var outputAApost = "";
+                        var outputStudyDescpost = "";
                         do
                         {
                             line = reader.ReadLine();
                             if (line != null)
                             {
-                                if (line.Contains("I: (0010,0010) PN"))
-                                {
-                                    string outputNamepre = line.Substring(line.IndexOf('[') + 1);
-                                    string outputNamepost = outputNamepre.Remove(outputNamepre.IndexOf("]") - 1); ;
-                                    string outputNameremoveCarrot = outputNamepost.Replace("^", ",");
-                                    newRow.Add(outputNameremoveCarrot);
-                                }
-                                else if (line.Contains($"I: (0010,0020) LO [")) 
+                                if (line.Contains($"D: (0010,0020) LO ["))
                                 {
                                     string outputMRNpre = line.Substring(line.IndexOf('[') + 1);
-                                    string outputMRNpost = outputMRNpre.Remove(outputMRNpre.IndexOf("]") - 1); ;
-                                    newRow.Add(outputMRNpost);
+                                    outputMRNpost = outputMRNpre.Remove(outputMRNpre.IndexOf("]")); ;
+                                    //newRow.Add(outputMRNpost);
                                 }
-                                else if (line.Contains($"I: (0008,0050) SH ["))
+                                else if (line.Contains("D: (0010,0010) PN ["))
                                 {
-                                    string outputAccessionpre = line.Substring(line.IndexOf('[') + 1);
-                                    string outputAccessionpost = outputAccessionpre.Remove(outputAccessionpre.IndexOf("]") - 1); ;
-                                    newRow.Add(outputAccessionpost);
+                                    string outputPNpre = line.Substring(line.IndexOf('[') + 1);
+                                    string outputPNpost = outputPNpre.Remove(outputPNpre.IndexOf("]") - 1); ;
+                                    outputPNremoveCarrot = outputPNpost.Replace("^", ",");
+                                    //newRow.Add(outputPNremoveCarrot);
                                 }
-                                else if (line.Contains($"I: (0020,000d) UI ["))
+                                else if (line.Contains("D: (0010,0021) LO ["))
+                                {
+                                    string outputAApre = line.Substring(line.IndexOf('[') + 1);
+                                    outputAApost = outputAApre.Remove(outputAApre.IndexOf("]")); ;
+                                }
+                                else if (line.Contains("D: (0010,0021) LO ("))
+                                {
+                                    outputAApost = "N/A";
+                                }
+                                else if (line.Contains("D: (0008,0050) SH ["))
+                                {
+                                    string outputAccpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputAccpost = outputAccpre.Remove(outputAccpre.IndexOf("]"));
+                                }
+                                else if (line.Contains("D: (0008,0050) SH ("))
+                                {
+                                    outputAccpost = "N/A";
+                                }
+                                else if (line.Contains("D: (0008,0020) DA ["))
+                                {
+                                    string outputDTpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputDTpost = outputDTpre.Remove(outputDTpre.IndexOf("]"));
+                                    outputDTpost = outputDTpost.Insert(4, "-");
+                                    outputDTpost = outputDTpost.Insert(7, "-");
+
+                                }
+                                else if (line.Contains("D: (0008,1030) LO ["))
+                                {
+                                    string outputStudyDescpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputStudyDescpost = outputStudyDescpre.Remove(outputStudyDescpre.IndexOf("]"));
+                                }
+                                else if (line.Contains("D: (0008,1030) LO ("))
+                                {
+                                    outputStudyDescpost = "N/A";
+                                }
+                                else if (line.Contains("D: (0020,000d) UI ["))
                                 {
                                     string outputSUIDpre = line.Substring(line.IndexOf('[') + 1);
-                                    string outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]") - 1); ;
-                                    newRow.Add(outputSUIDpost);
+                                    outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]"));
+                                }
+
+                                if ((!string.IsNullOrEmpty(outputMRNpost)) && (!string.IsNullOrEmpty(outputPNremoveCarrot))
+                                      && (!string.IsNullOrEmpty(outputAccpost))
+                                      && (!string.IsNullOrEmpty(outputDTpost))
+                                      && (!string.IsNullOrEmpty(outputSUIDpost))
+                                      && (!string.IsNullOrEmpty(outputAApost))
+                                      && (!string.IsNullOrEmpty(outputStudyDescpost)))
+                                {
+                                    metroGrid1.Rows.Add(outputPNremoveCarrot, outputMRNpost, outputAccpost, outputStudyDescpost, outputDTpost, outputSUIDpost, outputAApost);
+                                    outputPNremoveCarrot = "";
+                                    outputMRNpost = "";
+                                    outputAccpost = "";
+                                    outputDTpost = "";
+                                    outputSUIDpost = "";
+                                    outputAApost = "";
+                                    outputStudyDescpost = "";
                                 }
                             }
 
                         } while (line != null);
-
                     }
 
-                    metroGrid1.Rows.Add(newRow[2], newRow[3], newRow[1], newRow[4]);
-
-                    searchResultsProgress.Visible = false;
+                    searchMrnAccProgress.Visible = false;
                 }
                 else
                 {
                     GlobalVars.PatientFindResultsSuccess = false;
-                    searchResultsProgress.Visible = false;
+                    searchMrnAccProgress.Visible = false;
                     pictureBoxSearchFailed.Visible = true;
                     label18.Visible = true;
                     label18.Text = $"[FAILURE] Unable to Query/Find Accession {GlobalVars.searchAccStringValue}";
@@ -408,62 +504,136 @@ namespace CernerCMove
             }
             else
             {
+                searchMrnAccProgress.Visible = false;
+
                 GlobalVars.searchMRNStringValue = searchMRNtxtbox.Text;
                 await Task.Run(() =>
                 {
                     patientFindResults = (FindPatID(GlobalVars.searchHostIPValue, GlobalVars.searchAETValue,
-                      GlobalVars.searchPortValue, GlobalVars.searchMRNStringValue, "CERNERCMOVE"));
+                      GlobalVars.searchPortValue, GlobalVars.searchMRNStringValue, utilityAET.Text.Trim()));
                 });
 
-                if ((patientFindResults.Contains("Received Final Find Response (Success)") && ((patientFindResults.Contains("I: (0010,0010) PN [")) || patientFindResults.Contains($"I: (0010,0020) LO [{GlobalVars.searchMRNStringValue} ]"))))
+                // check how many studies were found based on the PID
+                int studyCount = Regex.Matches(patientFindResults, "D: [(]0020,000d[)] UI [[]").Count;
+
+                var afterSBTrim = patientFindResults.ToString().Replace("\0", "");
+
+                //if ((patientFindResults.Contains("Received Final Find Response (Success)") && ((patientFindResults.Contains("I: (0010,0010) PN [")) || patientFindResults.Contains($"I: (0010,0020) LO [{GlobalVars.searchMRNStringValue} ]"))))
+                if ((afterSBTrim.Contains("D: DIMSE Status                  : 0x0000: Success")))
                 {
                     GlobalVars.PatientFindResultsSuccess = true;
 
                     pictureBox7.Visible = true;
                     label17.Visible = true;
-                    label17.Text = $"[SUCCESS] PATIENT ID {GlobalVars.searchMRNStringValue} FOUND!";
+                    label17.Text = $"[SUCCESS] {studyCount} Studies Found for ID {GlobalVars.searchMRNStringValue}!";
 
-                    List<string> newRow = new List<string>();
-                    using (StringReader reader = new StringReader(patientFindResults))
+                    //var newRow = new List<string>();
+                    //var newRow = new List<KeyValuePair<string, string>>();
+                    ////List<List<string>> newRow = new List<List<string>>();
+
+                    using (StringReader reader = new StringReader(afterSBTrim))
                     {
                         string line = string.Empty;
+                        var outputPNremoveCarrot = "";
+                        var outputMRNpost = "";
+                        var outputAccpost = "";
+                        var outputDTpost = "";
+                        var outputSUIDpost = "";
+                        var outputAApost = "";
+                        var outputStudyDescpost = "";
                         do
                         {
                             line = reader.ReadLine();
                             if (line != null)
                             {
-                                if (line.Contains("I: (0010,0010) PN"))
+                                if (line.Contains($"D: (0010,0020) LO ["))
+                                {
+                                    string outputMRNpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputMRNpost = outputMRNpre.Remove(outputMRNpre.IndexOf("]")); ;
+                                    //newRow.Add(outputMRNpost);
+                                }
+                                else if (line.Contains("D: (0010,0010) PN ["))
                                 {
                                     string outputPNpre = line.Substring(line.IndexOf('[') + 1);
                                     string outputPNpost = outputPNpre.Remove(outputPNpre.IndexOf("]") - 1); ;
-                                    string outputPNremoveCarrot = outputPNpost.Replace("^", ",");
-                                    newRow.Add(outputPNremoveCarrot);
+                                    outputPNremoveCarrot = outputPNpost.Replace("^", ",");
+                                    //newRow.Add(outputPNremoveCarrot);
                                 }
-                                else if (line.Contains($"I: (0010,0020) LO [{GlobalVars.searchMRNStringValue} ]"))
+                                else if (line.Contains("D: (0010,0021) LO ["))
                                 {
-                                    string outputMRNpre = line.Substring(line.IndexOf('[') + 1);
-                                    string outputMRNpost = outputMRNpre.Remove(outputMRNpre.IndexOf("]") - 1); ;
-                                    newRow.Add(outputMRNpost);
+                                    string outputAApre = line.Substring(line.IndexOf('[') + 1);
+                                    outputAApost = outputAApre.Remove(outputAApre.IndexOf("]")); ;
+                                }
+                                else if (line.Contains("D: (0010,0021) LO ("))
+                                {
+                                    outputAApost = "N/A";
+                                }
+                                else if (line.Contains("D: (0008,0050) SH ["))
+                                {
+                                    string outputAccpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputAccpost = outputAccpre.Remove(outputAccpre.IndexOf("]"));
+                                }
+                                else if (line.Contains("D: (0008,0050) SH ("))
+                                {
+                                    outputAccpost = "N/A";
+                                }
+                                else if (line.Contains("D: (0008,0020) DA ["))
+                                {
+                                    string outputDTpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputDTpost = outputDTpre.Remove(outputDTpre.IndexOf("]"));
+                                    outputDTpost = outputDTpost.Insert(4, "-");
+                                    outputDTpost = outputDTpost.Insert(7, "-");
+
+                                }
+                                else if (line.Contains("D: (0008,1030) LO ["))
+                                {
+                                    string outputStudyDescpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputStudyDescpost = outputStudyDescpre.Remove(outputStudyDescpre.IndexOf("]"));
+                                }
+                                else if (line.Contains("D: (0008,1030) LO ("))
+                                {
+                                    outputStudyDescpost = "N/A";
+                                }
+                                else if (line.Contains("D: (0020,000d) UI ["))
+                                {
+                                    string outputSUIDpre = line.Substring(line.IndexOf('[') + 1);
+                                    outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]"));
+                                }
+
+                                if ((!string.IsNullOrEmpty(outputMRNpost)) && (!string.IsNullOrEmpty(outputPNremoveCarrot))
+                                    && (!string.IsNullOrEmpty(outputAccpost))
+                                    && (!string.IsNullOrEmpty(outputDTpost))
+                                    && (!string.IsNullOrEmpty(outputSUIDpost))
+                                    && (!string.IsNullOrEmpty(outputAApost))
+                                    && (!string.IsNullOrEmpty(outputStudyDescpost)))
+                                {
+                                    metroGrid1.Rows.Add(outputPNremoveCarrot, outputMRNpost, outputAccpost, outputStudyDescpost, outputDTpost, outputSUIDpost, outputAApost);
+                                    outputPNremoveCarrot = "";
+                                    outputMRNpost = "";
+                                    outputAccpost = "";
+                                    outputDTpost = "";
+                                    outputSUIDpost = "";
+                                    outputAApost = "";
+                                    outputStudyDescpost = "";
                                 }
                             }
-
+                           
                         } while (line != null);
-
                     }
 
-                    metroGrid1.Rows.Add(newRow[0], newRow[1]);
-
-                    searchResultsProgress.Visible = false;
+                    searchMrnAccProgress.Visible = false;
                 }
                 else
                 {
                     GlobalVars.PatientFindResultsSuccess = false;
-                    searchResultsProgress.Visible = false;
+                    searchMrnAccProgress.Visible = false;
                     pictureBoxSearchFailed.Visible = true;
                     label18.Visible = true;
                     label18.Text = $"[FAILURE] Unable to Query/Find PATIENT ID {GlobalVars.searchMRNStringValue}";
 
                 }
+
+                searchMrnAccProgress.Visible = false;
             }
            
         }
@@ -485,7 +655,7 @@ namespace CernerCMove
 
             try
             {
-                var FindAccessionNumber = new Process
+                var FindMRN = new Process
                 {
                     StartInfo = new ProcessStartInfo
                     {
@@ -493,21 +663,21 @@ namespace CernerCMove
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet CERNMIGECHO",
                         //Arguments = $"-v -P -xi -d -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
-                        Arguments = $"-v -P -{trSynToUse} -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                        Arguments = $"-d -S -{trSynToUse} -k 0008,0052=STUDY -k 0010,0020=\"{PatID}\" -k 0010,0010 -k 0010,0021 -k 0008,0050 -k 0008,1030 -k 0008,0060 -k 0008,0020 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         CreateNoWindow = true
                     }
                 };
 
-                FindAccessionNumber.Start();
+                FindMRN.Start();
 
-                while (!FindAccessionNumber.StandardOutput.EndOfStream)
+                while (!FindMRN.StandardOutput.EndOfStream)
                 {
 
                     //var line = SourceAETCEcho.StandardOutput.ReadLine();
 
-                    sb.AppendLine("    " + FindAccessionNumber.StandardOutput.ReadLine());
+                    sb.AppendLine("    " + FindMRN.StandardOutput.ReadLine());
                     //sb.AppendLine("\r\n");
 
                     //cechoAETResponse.Add(line + "\r\n");
@@ -515,7 +685,7 @@ namespace CernerCMove
 
                 }
 
-                FindAccessionNumber.WaitForExit();
+                FindMRN.WaitForExit();
 
                 GlobalVars.PatientFindResultsSuccess = true;
             }
@@ -572,7 +742,7 @@ namespace CernerCMove
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet CERNMIGECHO",
                         //Arguments = $"-v -P -xi -d -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
-                        Arguments = $"-v -P -{trSynToUse} -k 0008,0052=STUDY -k 0008,0050=\"{AccessionNumber}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                        Arguments = $"-d -S -{trSynToUse} -k 0008,0052=STUDY -k 0008,0050=\"{AccessionNumber}\" -k 0010,0010 -k 0010,0021 -k 0008,1030 -k 0008,0020 -k 0008,0060 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         CreateNoWindow = true
@@ -585,7 +755,6 @@ namespace CernerCMove
                 {
 
                     //var line = SourceAETCEcho.StandardOutput.ReadLine();
-
                     sb.AppendLine("    " + FindAccessionNumber.StandardOutput.ReadLine());
                     //sb.AppendLine("\r\n");
 
@@ -636,37 +805,399 @@ namespace CernerCMove
             }
         }
 
-        private void materialFlatButton2_Click(object sender, EventArgs e)
+        private async void materialFlatButton2_Click(object sender, EventArgs e)
         {
-            pictureBox8.Visible = false;
-            label19.Visible = false;
+            try
+            {
+                foreach (var process in Process.GetProcessesByName("storescp"))
+                {
+                    process.Kill();
+                }
+            }
+            catch (Exception)
+            {
 
-            //if (metroGrid1.SelectedRows.Count > 0)
+
+            }
+            var patientName = metroGrid1.SelectedRows[0].Cells[0].Value;
+            var patientMRN = metroGrid1.SelectedRows[0].Cells[1].Value;
+            var patientAcc = metroGrid1.SelectedRows[0].Cells[2].Value;
+            var patientSUID = metroGrid1.SelectedRows[0].Cells[5].Value;
+
+            //// user elected to cmove data!
+            //metroGrid1.Enabled = false;
+            //searchCAMMSelect.Enabled = false;
+            //searchMRNtxtbox.Enabled = false;
+            //searchACCtxtbox.Enabled = false;
+            //materialFlatButton2.Enabled = false;
+
+            var args = "";
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb1 = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            var storescpSTDOut = "";
+
+            var trSynToUse = ""; // we'll use this for CAMM 7 if ILE is not allowed. 
+            if (GlobalVars.TransferSyntax == "1")
+            {
+                trSynToUse = "xi";
+            }
+            else
+            {
+                trSynToUse = "xe";
+            }
+
+            if (metroGrid1.SelectedRows.Count > 0)
+            {
+                searchResultsProgress.Visible = true;
+                if (MessageBox.Show($"Are you sure you want to send data between the two below listed PACS systems? \r\n\r\n" +
+                                $"Source AET: {GlobalVars.SourceAETAfterTest} \r\n" +
+                                $"Source Hostname: {GlobalVars.SourceHostIPAfterTest} \r\n\r\n" +
+                                $"Target AET: {GlobalVars.targetAETAfterTest} \r\n" +
+                                $"Target Hostname: {GlobalVars.targetHostIPAfterTest}\r\n\r\n" +
+                                $"Transfer Syntax: {GlobalVars.TransferSyntaxValue} \r\n" +
+                                $"Patient Name: {patientName}\r\n" +
+                                $"Patient MRN: {patientMRN}\r\n" +
+                                $"Patient Acc.: {patientAcc}\r\n" +
+                                $"Patient SUID: {patientSUID}\r\n", "Question: Confirm DICOM Data Migration", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    //textBoxActions.AppendText($"     UPDATE: User elected not to begin DICOM Migration. \n\n");
+                    searchResultsProgress.Visible = false;
+                    return;
+                }
+                else
+                {
+                    // we'll create the dir to store the dcm files
+                    var saveDCMFolder = $@"{GlobalVars.downloadedDicomDataLocation}{patientMRN}";
+                    if (!Directory.Exists(saveDCMFolder))
+                    {
+                        Directory.CreateDirectory(saveDCMFolder);
+                    }
+
+                    args = $"{GlobalVars.SourceHostIPAfterTest} {GlobalVars.SourcePortAfterTest} -S -{trSynToUse} -v -aet {utilityAET.Text.Trim()} " +
+                                    $"-aec {GlobalVars.SourceAETAfterTest} -aem {utilityAET.Text.Trim()} -k 0008,0052=\"STUDY\" " +
+                                    $"-k 0020,000d=\"{patientSUID}\"";
+
+                    //DownloadDICOMStudy(patientSUID.ToString(), args);
+
+                    try
+                    {
+                        pictureBox9.Visible = true;
+                        label19.Text = "Starting StoreSCP Services...";
+                        label19.Visible = true;
+
+                        await Task.Run(() =>
+                        {
+                            System.Diagnostics.Process process1 = new System.Diagnostics.Process();
+                            process1.StartInfo.FileName = $"{GlobalVars.ApplicationStartPath}\\storescp.exe";
+                            process1.StartInfo.Arguments = $"104 -v -aet CERNERDCMS -od {saveDCMFolder}";
+                            process1.StartInfo.UseShellExecute = false;
+                            //process1.StartInfo.RedirectStandardOutput = true;
+                            process1.StartInfo.CreateNoWindow = true;
+                            //process1.EnableRaisingEvents = true;
+                            process1.Start();
+                            //storescpSTDOut = await process1.StandardOutput.ReadToEndAsync();
+
+
+                            //process1.WaitForExit();
+
+                            //var DownloadStudySCP = new Process
+                            //{
+                            //    StartInfo = new ProcessStartInfo
+                            //    {
+                            //        FileName = $"{GlobalVars.ApplicationStartPath}\\storescp.exe",
+                            //        Arguments = $"104 -d -aet CERNERDCMS -od {saveDCMFolder}",
+                            //        UseShellExecute = false,
+                            //        RedirectStandardOutput = true,
+                            //        CreateNoWindow = true
+                            //    }
+                            //};
+
+                            //DownloadStudySCP.Start();
+
+                            //while (!DownloadStudySCP.StandardOutput.EndOfStream)
+                            //{
+
+                            //    sb.AppendLine("    " + DownloadStudySCP.StandardOutput.ReadLine());
+
+                            //    //var line = DownloadStudySCP.StandardOutput.ReadLine();
+
+                            //    ////if ((line.Contains("error") || (line.Contains("Warning"))))
+                            //    //if ((line.Contains("error")))
+                            //    //{
+
+                            //    //    // if the user elected to save an error log, we'll append this error to the error log the user selected
+                            //    //    File.AppendAllLines(GlobalVars.migrationErrorLogLocation, new[] { " ERROR: " + DateTime.Now.ToString() + " | " + line + "\r\n" });
+                            //    //}
+
+                            //}
+
+                            //DownloadStudySCP.WaitForExit();
+
+                            var DownloadStudy = new Process
+                            {
+                                StartInfo = new ProcessStartInfo
+                                {
+                                    FileName = $"{GlobalVars.ApplicationStartPath}\\movescu.exe",
+                                    Arguments = args,
+                                    UseShellExecute = false,
+                                    RedirectStandardOutput = true,
+                                    CreateNoWindow = true
+                                }
+                            };
+
+                            DownloadStudy.Start();
+
+                            
+
+                            while (!DownloadStudy.StandardOutput.EndOfStream)
+                            {
+
+                                sb1.AppendLine("    " + DownloadStudy.StandardOutput.ReadLine());
+
+                            }
+
+                            DownloadStudy.WaitForExit();
+
+                            try
+                            {
+                                process1.Kill();
+                                process1.Close();
+                            }
+                            catch (Exception)
+                            {
+                                
+                            }
+
+                            
+                            //DownloadStudySCP.WaitForExit();
+                            //DownloadStudySCP.Close();
+                        });
+
+                        pictureBox9.Visible = true;
+                        label19.Text = "MoveSCU Services Started...";
+                        label19.Visible = true;
+                    }
+                    catch (Exception e2)
+                    {
+                        File.AppendAllLines(GlobalVars.storeSCPLog, new[] { " Application Error: " + DateTime.Now.ToString() + " | " + e2.Message + "\r\n" });
+                    }
+
+                    //we'll save the output to the log file
+                    try
+                    {
+                        //File.Delete(GlobalVars.searchAccessionResults);
+                        File.AppendAllLines(GlobalVars.moveSCULog, new[] {
+                    "---------------\r\n" + DateTime.Now.ToString() + "| C-Move START | Source Host: " + GlobalVars.SourceHostIPAfterTest + " | Source AET: " + GlobalVars.SourcePortAfterTest +
+                    " | Target AET: CERNERDCMS" + " | Target PORT: 104 \r\n" +
+                    sb1.ToString() + "\r\n" + "---------------\r\n\r\n" });
+                    }
+                    catch (Exception outputFileCrateError)
+                    {
+
+                        MessageBox.Show("There was an error while attempting to create the STORESCU Log file! \r\n" +
+                                    $"Error: {outputFileCrateError.Message} \r\n\r\n" + "Please check that you're able to write to folder where this exe lives, and try again.",
+                                    "ERROR: Unable to crate STORESCU Log file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    //we'll save the output to the log file
+                    try
+                    {
+                        //File.Delete(GlobalVars.searchAccessionResults);
+                        File.Delete(GlobalVars.storeSCPLog);
+                        File.AppendAllLines(GlobalVars.storeSCPLog, new[] {
+                                "---------------\r\n" + DateTime.Now.ToString() + "| STORESCP START \r\n"+
+                                storescpSTDOut + "\r\n" + "---------------\r\n\r\n" });
+                    }
+                    catch (Exception outputFileCrateError)
+                    {
+
+                        MessageBox.Show("There was an error while attempting to create the STORESCP Log file! \r\n" +
+                                    $"Error: {outputFileCrateError.Message} \r\n\r\n" + "Please check that you're able to write to folder where this exe lives, and try again.",
+                                    "ERROR: Unable to crate STORESCP Log file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // we'll check if the study was downloaded successfully
+                    if (sb1.ToString().Contains("I: Received Final Move Response (Success)"))
+                    {
+                        //pictureBox7.Visible = true;
+                        //label17.Text = "Successfully Fetched Data; will send to Target now..."
+                        //label17.Visible = false;
+                        pictureBox9.Visible = true;
+                        label19.Text = "Successfully Fetched Data; will send to Target now...";
+                        label19.Visible = true;
+                    }
+
+                    // now we'll send the data to the target AET
+                    try
+                    {
+                        args = $@"-d  -{trSynToUse} +sd -aec {GlobalVars.targetAETAfterTest} -aet {utilityAET.Text.Trim()} {GlobalVars.targetHostIPAfterTest} {GlobalVars.targetPortAfterTest} {saveDCMFolder}";
+
+                        pictureBox9.Visible = true;
+                        label19.Text = "StoreSCU Services Started...";
+                        label19.Visible = true;
+
+                        await Task.Run(() =>
+                        {
+                            var sendStudyToTarget = new Process
+                            {
+                                StartInfo = new ProcessStartInfo
+                                {
+                                    FileName = $"{GlobalVars.ApplicationStartPath}\\storescu.exe",
+                                    Arguments = args,
+                                    UseShellExecute = false,
+                                    RedirectStandardOutput = true,
+                                    CreateNoWindow = true
+                                }
+                            };
+
+                            sendStudyToTarget.Start();
+
+                            while (!sendStudyToTarget.StandardOutput.EndOfStream)
+                            {
+
+                                sb2.AppendLine("    " + sendStudyToTarget.StandardOutput.ReadLine());
+
+                                //var line1 = DownloadStudy.StandardOutput.ReadLine();
+
+                                ////if ((line.Contains("error") || (line.Contains("Warning"))))
+                                //if ((line1.Contains("error")))
+                                //{
+
+                                //    // if the user elected to save an error log, we'll append this error to the error log the user selected
+                                //    File.AppendAllLines(GlobalVars.moveSCULog, new[] { DateTime.Now.ToString() + " | " + line1 + "\r\n" });
+                                //}
+
+                            }
+
+                            sendStudyToTarget.WaitForExit();
+
+                        });
+
+                        pictureBox9.Visible = false;
+                        label19.Visible = false;
+                      
+                    }
+                    catch (Exception e3)
+                    {
+                        MessageBox.Show($"There was an error while attempting to send the study the target ({GlobalVars.targetHostIPAfterTest}! \r\n" +
+                                    $"Error: {e3.Message} \r\n\r\n" + "Please check logs to view full details.",
+                                    $"ERROR: Unable to send to target ({GlobalVars.targetHostIPAfterTest}) STORESCU Log file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        // we'll clear the recently downloaded folder
+                        if (Directory.Exists(saveDCMFolder))
+                        {
+                            Directory.Delete(saveDCMFolder, true);
+                        }
+
+                    }
+
+                    //we'll save the output to the log file
+                    try
+                    {
+                        //File.Delete(GlobalVars.searchAccessionResults);
+                        File.Delete(GlobalVars.storeSCULog);
+                        File.AppendAllLines(GlobalVars.storeSCULog, new[] {
+                                "---------------\r\n" + DateTime.Now.ToString() + "| STORESCU START \r\n"+
+                                sb2.ToString() + "\r\n" + "---------------\r\n\r\n" });
+                    }
+                    catch (Exception outputFileCrateError)
+                    {
+                        MessageBox.Show("There was an error while attempting to create the STORESCU Log file! \r\n" +
+                                   $"Error: {outputFileCrateError.Message} \r\n\r\n" + "Please check that you're able to write to folder where this exe lives, and try again.",
+                                   "ERROR: Unable to crate STORESCU Log file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // we'll check if the storescu send to target was successful or not
+                    if (sb2.ToString().Contains("D: DIMSE Status                  : 0x0000: Success"))
+                    {
+                        pictureBox7.Visible = true;
+                        label17.Text = $"Successfully Sent {patientName} to {GlobalVars.targetHostIPAfterTest}!";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"There was an error while attempting to send the study the target ({GlobalVars.targetHostIPAfterTest}! \r\n" +
+                                    "Please check logs to view full details.",
+                                    $"ERROR: STORESCU - Unable to send to target ({GlobalVars.targetHostIPAfterTest}) ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // we'll clear the recently downloaded folder
+                    if (Directory.Exists(saveDCMFolder))
+                    {
+                        Directory.Delete(saveDCMFolder, true);
+                    }
+                }
+
+            }
+
+            searchResultsProgress.Visible = false;
+            metroGrid1.Enabled = true;
+            searchCAMMSelect.Enabled = true;
+            searchMRNtxtbox.Enabled = true;
+            searchACCtxtbox.Enabled = true;
+            materialFlatButton2.Enabled = true;
+        }
+
+        private void materialFlatButton4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GlobalVars.storeSCULog);
+        }
+
+        private void materialFlatButton5_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GlobalVars.moveSCULog); 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (Directory.Exists(GlobalVars.downloadedDicomDataLocation))
             //{
-            //    pictureBox8.Visible = true;
-            //    label19.Visible = true;
-
-            //    //check which fields are available based on the search to show the user
-            //    if (!string.IsNullOrWhiteSpace(GlobalVars.searchAccStringValue))
-            //    {
-            //        var dataFields = metroGrid1.SelectedRows.
-            //    }
-
-            //    if (MessageBox.Show($"Are you sure you want to Migrate data between the two below listed PACS systems? \r\n\r\n" +
-            //                        $"Source AET: {GlobalVars.SourceAETAfterTest} \r\n" +
-            //                        $"Source Hostname: {GlobalVars.SourceHostIPAfterTest} \r\n\r\n" +
-            //                        $"Target AET: {GlobalVars.targetAETAfterTest} \r\n" +
-            //                        $"Data: {GlobalVars.targetHostIPAfterTest}\r\n" +
-            //                        $"Target Hostname: {GlobalVars.targetHostIPAfterTest}\r\n", "Question: Confirm DICOM Data Migration", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            //    {
-            //        //textBoxActions.AppendText($"     UPDATE: User elected not to begin DICOM Migration. \n\n");
-            //        return;
-            //    }
-
-
+            //    Directory.Delete(GlobalVars.downloadedDicomDataLocation, true);
             //}
 
+            try
+            {
+                foreach (var process in Process.GetProcessesByName("notepad")) //whatever you need to close 
+                {
+                    if (process.MainWindowTitle.Contains("moveSCULog.txt"))
+                    {
+                        process.Kill();
+                    }
+
+                    if (process.MainWindowTitle.Contains("searchAccessionResults.txt"))
+                    {
+                        process.Kill();
+                    }
+
+                    if (process.MainWindowTitle.Contains("searchMRNResults.txt"))
+                    {
+                        process.Kill();
+                    }
+
+                    if (process.MainWindowTitle.Contains("storeSCPLog.txt"))
+                    {
+                        process.Kill();
+                    }
+
+                    if (process.MainWindowTitle.Contains("storeSCULog.txt"))
+                    {
+                        process.Kill();
+                    }
+                }
+
+                if (Directory.Exists(GlobalVars.logDirectoryPath))
+                {
+                    Directory.Delete(GlobalVars.logDirectoryPath, true);
+                }
+
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
     }
+
 }

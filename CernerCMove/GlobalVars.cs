@@ -45,14 +45,38 @@ namespace CernerCMove
         // this var will be used for the location of the Accession search results
         public static string searchAccessionResults = ApplicationStartPath + @"\Logs\searchAccessionResults.txt";
 
+        // this var will be used for the location of the migration error results 
+        public static string migrationErrorLogLocation = ApplicationStartPath + @"\Logs\migrationErrorLog.txt";
+
+        // this var will be used for the location of the storeSCU log results 
+        public static string storeSCPLog = ApplicationStartPath + @"\Logs\storeSCPLog.txt";
+
+        // this var will be used for the location of the moveSCU results 
+        public static string moveSCULog = ApplicationStartPath + @"\Logs\moveSCULog.txt";
+
+        // this var will be used for the location of the storeSCU results 
+        public static string storeSCULog = ApplicationStartPath + @"\Logs\storeSCULog.txt";
+
+        // this var will be used for the location of the download DICOM Studies 
+        public static string downloadedDicomDataLocation = ApplicationStartPath + @"\Downloads\";
+
+        // this var will be used for the location of the root Logs directory
+        public static string logDirectoryPath = ApplicationStartPath + @"\Logs\";
+
+
         // this method will be callsed on the main form file to make sure the exe root folder 
         // has a Logs folder, and if not, it'll create it. 
         public static void CreateLogDirectory()
         {
-            var directoryPath = ApplicationStartPath + @"\Logs";
-            if (!Directory.Exists(directoryPath))
+            //var logDirectoryPath = ApplicationStartPath + @"\Logs";
+            if (!Directory.Exists(logDirectoryPath))
             {
-                Directory.CreateDirectory(directoryPath);
+                Directory.CreateDirectory(logDirectoryPath);
+            }
+
+            if (!Directory.Exists(downloadedDicomDataLocation))
+            {
+                Directory.CreateDirectory(downloadedDicomDataLocation);
             }
         }
     }
