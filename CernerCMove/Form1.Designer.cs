@@ -31,9 +31,9 @@ namespace CernerCMove
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.labelVersion = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -103,19 +103,19 @@ namespace CernerCMove
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STUDYDESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AA_OID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utilityAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
-            this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
-            this.materialCheckBox2 = new MaterialSkin.Controls.MaterialCheckBox();
+            this.saveDCMFilesLocallyCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModalityType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STUDYDESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AA_OID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.materialTabControl1.SuspendLayout();
             this.tabPageConnect.SuspendLayout();
@@ -186,8 +186,7 @@ namespace CernerCMove
             // tabPageConnect
             // 
             this.tabPageConnect.BackColor = System.Drawing.Color.SlateGray;
-            this.tabPageConnect.Controls.Add(this.materialCheckBox2);
-            this.tabPageConnect.Controls.Add(this.materialCheckBox1);
+            this.tabPageConnect.Controls.Add(this.saveDCMFilesLocallyCheckBox);
             this.tabPageConnect.Controls.Add(this.materialDivider3);
             this.tabPageConnect.Controls.Add(this.pictureBox8);
             this.tabPageConnect.Controls.Add(this.label20);
@@ -242,7 +241,7 @@ namespace CernerCMove
             this.targetTransferSyntax2.Items.AddRange(new object[] {
             "Implicit Little",
             "Explicit Little"});
-            this.targetTransferSyntax2.Location = new System.Drawing.Point(594, 250);
+            this.targetTransferSyntax2.Location = new System.Drawing.Point(594, 245);
             this.targetTransferSyntax2.Name = "targetTransferSyntax2";
             this.targetTransferSyntax2.Size = new System.Drawing.Size(143, 29);
             this.targetTransferSyntax2.Style = MetroFramework.MetroColorStyle.Silver;
@@ -275,7 +274,7 @@ namespace CernerCMove
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(594, 227);
+            this.label11.Location = new System.Drawing.Point(594, 222);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(116, 21);
             this.label11.TabIndex = 250;
@@ -296,7 +295,7 @@ namespace CernerCMove
             // targetVerifyProgress
             // 
             this.targetVerifyProgress.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.targetVerifyProgress.Location = new System.Drawing.Point(744, 272);
+            this.targetVerifyProgress.Location = new System.Drawing.Point(744, 267);
             this.targetVerifyProgress.MarqueeAnimationSpeed = 50;
             this.targetVerifyProgress.Name = "targetVerifyProgress";
             this.targetVerifyProgress.Size = new System.Drawing.Size(66, 8);
@@ -354,7 +353,7 @@ namespace CernerCMove
             this.materialDivider1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(38, 292);
+            this.materialDivider1.Location = new System.Drawing.Point(38, 290);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(750, 2);
@@ -381,7 +380,7 @@ namespace CernerCMove
             this.targetVerifyBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.targetVerifyBtn.Depth = 0;
             this.targetVerifyBtn.Icon = null;
-            this.targetVerifyBtn.Location = new System.Drawing.Point(744, 244);
+            this.targetVerifyBtn.Location = new System.Drawing.Point(744, 239);
             this.targetVerifyBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.targetVerifyBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.targetVerifyBtn.Name = "targetVerifyBtn";
@@ -424,7 +423,7 @@ namespace CernerCMove
             this.targetAET.LineIdleColor = System.Drawing.Color.Black;
             this.targetAET.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
             this.targetAET.LineThickness = 4;
-            this.targetAET.Location = new System.Drawing.Point(302, 251);
+            this.targetAET.Location = new System.Drawing.Point(302, 246);
             this.targetAET.Margin = new System.Windows.Forms.Padding(4);
             this.targetAET.Name = "targetAET";
             this.targetAET.Size = new System.Drawing.Size(178, 32);
@@ -446,7 +445,7 @@ namespace CernerCMove
             this.targetPort.LineIdleColor = System.Drawing.Color.Black;
             this.targetPort.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
             this.targetPort.LineThickness = 4;
-            this.targetPort.Location = new System.Drawing.Point(488, 251);
+            this.targetPort.Location = new System.Drawing.Point(488, 246);
             this.targetPort.Margin = new System.Windows.Forms.Padding(4);
             this.targetPort.Name = "targetPort";
             this.targetPort.Size = new System.Drawing.Size(95, 32);
@@ -460,7 +459,7 @@ namespace CernerCMove
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(484, 227);
+            this.label6.Location = new System.Drawing.Point(484, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 21);
             this.label6.TabIndex = 237;
@@ -472,7 +471,7 @@ namespace CernerCMove
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(30, 227);
+            this.label7.Location = new System.Drawing.Point(30, 222);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 21);
             this.label7.TabIndex = 236;
@@ -484,7 +483,7 @@ namespace CernerCMove
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(299, 227);
+            this.label8.Location = new System.Drawing.Point(299, 222);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 21);
             this.label8.TabIndex = 235;
@@ -504,7 +503,7 @@ namespace CernerCMove
             this.targetHostIP.LineIdleColor = System.Drawing.Color.Black;
             this.targetHostIP.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
             this.targetHostIP.LineThickness = 4;
-            this.targetHostIP.Location = new System.Drawing.Point(34, 251);
+            this.targetHostIP.Location = new System.Drawing.Point(34, 246);
             this.targetHostIP.Margin = new System.Windows.Forms.Padding(4);
             this.targetHostIP.Name = "targetHostIP";
             this.targetHostIP.Size = new System.Drawing.Size(256, 32);
@@ -516,7 +515,7 @@ namespace CernerCMove
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(237, 191);
+            this.pictureBox4.Location = new System.Drawing.Point(237, 186);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -530,7 +529,7 @@ namespace CernerCMove
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(263, 190);
+            this.label4.Location = new System.Drawing.Point(263, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
             this.label4.TabIndex = 232;
@@ -610,7 +609,7 @@ namespace CernerCMove
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(15, 187);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 182);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -623,7 +622,7 @@ namespace CernerCMove
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(46, 190);
+            this.label9.Location = new System.Drawing.Point(46, 185);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(155, 21);
             this.label9.TabIndex = 221;
@@ -839,31 +838,32 @@ namespace CernerCMove
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.pid,
             this.accession,
+            this.ModalityType,
             this.STUDYDESC,
             this.DT,
             this.SUID,
             this.AA_OID});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -872,14 +872,14 @@ namespace CernerCMove
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid1.Size = new System.Drawing.Size(812, 327);
@@ -1217,6 +1217,81 @@ namespace CernerCMove
             this.materialFlatButton5.UseVisualStyleBackColor = true;
             this.materialFlatButton5.Click += new System.EventHandler(this.materialFlatButton5_Click);
             // 
+            // utilityAET
+            // 
+            this.utilityAET.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.utilityAET.BackColor = System.Drawing.Color.Azure;
+            this.utilityAET.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.utilityAET.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.utilityAET.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.utilityAET.HintForeColor = System.Drawing.Color.Empty;
+            this.utilityAET.HintText = "";
+            this.utilityAET.isPassword = false;
+            this.utilityAET.LineFocusedColor = System.Drawing.Color.ForestGreen;
+            this.utilityAET.LineIdleColor = System.Drawing.Color.Black;
+            this.utilityAET.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
+            this.utilityAET.LineThickness = 4;
+            this.utilityAET.Location = new System.Drawing.Point(144, 18);
+            this.utilityAET.Margin = new System.Windows.Forms.Padding(4);
+            this.utilityAET.Name = "utilityAET";
+            this.utilityAET.Size = new System.Drawing.Size(336, 29);
+            this.utilityAET.TabIndex = 271;
+            this.utilityAET.Text = "CERNERDCM";
+            this.utilityAET.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.Control;
+            this.label20.Location = new System.Drawing.Point(46, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(91, 21);
+            this.label20.TabIndex = 272;
+            this.label20.Text = "Calling AET:";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(16, 16);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 273;
+            this.pictureBox8.TabStop = false;
+            // 
+            // materialDivider3
+            // 
+            this.materialDivider3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider3.Depth = 0;
+            this.materialDivider3.Location = new System.Drawing.Point(40, 61);
+            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider3.Name = "materialDivider3";
+            this.materialDivider3.Size = new System.Drawing.Size(750, 2);
+            this.materialDivider3.TabIndex = 274;
+            this.materialDivider3.Text = "materialDivider3";
+            // 
+            // saveDCMFilesLocallyCheckBox
+            // 
+            this.saveDCMFilesLocallyCheckBox.AutoSize = true;
+            this.saveDCMFilesLocallyCheckBox.Depth = 0;
+            this.saveDCMFilesLocallyCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.saveDCMFilesLocallyCheckBox.Location = new System.Drawing.Point(490, 16);
+            this.saveDCMFilesLocallyCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.saveDCMFilesLocallyCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.saveDCMFilesLocallyCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.saveDCMFilesLocallyCheckBox.Name = "saveDCMFilesLocallyCheckBox";
+            this.saveDCMFilesLocallyCheckBox.Ripple = true;
+            this.saveDCMFilesLocallyCheckBox.Size = new System.Drawing.Size(136, 30);
+            this.saveDCMFilesLocallyCheckBox.TabIndex = 276;
+            this.saveDCMFilesLocallyCheckBox.Text = "Create DCM Files";
+            this.saveDCMFilesLocallyCheckBox.UseVisualStyleBackColor = true;
+            this.saveDCMFilesLocallyCheckBox.CheckedChanged += new System.EventHandler(this.saveDCMFilesLocallyCheckBox_CheckedChanged);
+            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1240,6 +1315,14 @@ namespace CernerCMove
             this.accession.HeaderText = "ACCESSION";
             this.accession.Name = "accession";
             this.accession.ReadOnly = true;
+            // 
+            // ModalityType
+            // 
+            this.ModalityType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ModalityType.FillWeight = 80F;
+            this.ModalityType.HeaderText = "Modality";
+            this.ModalityType.Name = "ModalityType";
+            this.ModalityType.ReadOnly = true;
             // 
             // STUDYDESC
             // 
@@ -1272,96 +1355,6 @@ namespace CernerCMove
             this.AA_OID.Name = "AA_OID";
             this.AA_OID.ReadOnly = true;
             this.AA_OID.Width = 74;
-            // 
-            // utilityAET
-            // 
-            this.utilityAET.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.utilityAET.BackColor = System.Drawing.Color.Azure;
-            this.utilityAET.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.utilityAET.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.utilityAET.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.utilityAET.HintForeColor = System.Drawing.Color.Empty;
-            this.utilityAET.HintText = "";
-            this.utilityAET.isPassword = false;
-            this.utilityAET.LineFocusedColor = System.Drawing.Color.ForestGreen;
-            this.utilityAET.LineIdleColor = System.Drawing.Color.Black;
-            this.utilityAET.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
-            this.utilityAET.LineThickness = 4;
-            this.utilityAET.Location = new System.Drawing.Point(108, 18);
-            this.utilityAET.Margin = new System.Windows.Forms.Padding(4);
-            this.utilityAET.Name = "utilityAET";
-            this.utilityAET.Size = new System.Drawing.Size(211, 29);
-            this.utilityAET.TabIndex = 271;
-            this.utilityAET.Text = "CERNERDCM";
-            this.utilityAET.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.Control;
-            this.label20.Location = new System.Drawing.Point(46, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 21);
-            this.label20.TabIndex = 272;
-            this.label20.Text = "C-AET:";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(16, 16);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 273;
-            this.pictureBox8.TabStop = false;
-            // 
-            // materialDivider3
-            // 
-            this.materialDivider3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(40, 61);
-            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(750, 2);
-            this.materialDivider3.TabIndex = 274;
-            this.materialDivider3.Text = "materialDivider3";
-            // 
-            // materialCheckBox1
-            // 
-            this.materialCheckBox1.AutoSize = true;
-            this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox1.Location = new System.Drawing.Point(330, 16);
-            this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckBox1.Name = "materialCheckBox1";
-            this.materialCheckBox1.Ripple = true;
-            this.materialCheckBox1.Size = new System.Drawing.Size(126, 30);
-            this.materialCheckBox1.TabIndex = 275;
-            this.materialCheckBox1.Text = "Logging: Debug";
-            this.materialCheckBox1.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckBox2
-            // 
-            this.materialCheckBox2.AutoSize = true;
-            this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox2.Location = new System.Drawing.Point(468, 16);
-            this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckBox2.Name = "materialCheckBox2";
-            this.materialCheckBox2.Ripple = true;
-            this.materialCheckBox2.Size = new System.Drawing.Size(136, 30);
-            this.materialCheckBox2.TabIndex = 276;
-            this.materialCheckBox2.Text = "Create DCM Files";
-            this.materialCheckBox2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1470,19 +1463,19 @@ namespace CernerCMove
         private Label label19;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton5;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn pid;
-        private DataGridViewTextBoxColumn accession;
-        private DataGridViewTextBoxColumn STUDYDESC;
-        private DataGridViewTextBoxColumn DT;
-        private DataGridViewTextBoxColumn SUID;
-        private DataGridViewTextBoxColumn AA_OID;
         private Label label20;
         private Bunifu.Framework.UI.BunifuMaterialTextbox utilityAET;
         private PictureBox pictureBox8;
         private MaterialSkin.Controls.MaterialDivider materialDivider3;
-        private MaterialSkin.Controls.MaterialCheckBox materialCheckBox1;
-        private MaterialSkin.Controls.MaterialCheckBox materialCheckBox2;
+        private MaterialSkin.Controls.MaterialCheckBox saveDCMFilesLocallyCheckBox;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn pid;
+        private DataGridViewTextBoxColumn accession;
+        private DataGridViewTextBoxColumn ModalityType;
+        private DataGridViewTextBoxColumn STUDYDESC;
+        private DataGridViewTextBoxColumn DT;
+        private DataGridViewTextBoxColumn SUID;
+        private DataGridViewTextBoxColumn AA_OID;
     }
 }
 

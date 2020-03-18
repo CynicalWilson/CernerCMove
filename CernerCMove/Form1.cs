@@ -409,6 +409,7 @@ namespace CernerCMove
                         var outputSUIDpost = "";
                         var outputAApost = "";
                         var outputStudyDescpost = "";
+                        var outputModalityTypepost = "";
                         do
                         {
                             line = reader.ReadLine();
@@ -445,6 +446,16 @@ namespace CernerCMove
                                 {
                                     outputAccpost = "N/A";
                                 }
+                                else if (line.Contains("D: (0008,0060) CS ["))
+                                {
+                                    string outputModalityTypepre = line.Substring(line.IndexOf('[') + 1);
+                                    outputModalityTypepost = outputModalityTypepre.Remove(outputModalityTypepre.IndexOf("]"));
+                                
+                                }
+                                else if (line.Contains("D: (0008,0060) CS ("))
+                                {
+                                    outputModalityTypepost = "N/A";
+                                }
                                 else if (line.Contains("D: (0008,0020) DA ["))
                                 {
                                     string outputDTpre = line.Substring(line.IndexOf('[') + 1);
@@ -473,9 +484,10 @@ namespace CernerCMove
                                       && (!string.IsNullOrEmpty(outputDTpost))
                                       && (!string.IsNullOrEmpty(outputSUIDpost))
                                       && (!string.IsNullOrEmpty(outputAApost))
-                                      && (!string.IsNullOrEmpty(outputStudyDescpost)))
+                                      && (!string.IsNullOrEmpty(outputStudyDescpost))
+                                      && (!string.IsNullOrEmpty(outputModalityTypepost)))
                                 {
-                                    metroGrid1.Rows.Add(outputPNremoveCarrot, outputMRNpost, outputAccpost, outputStudyDescpost, outputDTpost, outputSUIDpost, outputAApost);
+                                    metroGrid1.Rows.Add(outputPNremoveCarrot, outputMRNpost, outputAccpost, outputModalityTypepost, outputStudyDescpost, outputDTpost, outputSUIDpost, outputAApost);
                                     outputPNremoveCarrot = "";
                                     outputMRNpost = "";
                                     outputAccpost = "";
@@ -483,6 +495,7 @@ namespace CernerCMove
                                     outputSUIDpost = "";
                                     outputAApost = "";
                                     outputStudyDescpost = "";
+                                    outputModalityTypepost = "";
                                 }
                             }
 
@@ -541,6 +554,7 @@ namespace CernerCMove
                         var outputSUIDpost = "";
                         var outputAApost = "";
                         var outputStudyDescpost = "";
+                        var outputModalityTypepost = "";
                         do
                         {
                             line = reader.ReadLine();
@@ -577,6 +591,16 @@ namespace CernerCMove
                                 {
                                     outputAccpost = "N/A";
                                 }
+                                else if (line.Contains("D: (0008,0060) CS ["))
+                                {
+                                    string outputModalityTypepre = line.Substring(line.IndexOf('[') + 1);
+                                    outputModalityTypepost = outputModalityTypepre.Remove(outputModalityTypepre.IndexOf("]"));
+
+                                }
+                                else if (line.Contains("D: (0008,0060) CS ("))
+                                {
+                                    outputModalityTypepost = "N/A";
+                                }
                                 else if (line.Contains("D: (0008,0020) DA ["))
                                 {
                                     string outputDTpre = line.Substring(line.IndexOf('[') + 1);
@@ -601,13 +625,14 @@ namespace CernerCMove
                                 }
 
                                 if ((!string.IsNullOrEmpty(outputMRNpost)) && (!string.IsNullOrEmpty(outputPNremoveCarrot))
-                                    && (!string.IsNullOrEmpty(outputAccpost))
-                                    && (!string.IsNullOrEmpty(outputDTpost))
-                                    && (!string.IsNullOrEmpty(outputSUIDpost))
-                                    && (!string.IsNullOrEmpty(outputAApost))
-                                    && (!string.IsNullOrEmpty(outputStudyDescpost)))
+                                         && (!string.IsNullOrEmpty(outputAccpost))
+                                         && (!string.IsNullOrEmpty(outputDTpost))
+                                         && (!string.IsNullOrEmpty(outputSUIDpost))
+                                         && (!string.IsNullOrEmpty(outputAApost))
+                                         && (!string.IsNullOrEmpty(outputStudyDescpost))
+                                         && (!string.IsNullOrEmpty(outputModalityTypepost)))
                                 {
-                                    metroGrid1.Rows.Add(outputPNremoveCarrot, outputMRNpost, outputAccpost, outputStudyDescpost, outputDTpost, outputSUIDpost, outputAApost);
+                                    metroGrid1.Rows.Add(outputPNremoveCarrot, outputMRNpost, outputAccpost, outputModalityTypepost, outputStudyDescpost, outputDTpost, outputSUIDpost, outputAApost);
                                     outputPNremoveCarrot = "";
                                     outputMRNpost = "";
                                     outputAccpost = "";
@@ -615,6 +640,7 @@ namespace CernerCMove
                                     outputSUIDpost = "";
                                     outputAApost = "";
                                     outputStudyDescpost = "";
+                                    outputModalityTypepost = "";
                                 }
                             }
                            
@@ -663,7 +689,7 @@ namespace CernerCMove
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet CERNMIGECHO",
                         //Arguments = $"-v -P -xi -d -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
-                        Arguments = $"-d -S -{trSynToUse} -k 0008,0052=STUDY -k 0010,0020=\"{PatID}\" -k 0010,0010 -k 0010,0021 -k 0008,0050 -k 0008,1030 -k 0008,0060 -k 0008,0020 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                        Arguments = $"-d -S -{trSynToUse} -k 0008,0052=SERIES -k 0010,0020=\"{PatID}\" -k 0010,0010 -k 0010,0021 -k 0008,0050 -k 0008,1030 -k 0008,0060 -k 0008,0020 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         CreateNoWindow = true
@@ -742,7 +768,7 @@ namespace CernerCMove
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
                         //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet CERNMIGECHO",
                         //Arguments = $"-v -P -xi -d -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
-                        Arguments = $"-d -S -{trSynToUse} -k 0008,0052=STUDY -k 0008,0050=\"{AccessionNumber}\" -k 0010,0010 -k 0010,0021 -k 0008,1030 -k 0008,0020 -k 0008,0060 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                        Arguments = $"-d -S -{trSynToUse} -k 0008,0052=SERIES -k 0008,0050=\"{AccessionNumber}\" -k 0010,0010 -k 0010,0021 -k 0008,1030 -k 0008,0020 -k 0008,0060 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         CreateNoWindow = true
@@ -822,7 +848,7 @@ namespace CernerCMove
             var patientName = metroGrid1.SelectedRows[0].Cells[0].Value;
             var patientMRN = metroGrid1.SelectedRows[0].Cells[1].Value;
             var patientAcc = metroGrid1.SelectedRows[0].Cells[2].Value;
-            var patientSUID = metroGrid1.SelectedRows[0].Cells[5].Value;
+            var patientSUID = metroGrid1.SelectedRows[0].Cells[6].Value;
 
             //// user elected to cmove data!
             //metroGrid1.Enabled = false;
@@ -1084,11 +1110,15 @@ namespace CernerCMove
                                     $"Error: {e3.Message} \r\n\r\n" + "Please check logs to view full details.",
                                     $"ERROR: Unable to send to target ({GlobalVars.targetHostIPAfterTest}) STORESCU Log file", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        // we'll clear the recently downloaded folder
-                        if (Directory.Exists(saveDCMFolder))
+                        if (!saveDCMFilesLocallyCheckBox.Checked)
                         {
-                            Directory.Delete(saveDCMFolder, true);
+                            // we'll clear the recently downloaded folder
+                            if (Directory.Exists(saveDCMFolder))
+                            {
+                                Directory.Delete(saveDCMFolder, true);
+                            }
                         }
+                        
 
                     }
 
@@ -1121,10 +1151,13 @@ namespace CernerCMove
                                     $"ERROR: STORESCU - Unable to send to target ({GlobalVars.targetHostIPAfterTest}) ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    // we'll clear the recently downloaded folder
-                    if (Directory.Exists(saveDCMFolder))
+                    if (!saveDCMFilesLocallyCheckBox.Checked)
                     {
-                        Directory.Delete(saveDCMFolder, true);
+                        // we'll clear the recently downloaded folder
+                        if (Directory.Exists(saveDCMFolder))
+                        {
+                            Directory.Delete(saveDCMFolder, true);
+                        }
                     }
                 }
 
@@ -1198,6 +1231,15 @@ namespace CernerCMove
             }
         }
 
+        private void saveDCMFilesLocallyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (saveDCMFilesLocallyCheckBox.Checked)
+            {
+                MessageBox.Show($"When set, a local copy of the study you send to the target will be stored in: \r\n ({GlobalVars.downloadedDicomDataLocation}! \r\n\r\n" +
+                                    "Upon closing this utility, the files will be deleted automatically!",
+                                    $"WARNING: Saving Local DCM Copies", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 
 }
