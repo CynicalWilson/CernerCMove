@@ -142,7 +142,6 @@ namespace CernerCMove
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.searchSaveFilesLocally = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton10 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accession = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -161,6 +160,7 @@ namespace CernerCMove
             this.MODALITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ORDERSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.materialTabControl1.SuspendLayout();
             this.tabPageConnect.SuspendLayout();
@@ -212,13 +212,13 @@ namespace CernerCMove
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(358, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 25);
+            this.label1.Size = new System.Drawing.Size(124, 23);
             this.label1.TabIndex = 2;
-            this.label1.Text = "CernerCMove";
+            this.label1.Text = "CernerDCM";
             // 
             // materialTabControl1
             // 
@@ -765,11 +765,11 @@ namespace CernerCMove
             // tabPageSearch
             // 
             this.tabPageSearch.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPageSearch.Controls.Add(this.pictureBox10);
             this.tabPageSearch.Controls.Add(this.materialFlatButton10);
             this.tabPageSearch.Controls.Add(this.searchSaveFilesLocally);
             this.tabPageSearch.Controls.Add(this.materialFlatButton5);
             this.tabPageSearch.Controls.Add(this.materialFlatButton4);
-            this.tabPageSearch.Controls.Add(this.pictureBox10);
             this.tabPageSearch.Controls.Add(this.label19);
             this.tabPageSearch.Controls.Add(this.searchResultsProgress);
             this.tabPageSearch.Controls.Add(this.label18);
@@ -807,7 +807,7 @@ namespace CernerCMove
             this.searchResultsProgress.Location = new System.Drawing.Point(769, 512);
             this.searchResultsProgress.MarqueeAnimationSpeed = 50;
             this.searchResultsProgress.Name = "searchResultsProgress";
-            this.searchResultsProgress.Size = new System.Drawing.Size(56, 8);
+            this.searchResultsProgress.Size = new System.Drawing.Size(51, 8);
             this.searchResultsProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.searchResultsProgress.TabIndex = 266;
             // 
@@ -1854,7 +1854,7 @@ namespace CernerCMove
             this.materialFlatButton10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton10.Depth = 0;
             this.materialFlatButton10.Icon = null;
-            this.materialFlatButton10.Location = new System.Drawing.Point(200, 484);
+            this.materialFlatButton10.Location = new System.Drawing.Point(200, 485);
             this.materialFlatButton10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton10.Name = "materialFlatButton10";
@@ -1864,17 +1864,6 @@ namespace CernerCMove
             this.materialFlatButton10.Text = "downloads";
             this.materialFlatButton10.UseVisualStyleBackColor = true;
             this.materialFlatButton10.Click += new System.EventHandler(this.materialFlatButton10_Click);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(22, 464);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(25, 20);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 331;
-            this.pictureBox10.TabStop = false;
             // 
             // name
             // 
@@ -2019,6 +2008,18 @@ namespace CernerCMove
             this.SCHDATE.Name = "SCHDATE";
             this.SCHDATE.ReadOnly = true;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(24, 464);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(18, 16);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 336;
+            this.pictureBox10.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2033,7 +2034,6 @@ namespace CernerCMove
             this.MinimumSize = new System.Drawing.Size(837, 641);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.materialTabControl1.ResumeLayout(false);
             this.tabPageConnect.ResumeLayout(false);
@@ -2170,7 +2170,6 @@ namespace CernerCMove
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
         private MaterialSkin.Controls.MaterialFlatButton searchSaveFilesLocally;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton10;
-        private PictureBox pictureBox10;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn pid;
         private DataGridViewTextBoxColumn accession;
@@ -2189,6 +2188,7 @@ namespace CernerCMove
         private DataGridViewTextBoxColumn MODALITY;
         private DataGridViewTextBoxColumn ORDERSTATUS;
         private DataGridViewTextBoxColumn SCHDATE;
+        private PictureBox pictureBox10;
     }
 }
 

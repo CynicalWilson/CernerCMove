@@ -1253,9 +1253,12 @@ namespace CernerCMove
                         try
                         {
 
+                            label19.Text = "Anonymizing the downloaded study...";
+
                             await Task.Run(() =>
                             {
 
+                                
 
                                 foreach (FileInfo f in infos)
                                 {
@@ -1323,9 +1326,14 @@ namespace CernerCMove
                                     //}
                                 }
                             });
+
+                            label19.Text = "Successfully anonymized the study.";
                         }
                         catch (Exception anonymizeStudyFailure)
                         {
+
+                            label19.Text = "Failed to anonymize the study! Please see log file for details.";
+
                             MessageBox.Show("There was an error while attempting to anonymize the downloaded study! \r\n" +
                                          $"Error: {anonymizeStudyFailure.Message} \r\n\r\n" + "Please check that you're able to write to folder where this files lives, and try again.",
                                          "ERROR: Unable to Anonymize Downloaded Study", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1334,18 +1342,24 @@ namespace CernerCMove
 
                     if (GlobalVars.zipStudyAfterDownload)
                     {
+
+                        label19.Text = "Zipping up the downloaded study...";
+
                         // we'll create a zip file for the downloaded study
                         try
                         {
-                            string startPath = $@"{saveDCMFolder}";
-                            string zipPath = $@"{saveDCMFolder}.zip";
-
-                            if (File.Exists(zipPath))
+                            await Task.Run(() =>
                             {
-                                File.Delete(zipPath);
-                            }
+                                string startPath = $@"{saveDCMFolder}";
+                                string zipPath = $@"{saveDCMFolder}.zip";
 
-                            ZipFile.CreateFromDirectory(startPath, zipPath);
+                                if (File.Exists(zipPath))
+                                {
+                                    File.Delete(zipPath);
+                                }
+
+                                ZipFile.CreateFromDirectory(startPath, zipPath);
+                            });
                         }
                         catch (Exception e4)
                         {
@@ -1356,8 +1370,8 @@ namespace CernerCMove
                         }
 
                     }
-                    
 
+                    label19.Text = "Successfully fetched the selected study to this PC; click Downloads to view the data.";
 
                     return;
                 }
