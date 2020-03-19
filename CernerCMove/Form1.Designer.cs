@@ -31,10 +31,13 @@ namespace CernerCMove
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelVersion = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,14 +103,12 @@ namespace CernerCMove
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.label19 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
             this.utilityAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
-            this.saveDCMFilesLocallyCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accession = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +117,50 @@ namespace CernerCMove
             this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AA_OID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialFlatButton7 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.materialFlatButton8 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
+            this.materialFlatButton9 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.mwlSCPPort = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.mwlSCPAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.mwlSearchButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.label27 = new System.Windows.Forms.Label();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.mwlSCPHost = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.mwlModalitySearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.mwlFromDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.mwlToDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label31 = new System.Windows.Forms.Label();
+            this.mwlDateSearchChecbox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STUDYSUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODALITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORDERSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchSaveFilesLocally = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialFlatButton10 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.materialTabControl1.SuspendLayout();
             this.tabPageConnect.SuspendLayout();
@@ -129,8 +174,15 @@ namespace CernerCMove
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // labelVersion
@@ -148,9 +200,9 @@ namespace CernerCMove
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::CernerCMove.Properties.Resources.CernerAppLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(313, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(313, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(39, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -162,7 +214,7 @@ namespace CernerCMove
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(360, 32);
+            this.label1.Location = new System.Drawing.Point(358, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 25);
             this.label1.TabIndex = 2;
@@ -175,6 +227,7 @@ namespace CernerCMove
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl1.Controls.Add(this.tabPageConnect);
             this.materialTabControl1.Controls.Add(this.tabPageSearch);
+            this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(-2, 87);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -186,7 +239,6 @@ namespace CernerCMove
             // tabPageConnect
             // 
             this.tabPageConnect.BackColor = System.Drawing.Color.SlateGray;
-            this.tabPageConnect.Controls.Add(this.saveDCMFilesLocallyCheckBox);
             this.tabPageConnect.Controls.Add(this.materialDivider3);
             this.tabPageConnect.Controls.Add(this.pictureBox8);
             this.tabPageConnect.Controls.Add(this.label20);
@@ -314,7 +366,7 @@ namespace CernerCMove
             // 
             // connectLogWindowClear
             // 
-            this.connectLogWindowClear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.connectLogWindowClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.connectLogWindowClear.AutoSize = true;
             this.connectLogWindowClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.connectLogWindowClear.Depth = 0;
@@ -332,7 +384,7 @@ namespace CernerCMove
             // 
             // connectLogWindowOpen
             // 
-            this.connectLogWindowOpen.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.connectLogWindowOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.connectLogWindowOpen.AutoSize = true;
             this.connectLogWindowOpen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.connectLogWindowOpen.Depth = 0;
@@ -362,7 +414,8 @@ namespace CernerCMove
             // 
             // connectLogWindow
             // 
-            this.connectLogWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.connectLogWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.connectLogWindow.BorderColor = System.Drawing.Color.SeaGreen;
             this.connectLogWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -712,15 +765,15 @@ namespace CernerCMove
             // tabPageSearch
             // 
             this.tabPageSearch.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPageSearch.Controls.Add(this.materialFlatButton10);
+            this.tabPageSearch.Controls.Add(this.searchSaveFilesLocally);
             this.tabPageSearch.Controls.Add(this.materialFlatButton5);
             this.tabPageSearch.Controls.Add(this.materialFlatButton4);
-            this.tabPageSearch.Controls.Add(this.pictureBox9);
+            this.tabPageSearch.Controls.Add(this.pictureBox10);
             this.tabPageSearch.Controls.Add(this.label19);
             this.tabPageSearch.Controls.Add(this.searchResultsProgress);
-            this.tabPageSearch.Controls.Add(this.pictureBoxSearchFailed);
             this.tabPageSearch.Controls.Add(this.label18);
             this.tabPageSearch.Controls.Add(this.materialFlatButton3);
-            this.tabPageSearch.Controls.Add(this.pictureBox7);
             this.tabPageSearch.Controls.Add(this.label17);
             this.tabPageSearch.Controls.Add(this.metroGrid1);
             this.tabPageSearch.Controls.Add(this.searchCAMMSelect);
@@ -739,6 +792,8 @@ namespace CernerCMove
             this.tabPageSearch.Controls.Add(this.searchMRNtxtbox);
             this.tabPageSearch.Controls.Add(this.pictureBox5);
             this.tabPageSearch.Controls.Add(this.label12);
+            this.tabPageSearch.Controls.Add(this.pictureBoxSearchFailed);
+            this.tabPageSearch.Controls.Add(this.pictureBox7);
             this.tabPageSearch.Location = new System.Drawing.Point(4, 22);
             this.tabPageSearch.Name = "tabPageSearch";
             this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
@@ -749,7 +804,7 @@ namespace CernerCMove
             // searchResultsProgress
             // 
             this.searchResultsProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchResultsProgress.Location = new System.Drawing.Point(769, 507);
+            this.searchResultsProgress.Location = new System.Drawing.Point(769, 512);
             this.searchResultsProgress.MarqueeAnimationSpeed = 50;
             this.searchResultsProgress.Name = "searchResultsProgress";
             this.searchResultsProgress.Size = new System.Drawing.Size(56, 8);
@@ -760,7 +815,7 @@ namespace CernerCMove
             // 
             this.pictureBoxSearchFailed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBoxSearchFailed.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSearchFailed.Image")));
-            this.pictureBoxSearchFailed.Location = new System.Drawing.Point(170, 466);
+            this.pictureBoxSearchFailed.Location = new System.Drawing.Point(24, 438);
             this.pictureBoxSearchFailed.Name = "pictureBoxSearchFailed";
             this.pictureBoxSearchFailed.Size = new System.Drawing.Size(20, 20);
             this.pictureBoxSearchFailed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -774,7 +829,7 @@ namespace CernerCMove
             this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.Control;
             this.label18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label18.Location = new System.Drawing.Point(194, 463);
+            this.label18.Location = new System.Drawing.Point(48, 435);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(87, 21);
             this.label18.TabIndex = 274;
@@ -788,7 +843,7 @@ namespace CernerCMove
             this.materialFlatButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton3.Depth = 0;
             this.materialFlatButton3.Icon = null;
-            this.materialFlatButton3.Location = new System.Drawing.Point(669, 480);
+            this.materialFlatButton3.Location = new System.Drawing.Point(557, 485);
             this.materialFlatButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton3.Name = "materialFlatButton3";
@@ -803,7 +858,7 @@ namespace CernerCMove
             // 
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(22, 466);
+            this.pictureBox7.Location = new System.Drawing.Point(24, 438);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(20, 20);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -817,7 +872,7 @@ namespace CernerCMove
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.Control;
             this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label17.Location = new System.Drawing.Point(46, 464);
+            this.label17.Location = new System.Drawing.Point(48, 436);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(87, 21);
             this.label17.TabIndex = 270;
@@ -838,14 +893,14 @@ namespace CernerCMove
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -856,14 +911,14 @@ namespace CernerCMove
             this.DT,
             this.SUID,
             this.AA_OID});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle8;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -872,17 +927,17 @@ namespace CernerCMove
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(812, 327);
+            this.metroGrid1.Size = new System.Drawing.Size(812, 306);
             this.metroGrid1.TabIndex = 269;
             this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroGrid1.UseCustomBackColor = true;
@@ -924,7 +979,7 @@ namespace CernerCMove
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton2.Depth = 0;
             this.materialFlatButton2.Icon = null;
-            this.materialFlatButton2.Location = new System.Drawing.Point(767, 479);
+            this.materialFlatButton2.Location = new System.Drawing.Point(764, 484);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
@@ -1106,6 +1161,7 @@ namespace CernerCMove
             this.searchMRNtxtbox.Name = "searchMRNtxtbox";
             this.searchMRNtxtbox.Size = new System.Drawing.Size(314, 29);
             this.searchMRNtxtbox.TabIndex = 253;
+            this.searchMRNtxtbox.Text = "008";
             this.searchMRNtxtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // pictureBox5
@@ -1140,10 +1196,10 @@ namespace CernerCMove
             this.materialTabSelector1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialTabSelector1.Depth = 0;
             this.materialTabSelector1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialTabSelector1.Location = new System.Drawing.Point(-2, 52);
+            this.materialTabSelector1.Location = new System.Drawing.Point(-2, 58);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(839, 37);
+            this.materialTabSelector1.Size = new System.Drawing.Size(839, 31);
             this.materialTabSelector1.TabIndex = 4;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -1164,22 +1220,12 @@ namespace CernerCMove
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.Control;
             this.label19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label19.Location = new System.Drawing.Point(46, 490);
+            this.label19.Location = new System.Drawing.Point(49, 462);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(87, 21);
             this.label19.TabIndex = 329;
             this.label19.Text = "Successful!";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(19, 492);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(25, 20);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 331;
-            this.pictureBox9.TabStop = false;
             // 
             // materialFlatButton4
             // 
@@ -1188,7 +1234,7 @@ namespace CernerCMove
             this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton4.Depth = 0;
             this.materialFlatButton4.Icon = null;
-            this.materialFlatButton4.Location = new System.Drawing.Point(427, 480);
+            this.materialFlatButton4.Location = new System.Drawing.Point(311, 485);
             this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton4.Name = "materialFlatButton4";
@@ -1206,7 +1252,7 @@ namespace CernerCMove
             this.materialFlatButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton5.Depth = 0;
             this.materialFlatButton5.Icon = null;
-            this.materialFlatButton5.Location = new System.Drawing.Point(550, 480);
+            this.materialFlatButton5.Location = new System.Drawing.Point(436, 485);
             this.materialFlatButton5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton5.Name = "materialFlatButton5";
@@ -1275,23 +1321,6 @@ namespace CernerCMove
             this.materialDivider3.TabIndex = 274;
             this.materialDivider3.Text = "materialDivider3";
             // 
-            // saveDCMFilesLocallyCheckBox
-            // 
-            this.saveDCMFilesLocallyCheckBox.AutoSize = true;
-            this.saveDCMFilesLocallyCheckBox.Depth = 0;
-            this.saveDCMFilesLocallyCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.saveDCMFilesLocallyCheckBox.Location = new System.Drawing.Point(490, 16);
-            this.saveDCMFilesLocallyCheckBox.Margin = new System.Windows.Forms.Padding(0);
-            this.saveDCMFilesLocallyCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.saveDCMFilesLocallyCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.saveDCMFilesLocallyCheckBox.Name = "saveDCMFilesLocallyCheckBox";
-            this.saveDCMFilesLocallyCheckBox.Ripple = true;
-            this.saveDCMFilesLocallyCheckBox.Size = new System.Drawing.Size(136, 30);
-            this.saveDCMFilesLocallyCheckBox.TabIndex = 276;
-            this.saveDCMFilesLocallyCheckBox.Text = "Create DCM Files";
-            this.saveDCMFilesLocallyCheckBox.UseVisualStyleBackColor = true;
-            this.saveDCMFilesLocallyCheckBox.CheckedChanged += new System.EventHandler(this.saveDCMFilesLocallyCheckBox_CheckedChanged);
-            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1356,6 +1385,632 @@ namespace CernerCMove
             this.AA_OID.ReadOnly = true;
             this.AA_OID.Width = 74;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPage1.Controls.Add(this.materialDivider4);
+            this.tabPage1.Controls.Add(this.mwlDateSearchChecbox);
+            this.tabPage1.Controls.Add(this.mwlToDatePicker);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.mwlFromDatePicker);
+            this.tabPage1.Controls.Add(this.mwlModalitySearch);
+            this.tabPage1.Controls.Add(this.label30);
+            this.tabPage1.Controls.Add(this.mwlSCPHost);
+            this.tabPage1.Controls.Add(this.label28);
+            this.tabPage1.Controls.Add(this.pictureBox15);
+            this.tabPage1.Controls.Add(this.materialFlatButton6);
+            this.tabPage1.Controls.Add(this.materialFlatButton7);
+            this.tabPage1.Controls.Add(this.progressBar1);
+            this.tabPage1.Controls.Add(this.pictureBox11);
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.materialFlatButton8);
+            this.tabPage1.Controls.Add(this.pictureBox12);
+            this.tabPage1.Controls.Add(this.label23);
+            this.tabPage1.Controls.Add(this.metroGrid2);
+            this.tabPage1.Controls.Add(this.materialFlatButton9);
+            this.tabPage1.Controls.Add(this.pictureBox13);
+            this.tabPage1.Controls.Add(this.mwlSCPPort);
+            this.tabPage1.Controls.Add(this.mwlSCPAET);
+            this.tabPage1.Controls.Add(this.label24);
+            this.tabPage1.Controls.Add(this.label25);
+            this.tabPage1.Controls.Add(this.progressBar2);
+            this.tabPage1.Controls.Add(this.mwlSearchButton);
+            this.tabPage1.Controls.Add(this.label27);
+            this.tabPage1.Controls.Add(this.pictureBox14);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(831, 522);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "MWL";
+            // 
+            // materialFlatButton6
+            // 
+            this.materialFlatButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialFlatButton6.AutoSize = true;
+            this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton6.Depth = 0;
+            this.materialFlatButton6.Icon = null;
+            this.materialFlatButton6.Location = new System.Drawing.Point(546, 479);
+            this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton6.Name = "materialFlatButton6";
+            this.materialFlatButton6.Primary = false;
+            this.materialFlatButton6.Size = new System.Drawing.Size(115, 36);
+            this.materialFlatButton6.TabIndex = 360;
+            this.materialFlatButton6.Text = "moveSCU Log";
+            this.materialFlatButton6.UseVisualStyleBackColor = true;
+            // 
+            // materialFlatButton7
+            // 
+            this.materialFlatButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialFlatButton7.AutoSize = true;
+            this.materialFlatButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton7.Depth = 0;
+            this.materialFlatButton7.Icon = null;
+            this.materialFlatButton7.Location = new System.Drawing.Point(423, 479);
+            this.materialFlatButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton7.Name = "materialFlatButton7";
+            this.materialFlatButton7.Primary = false;
+            this.materialFlatButton7.Size = new System.Drawing.Size(119, 36);
+            this.materialFlatButton7.TabIndex = 359;
+            this.materialFlatButton7.Text = "storeSCU Log";
+            this.materialFlatButton7.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(765, 506);
+            this.progressBar1.MarqueeAnimationSpeed = 50;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(56, 8);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 348;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(166, 465);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 356;
+            this.pictureBox11.TabStop = false;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.Control;
+            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label22.Location = new System.Drawing.Point(190, 462);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(87, 21);
+            this.label22.TabIndex = 355;
+            this.label22.Text = "Successful!";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // materialFlatButton8
+            // 
+            this.materialFlatButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialFlatButton8.AutoSize = true;
+            this.materialFlatButton8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton8.Depth = 0;
+            this.materialFlatButton8.Icon = null;
+            this.materialFlatButton8.Location = new System.Drawing.Point(665, 479);
+            this.materialFlatButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton8.Name = "materialFlatButton8";
+            this.materialFlatButton8.Primary = false;
+            this.materialFlatButton8.Size = new System.Drawing.Size(94, 36);
+            this.materialFlatButton8.TabIndex = 354;
+            this.materialFlatButton8.Text = "Searh Log";
+            this.materialFlatButton8.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(18, 465);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 353;
+            this.pictureBox12.TabStop = false;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.Control;
+            this.label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label23.Location = new System.Drawing.Point(42, 463);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(87, 21);
+            this.label23.TabIndex = 352;
+            this.label23.Text = "Successful!";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // metroGrid2
+            // 
+            this.metroGrid2.AllowUserToAddRows = false;
+            this.metroGrid2.AllowUserToDeleteRows = false;
+            this.metroGrid2.AllowUserToOrderColumns = true;
+            this.metroGrid2.AllowUserToResizeRows = false;
+            this.metroGrid2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.metroGrid2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.STUDYSUID,
+            this.MODALITY,
+            this.ORDERSTATUS,
+            this.SCHDATE});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.metroGrid2.EnableHeadersVisualStyles = false;
+            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid2.Location = new System.Drawing.Point(9, 152);
+            this.metroGrid2.MultiSelect = false;
+            this.metroGrid2.Name = "metroGrid2";
+            this.metroGrid2.ReadOnly = true;
+            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid2.Size = new System.Drawing.Size(812, 302);
+            this.metroGrid2.TabIndex = 351;
+            this.metroGrid2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroGrid2.UseCustomBackColor = true;
+            // 
+            // materialFlatButton9
+            // 
+            this.materialFlatButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialFlatButton9.AutoSize = true;
+            this.materialFlatButton9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton9.Depth = 0;
+            this.materialFlatButton9.Icon = null;
+            this.materialFlatButton9.Location = new System.Drawing.Point(763, 478);
+            this.materialFlatButton9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton9.Name = "materialFlatButton9";
+            this.materialFlatButton9.Primary = false;
+            this.materialFlatButton9.Size = new System.Drawing.Size(56, 36);
+            this.materialFlatButton9.TabIndex = 347;
+            this.materialFlatButton9.Text = "Send";
+            this.materialFlatButton9.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(11, 97);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 346;
+            this.pictureBox13.TabStop = false;
+            // 
+            // mwlSCPPort
+            // 
+            this.mwlSCPPort.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlSCPPort.BackColor = System.Drawing.Color.Azure;
+            this.mwlSCPPort.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.mwlSCPPort.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlSCPPort.ForeColor = System.Drawing.Color.Black;
+            this.mwlSCPPort.HintForeColor = System.Drawing.Color.Empty;
+            this.mwlSCPPort.HintText = "";
+            this.mwlSCPPort.isPassword = false;
+            this.mwlSCPPort.LineFocusedColor = System.Drawing.Color.ForestGreen;
+            this.mwlSCPPort.LineIdleColor = System.Drawing.Color.Black;
+            this.mwlSCPPort.LineMouseHoverColor = System.Drawing.Color.Transparent;
+            this.mwlSCPPort.LineThickness = 4;
+            this.mwlSCPPort.Location = new System.Drawing.Point(731, 11);
+            this.mwlSCPPort.Margin = new System.Windows.Forms.Padding(4);
+            this.mwlSCPPort.Name = "mwlSCPPort";
+            this.mwlSCPPort.Size = new System.Drawing.Size(85, 29);
+            this.mwlSCPPort.TabIndex = 3670;
+            this.mwlSCPPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // mwlSCPAET
+            // 
+            this.mwlSCPAET.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlSCPAET.BackColor = System.Drawing.Color.Azure;
+            this.mwlSCPAET.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.mwlSCPAET.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlSCPAET.ForeColor = System.Drawing.Color.Black;
+            this.mwlSCPAET.HintForeColor = System.Drawing.Color.Empty;
+            this.mwlSCPAET.HintText = "";
+            this.mwlSCPAET.isPassword = false;
+            this.mwlSCPAET.LineFocusedColor = System.Drawing.Color.ForestGreen;
+            this.mwlSCPAET.LineIdleColor = System.Drawing.Color.Black;
+            this.mwlSCPAET.LineMouseHoverColor = System.Drawing.Color.Transparent;
+            this.mwlSCPAET.LineThickness = 4;
+            this.mwlSCPAET.Location = new System.Drawing.Point(447, 11);
+            this.mwlSCPAET.Margin = new System.Windows.Forms.Padding(4);
+            this.mwlSCPAET.Name = "mwlSCPAET";
+            this.mwlSCPAET.Size = new System.Drawing.Size(181, 29);
+            this.mwlSCPAET.TabIndex = 369;
+            this.mwlSCPAET.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.Control;
+            this.label24.Location = new System.Drawing.Point(369, 15);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(71, 21);
+            this.label24.TabIndex = 343;
+            this.label24.Text = "SCP AET:";
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.SystemColors.Control;
+            this.label25.Location = new System.Drawing.Point(635, 14);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(83, 21);
+            this.label25.TabIndex = 342;
+            this.label25.Text = "SCP PORT:";
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.progressBar2.Location = new System.Drawing.Point(735, 119);
+            this.progressBar2.MarqueeAnimationSpeed = 50;
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(66, 8);
+            this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar2.TabIndex = 341;
+            // 
+            // mwlSearchButton
+            // 
+            this.mwlSearchButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlSearchButton.AutoSize = true;
+            this.mwlSearchButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mwlSearchButton.Depth = 0;
+            this.mwlSearchButton.Icon = null;
+            this.mwlSearchButton.Location = new System.Drawing.Point(731, 93);
+            this.mwlSearchButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mwlSearchButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mwlSearchButton.Name = "mwlSearchButton";
+            this.mwlSearchButton.Primary = false;
+            this.mwlSearchButton.Size = new System.Drawing.Size(73, 36);
+            this.mwlSearchButton.TabIndex = 377;
+            this.mwlSearchButton.Text = "Search";
+            this.mwlSearchButton.UseVisualStyleBackColor = true;
+            this.mwlSearchButton.Click += new System.EventHandler(this.mwlSearchButton_Click);
+            // 
+            // label27
+            // 
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.SystemColors.Control;
+            this.label27.Location = new System.Drawing.Point(48, 60);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(97, 21);
+            this.label27.TabIndex = 337;
+            this.label27.Text = "FROM DATE:";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 335;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Location = new System.Drawing.Point(11, 53);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 366;
+            this.pictureBox15.TabStop = false;
+            // 
+            // mwlSCPHost
+            // 
+            this.mwlSCPHost.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlSCPHost.BackColor = System.Drawing.Color.Azure;
+            this.mwlSCPHost.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.mwlSCPHost.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlSCPHost.ForeColor = System.Drawing.Color.Black;
+            this.mwlSCPHost.HintForeColor = System.Drawing.Color.Empty;
+            this.mwlSCPHost.HintText = "";
+            this.mwlSCPHost.isPassword = false;
+            this.mwlSCPHost.LineFocusedColor = System.Drawing.Color.ForestGreen;
+            this.mwlSCPHost.LineIdleColor = System.Drawing.Color.Black;
+            this.mwlSCPHost.LineMouseHoverColor = System.Drawing.Color.Transparent;
+            this.mwlSCPHost.LineThickness = 4;
+            this.mwlSCPHost.Location = new System.Drawing.Point(146, 12);
+            this.mwlSCPHost.Margin = new System.Windows.Forms.Padding(4);
+            this.mwlSCPHost.Name = "mwlSCPHost";
+            this.mwlSCPHost.Size = new System.Drawing.Size(208, 29);
+            this.mwlSCPHost.TabIndex = 368;
+            this.mwlSCPHost.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.Control;
+            this.label28.Location = new System.Drawing.Point(49, 16);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(85, 21);
+            this.label28.TabIndex = 367;
+            this.label28.Text = "SCP HOST:";
+            // 
+            // mwlModalitySearch
+            // 
+            this.mwlModalitySearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlModalitySearch.BackColor = System.Drawing.Color.Azure;
+            this.mwlModalitySearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.mwlModalitySearch.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlModalitySearch.ForeColor = System.Drawing.Color.Black;
+            this.mwlModalitySearch.HintForeColor = System.Drawing.Color.Empty;
+            this.mwlModalitySearch.HintText = "";
+            this.mwlModalitySearch.isPassword = false;
+            this.mwlModalitySearch.LineFocusedColor = System.Drawing.Color.ForestGreen;
+            this.mwlModalitySearch.LineIdleColor = System.Drawing.Color.Black;
+            this.mwlModalitySearch.LineMouseHoverColor = System.Drawing.Color.Transparent;
+            this.mwlModalitySearch.LineThickness = 4;
+            this.mwlModalitySearch.Location = new System.Drawing.Point(146, 99);
+            this.mwlModalitySearch.Margin = new System.Windows.Forms.Padding(4);
+            this.mwlModalitySearch.Name = "mwlModalitySearch";
+            this.mwlModalitySearch.Size = new System.Drawing.Size(85, 29);
+            this.mwlModalitySearch.TabIndex = 373;
+            this.mwlModalitySearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.SystemColors.Control;
+            this.label30.Location = new System.Drawing.Point(50, 102);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(89, 21);
+            this.label30.TabIndex = 369;
+            this.label30.Text = "MODALITY:";
+            // 
+            // mwlFromDatePicker
+            // 
+            this.mwlFromDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlFromDatePicker.Enabled = false;
+            this.mwlFromDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlFromDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.mwlFromDatePicker.Location = new System.Drawing.Point(151, 56);
+            this.mwlFromDatePicker.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.mwlFromDatePicker.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.mwlFromDatePicker.Name = "mwlFromDatePicker";
+            this.mwlFromDatePicker.Size = new System.Drawing.Size(208, 29);
+            this.mwlFromDatePicker.TabIndex = 375;
+            // 
+            // mwlToDatePicker
+            // 
+            this.mwlToDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlToDatePicker.Enabled = false;
+            this.mwlToDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlToDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.mwlToDatePicker.Location = new System.Drawing.Point(450, 56);
+            this.mwlToDatePicker.Name = "mwlToDatePicker";
+            this.mwlToDatePicker.Size = new System.Drawing.Size(178, 29);
+            this.mwlToDatePicker.TabIndex = 376;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.SystemColors.Control;
+            this.label31.Location = new System.Drawing.Point(368, 60);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(72, 21);
+            this.label31.TabIndex = 372;
+            this.label31.Text = "TO DATE:";
+            // 
+            // mwlDateSearchChecbox
+            // 
+            this.mwlDateSearchChecbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mwlDateSearchChecbox.AutoSize = true;
+            this.mwlDateSearchChecbox.Depth = 0;
+            this.mwlDateSearchChecbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.mwlDateSearchChecbox.Location = new System.Drawing.Point(649, 56);
+            this.mwlDateSearchChecbox.Margin = new System.Windows.Forms.Padding(0);
+            this.mwlDateSearchChecbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mwlDateSearchChecbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mwlDateSearchChecbox.Name = "mwlDateSearchChecbox";
+            this.mwlDateSearchChecbox.Ripple = true;
+            this.mwlDateSearchChecbox.Size = new System.Drawing.Size(26, 30);
+            this.mwlDateSearchChecbox.TabIndex = 374;
+            this.mwlDateSearchChecbox.UseVisualStyleBackColor = true;
+            this.mwlDateSearchChecbox.CheckedChanged += new System.EventHandler(this.mwlDateSearchChecbox_CheckedChanged);
+            // 
+            // materialDivider4
+            // 
+            this.materialDivider4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider4.Depth = 0;
+            this.materialDivider4.Location = new System.Drawing.Point(40, 141);
+            this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider4.Name = "materialDivider4";
+            this.materialDivider4.Size = new System.Drawing.Size(750, 2);
+            this.materialDivider4.TabIndex = 375;
+            this.materialDivider4.Text = "materialDivider4";
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 15;
+            this.bunifuElipse3.TargetControl = this.metroGrid2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ACCESSION";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "INST. NAME";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.HeaderText = "STUDY DESC.";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.HeaderText = "PATIENT NAME";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "MRN/PID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.HeaderText = "OTHER PID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // STUDYSUID
+            // 
+            this.STUDYSUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.STUDYSUID.HeaderText = "STUDYSUID";
+            this.STUDYSUID.Name = "STUDYSUID";
+            this.STUDYSUID.ReadOnly = true;
+            // 
+            // MODALITY
+            // 
+            this.MODALITY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MODALITY.HeaderText = "MODALITY";
+            this.MODALITY.Name = "MODALITY";
+            this.MODALITY.ReadOnly = true;
+            // 
+            // ORDERSTATUS
+            // 
+            this.ORDERSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ORDERSTATUS.HeaderText = "ORDER STATUS";
+            this.ORDERSTATUS.Name = "ORDERSTATUS";
+            this.ORDERSTATUS.ReadOnly = true;
+            // 
+            // SCHDATE
+            // 
+            this.SCHDATE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SCHDATE.HeaderText = "SCH. DATE";
+            this.SCHDATE.Name = "SCHDATE";
+            this.SCHDATE.ReadOnly = true;
+            this.SCHDATE.Width = 97;
+            // 
+            // searchSaveFilesLocally
+            // 
+            this.searchSaveFilesLocally.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchSaveFilesLocally.AutoSize = true;
+            this.searchSaveFilesLocally.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchSaveFilesLocally.Depth = 0;
+            this.searchSaveFilesLocally.Icon = null;
+            this.searchSaveFilesLocally.Location = new System.Drawing.Point(657, 484);
+            this.searchSaveFilesLocally.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.searchSaveFilesLocally.MouseState = MaterialSkin.MouseState.HOVER;
+            this.searchSaveFilesLocally.Name = "searchSaveFilesLocally";
+            this.searchSaveFilesLocally.Primary = false;
+            this.searchSaveFilesLocally.Size = new System.Drawing.Size(101, 36);
+            this.searchSaveFilesLocally.TabIndex = 334;
+            this.searchSaveFilesLocally.Text = "Save Study";
+            this.searchSaveFilesLocally.UseVisualStyleBackColor = true;
+            this.searchSaveFilesLocally.Click += new System.EventHandler(this.searchSaveFilesLocally_Click);
+            // 
+            // materialFlatButton10
+            // 
+            this.materialFlatButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialFlatButton10.AutoSize = true;
+            this.materialFlatButton10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton10.Depth = 0;
+            this.materialFlatButton10.Icon = null;
+            this.materialFlatButton10.Location = new System.Drawing.Point(200, 484);
+            this.materialFlatButton10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton10.Name = "materialFlatButton10";
+            this.materialFlatButton10.Primary = false;
+            this.materialFlatButton10.Size = new System.Drawing.Size(105, 36);
+            this.materialFlatButton10.TabIndex = 335;
+            this.materialFlatButton10.Text = "downloads";
+            this.materialFlatButton10.UseVisualStyleBackColor = true;
+            this.materialFlatButton10.Click += new System.EventHandler(this.materialFlatButton10_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(22, 464);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(25, 20);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 331;
+            this.pictureBox10.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1370,7 +2025,7 @@ namespace CernerCMove
             this.MinimumSize = new System.Drawing.Size(837, 641);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.materialTabControl1.ResumeLayout(false);
             this.tabPageConnect.ResumeLayout(false);
@@ -1386,8 +2041,16 @@ namespace CernerCMove
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1459,7 +2122,6 @@ namespace CernerCMove
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private MetroFramework.Controls.MetroComboBox targetTransferSyntax2;
         private MetroFramework.Controls.MetroComboBox sourceTransferSyntax1;
-        private PictureBox pictureBox9;
         private Label label19;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton5;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
@@ -1467,7 +2129,6 @@ namespace CernerCMove
         private Bunifu.Framework.UI.BunifuMaterialTextbox utilityAET;
         private PictureBox pictureBox8;
         private MaterialSkin.Controls.MaterialDivider materialDivider3;
-        private MaterialSkin.Controls.MaterialCheckBox saveDCMFilesLocallyCheckBox;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn pid;
         private DataGridViewTextBoxColumn accession;
@@ -1476,6 +2137,50 @@ namespace CernerCMove
         private DataGridViewTextBoxColumn DT;
         private DataGridViewTextBoxColumn SUID;
         private DataGridViewTextBoxColumn AA_OID;
+        private TabPage tabPage1;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton7;
+        private ProgressBar progressBar1;
+        private PictureBox pictureBox11;
+        private Label label22;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton8;
+        private PictureBox pictureBox12;
+        private Label label23;
+        private MetroFramework.Controls.MetroGrid metroGrid2;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton9;
+        private PictureBox pictureBox13;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox mwlSCPPort;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox mwlSCPAET;
+        private Label label24;
+        private Label label25;
+        private ProgressBar progressBar2;
+        private MaterialSkin.Controls.MaterialFlatButton mwlSearchButton;
+        private Label label27;
+        private PictureBox pictureBox14;
+        private PictureBox pictureBox15;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox mwlSCPHost;
+        private Label label28;
+        private DateTimePicker mwlToDatePicker;
+        private Label label31;
+        private DateTimePicker mwlFromDatePicker;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox mwlModalitySearch;
+        private Label label30;
+        private MaterialSkin.Controls.MaterialCheckBox mwlDateSearchChecbox;
+        private MaterialSkin.Controls.MaterialDivider materialDivider4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn STUDYSUID;
+        private DataGridViewTextBoxColumn MODALITY;
+        private DataGridViewTextBoxColumn ORDERSTATUS;
+        private DataGridViewTextBoxColumn SCHDATE;
+        private MaterialSkin.Controls.MaterialFlatButton searchSaveFilesLocally;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton10;
+        private PictureBox pictureBox10;
     }
 }
 

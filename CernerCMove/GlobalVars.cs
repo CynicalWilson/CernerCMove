@@ -36,6 +36,9 @@ namespace CernerCMove
         public static string FindMRNFailure = "";
         public static string FindAccessionNumberFailure = "";
 
+        // these vars are for the MWL search results 
+        public static bool mwlSearchResultsResults = false;
+
         // this var will be used for the location of the logfile
         public static string connectLogFile = ApplicationStartPath + @"\Logs\connectLog.txt";
 
@@ -44,7 +47,7 @@ namespace CernerCMove
 
         // this var will be used for the location of the Accession search results
         public static string searchAccessionResults = ApplicationStartPath + @"\Logs\searchAccessionResults.txt";
-
+        
         // this var will be used for the location of the migration error results 
         public static string migrationErrorLogLocation = ApplicationStartPath + @"\Logs\migrationErrorLog.txt";
 
@@ -63,6 +66,14 @@ namespace CernerCMove
         // this var will be used for the location of the root Logs directory
         public static string logDirectoryPath = ApplicationStartPath + @"\Logs\";
 
+        // this var will be used for the location of the MWL search results
+        public static string mwlSearchResultsLog = ApplicationStartPath + @"\Logs\mwlSearchResultsLog.txt";
+
+        // this var will allow the user to save the sop UID's with or without the prefix 
+        public static bool addPreFixSOPUIDs = false;
+
+        // this will have tell the send button that we're only going to download the study rather than download and sending it to the target
+        public static bool saveDCMButtonClicked = false; 
 
         // this method will be callsed on the main form file to make sure the exe root folder 
         // has a Logs folder, and if not, it'll create it. 
