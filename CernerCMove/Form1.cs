@@ -8,6 +8,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -392,8 +393,8 @@ namespace CernerCMove
                       GlobalVars.searchPortValue, GlobalVars.searchAccStringValue, utilityAET.Text.Trim()));
                 });
 
-                // check how many studies were found based on the PID
-                int studyCount = Regex.Matches(accessionFindResults, "D: [(]0020,000d[)] UI [[]").Count;
+                //// check how many studies were found based on the PID
+                //int studyCount = Regex.Matches(accessionFindResults, "D: [(]0020,000d[)] UI [[]").Count;
 
                 var afterSBTrim = accessionFindResults.ToString().Replace("\0", "");
 
@@ -402,13 +403,11 @@ namespace CernerCMove
                 {
                     GlobalVars.AccessionFindResultsSuccess = true;
 
-                    pictureBox7.Visible = true;
-                    label17.Visible = true;
-                    label17.Text = $"[SUCCESS] {studyCount} Studies Found for Accession {GlobalVars.searchAccStringValue}!";
-
                     //var newRow = new List<string>();
                     //var newRow = new List<KeyValuePair<string, string>>();
                     ////List<List<string>> newRow = new List<List<string>>();
+
+                    List<string> studySUIDsList = new List<string>();
 
                     using (StringReader reader = new StringReader(afterSBTrim))
                     {
@@ -488,6 +487,9 @@ namespace CernerCMove
                                 {
                                     string outputSUIDpre = line.Substring(line.IndexOf('[') + 1);
                                     outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]"));
+
+                                    // we'll add the SUID to a list so that later on, we'll check if there are duplicates and remove them
+                                    studySUIDsList.Add(outputSUIDpost);
                                 }
 
                                 if ((!string.IsNullOrEmpty(outputMRNpost)) && (!string.IsNullOrEmpty(outputPNremoveCarrot))
@@ -513,6 +515,45 @@ namespace CernerCMove
                         } while (line != null);
                     }
 
+                    // we'll check if the current study SUID is in the suid list
+                    // if it is, then we'll skip; we're doing this because the c-find
+                    // we're using is doing it at the series level so you'll see an entry
+                    // of the study SUID in the datagrid multiple times 
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
+
+                    pictureBox7.Visible = true;
+                    label17.Visible = true;
+                    label17.Text = $"[SUCCESS] {metroGrid1.Rows.Count} Studies Found for Accession {GlobalVars.searchAccStringValue}!";
+
                     searchMrnAccProgress.Visible = false;
                 }
                 else
@@ -537,8 +578,8 @@ namespace CernerCMove
                       GlobalVars.searchPortValue, GlobalVars.searchMRNStringValue, utilityAET.Text.Trim()));
                 });
 
-                // check how many studies were found based on the PID
-                int studyCount = Regex.Matches(patientFindResults, "D: [(]0020,000d[)] UI [[]").Count;
+                //// check how many studies were found based on the PID
+                //int studyCount = Regex.Matches(patientFindResults, "D: [(]0020,000d[)] UI [[]").Count;
 
                 var afterSBTrim = patientFindResults.ToString().Replace("\0", "");
 
@@ -546,14 +587,12 @@ namespace CernerCMove
                 if ((afterSBTrim.Contains("D: DIMSE Status                  : 0x0000: Success")))
                 {
                     GlobalVars.PatientFindResultsSuccess = true;
-
-                    pictureBox7.Visible = true;
-                    label17.Visible = true;
-                    label17.Text = $"[SUCCESS] {studyCount} Studies Found for ID {GlobalVars.searchMRNStringValue}!";
-
+                    
                     //var newRow = new List<string>();
                     //var newRow = new List<KeyValuePair<string, string>>();
                     ////List<List<string>> newRow = new List<List<string>>();
+                    
+                    List<string> studySUIDsList = new List<string>();
 
                     using (StringReader reader = new StringReader(afterSBTrim))
                     {
@@ -566,7 +605,6 @@ namespace CernerCMove
                         var outputAApost = "";
                         var outputStudyDescpost = "";
                         var outputModalityTypepost = "";
-                        List<string> studySUIDsList = new List<string>();
 
                         do
                         {
@@ -636,18 +674,8 @@ namespace CernerCMove
                                     string outputSUIDpre = line.Substring(line.IndexOf('[') + 1);
                                     outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]"));
 
-                                    // we'll check if the current study SUID is in the suid list
-                                    // if it is, then we'll skip; we're doing this because the c-find
-                                    // we're using is doing it at the series level so you'll see an entry
-                                    // of the study SUID in the datagrid multiple times 
-                                    if (studySUIDsList.Contains(outputSUIDpost))
-                                    {
-                                        continue;
-                                    }
-                                    else
-                                    {
-                                        studySUIDsList.Add(outputSUIDpost);
-                                    }
+                                    // we'll add the SUID to a list so that later on, we'll check if there are duplicates and remove them
+                                    studySUIDsList.Add(outputSUIDpost);
                                     
                                 }
 
@@ -673,6 +701,46 @@ namespace CernerCMove
                            
                         } while (line != null);
                     }
+
+                    // we'll check if the current study SUID is in the suid list
+                    // if it is, then we'll skip; we're doing this because the c-find
+                    // we're using is doing it at the series level so you'll see an entry
+                    // of the study SUID in the datagrid multiple times 
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
+
+
+                    pictureBox7.Visible = true;
+                    label17.Visible = true;
+                    label17.Text = $"[SUCCESS] {metroGrid1.Rows.Count} Studies Found for ID {GlobalVars.searchMRNStringValue}!";
 
                     searchMrnAccProgress.Visible = false;
                 }
@@ -949,19 +1017,10 @@ namespace CernerCMove
                     Directory.CreateDirectory(saveDCMFolder);
                 }
 
-                if (GlobalVars.addPreFixSOPUIDs)
-                {
-                    args = $"{GlobalVars.SourceHostIPAfterTest} {GlobalVars.SourcePortAfterTest} -S -{trSynToUse} -v -aet {utilityAET.Text.Trim()} " +
-                                $"-aec {GlobalVars.SourceAETAfterTest} -aem {utilityAET.Text.Trim()} -k 0008,0052=\"STUDY\" " +
-                                $"-k 0020,000d=\"{patientSUID}\"";
-                }
-                else
-                {
-                    args = $"{GlobalVars.SourceHostIPAfterTest} {GlobalVars.SourcePortAfterTest} -S -{trSynToUse} -v -aet {utilityAET.Text.Trim()} " +
-                                $"-aec {GlobalVars.SourceAETAfterTest} -aem {utilityAET.Text.Trim()} -k 0008,0052=\"STUDY\" " +
-                                $"-k 0020,000d=\"{patientSUID}\"";
-                }
-                   
+                args = $"{GlobalVars.SourceHostIPAfterTest} {GlobalVars.SourcePortAfterTest} -S -{trSynToUse} -v -aet {utilityAET.Text.Trim()} " +
+                $"-aec {GlobalVars.SourceAETAfterTest} -aem {utilityAET.Text.Trim()} -k 0008,0052=\"STUDY\" " +
+                $"-k 0020,000d=\"{patientSUID}\"";
+                
 
                 //DownloadDICOMStudy(patientSUID.ToString(), args);
 
@@ -1150,6 +1209,7 @@ namespace CernerCMove
                     searchACCtxtbox.Enabled = true;
                     materialFlatButton2.Enabled = true;
 
+                    // if the user elected to add a prefix or remove it from the output files
                     if (GlobalVars.addPreFixSOPUIDs)
                     {
 
@@ -1177,6 +1237,127 @@ namespace CernerCMove
                             
                         }
                     }
+
+
+
+                    // if the user elected anonymize the study upon download
+                    if (GlobalVars.anonymizeStudy)
+                    {
+                        // we'll generate the random name to replace the patient name tag 
+                        string newPatName = Path.GetRandomFileName();
+                        newPatName = newPatName.Replace(".", ""); // Remove period.
+                        newPatName.Substring(0, 8);  // Return 8 character string
+                        DirectoryInfo d = new DirectoryInfo($"{saveDCMFolder}");
+                        FileInfo[] infos = d.GetFiles();
+
+                        try
+                        {
+
+                            await Task.Run(() =>
+                            {
+
+
+                                foreach (FileInfo f in infos)
+                                {
+
+                                    var AnonymizeStudy = new Process
+                                    {
+                                        StartInfo = new ProcessStartInfo
+                                        {
+                                            FileName = $"{Application.StartupPath}\\dcmodify.exe",
+                                            //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
+                                            //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet CERNMIGECHO",
+                                            //Arguments = $"-v -P -xi -d -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                                            //Arguments = $"-v -P -xi -k 0008,0052=STUDY -k 0008,0050=\"{AccessionNumber}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                                            //Arguments = $"-v -P -xi -k 0008,0052=STUDY -k 0010,0010=\"{PatientName}\" -k 0008,00020 -k 0008,0030 -k 0008,0050 -k 0008,0061 -k 0008,0080 -k 0008,1030 -k 0008,0090 {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                                            Arguments = $"-v -nb -m \"(0010,0010)={newPatName}\" {f.FullName}",
+                                            UseShellExecute = false,
+                                            RedirectStandardOutput = true,
+                                            CreateNoWindow = true
+                                        }
+                                    };
+
+                                    AnonymizeStudy.Start();
+
+                                    while (!AnonymizeStudy.StandardOutput.EndOfStream)
+                                    {
+
+                                        //var line = SourceAETCEcho.StandardOutput.ReadLine();
+
+
+                                        sb.AppendLine("    " + AnonymizeStudy.StandardOutput.ReadLine());
+
+                                        //sb.AppendLine("\r\n");
+
+                                        //cechoAETResponse.Add(line + "\r\n");
+                                        //textBoxActions.AppendText(line + "\r\n");
+
+                                    }
+
+                                    AnonymizeStudy.WaitForExit();
+
+                                    // we'll write the sb var to the log 
+                                    try
+                                    {
+                                        //File.Delete(GlobalVars.searchAccessionResults);
+                                        //File.Delete(GlobalVars.anonymizeStudyLog);
+                                        File.AppendAllLines(GlobalVars.anonymizeStudyLog, new[] {
+                                            "---------------\r\n" + DateTime.Now.ToString() + "| ANONYMIZE STUDY START \r\n"+
+                                            sb.ToString() + "\r\n" + "---------------\r\n\r\n" });
+                                    }
+                                    catch (Exception outputFileCrateError)
+                                    {
+
+                                        MessageBox.Show("There was an error while attempting to create the Anonymize Log file! \r\n" +
+                                                    $"Error: {outputFileCrateError.Message} \r\n\r\n" + "Please check that you're able to write to folder where this exe lives, and try again.",
+                                                    "ERROR: Unable to crate Anonymize Log file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+
+                                    //if (!sb.ToString().Contains("error"))
+                                    //{
+                                    //    GlobalVars.UpdateNewDCMFileSuccess = true;
+                                    //}
+                                    //else
+                                    //{
+                                    //    GlobalVars.UpdateNewDCMFileSuccess = false;
+                                    //}
+                                }
+                            });
+                        }
+                        catch (Exception anonymizeStudyFailure)
+                        {
+                            MessageBox.Show("There was an error while attempting to anonymize the downloaded study! \r\n" +
+                                         $"Error: {anonymizeStudyFailure.Message} \r\n\r\n" + "Please check that you're able to write to folder where this files lives, and try again.",
+                                         "ERROR: Unable to Anonymize Downloaded Study", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    if (GlobalVars.zipStudyAfterDownload)
+                    {
+                        // we'll create a zip file for the downloaded study
+                        try
+                        {
+                            string startPath = $@"{saveDCMFolder}";
+                            string zipPath = $@"{saveDCMFolder}.zip";
+
+                            if (File.Exists(zipPath))
+                            {
+                                File.Delete(zipPath);
+                            }
+
+                            ZipFile.CreateFromDirectory(startPath, zipPath);
+                        }
+                        catch (Exception e4)
+                        {
+                            MessageBox.Show("There was an error while attempting to create the zip file! \r\n" +
+                                         $"Error: {e4.Message} \r\n\r\n" + "Please check that you're able to write to folder where this files lives, and try again.",
+                                         "ERROR: Unable to Create the Zip File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+
+                    }
+                    
+
 
                     return;
                 }
@@ -1398,6 +1579,8 @@ namespace CernerCMove
         {
             GlobalVars.saveDCMButtonClicked = true;
             GlobalVars.addPreFixSOPUIDs = false;
+            GlobalVars.anonymizeStudy = false;
+            GlobalVars.zipStudyAfterDownload = false;
 
             // we'll check if a study was first selected from the datagrid
             if (metroGrid1.SelectedRows.Count < 1)
@@ -1411,13 +1594,37 @@ namespace CernerCMove
                               $"Example: CT.1.2.840.4681....", "Question: Add SOP ID Prefix", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 GlobalVars.addPreFixSOPUIDs = true;
-                materialFlatButton2.PerformClick();
             }
             else
             {
                 GlobalVars.addPreFixSOPUIDs = false;
-                materialFlatButton2.PerformClick();
             }
+
+            // we'll ask the user if he/she wants to anonymize the study upon download
+            if (MessageBox.Show($"Do you want to anonymize the study you're about to download? \r\n\r\n" +
+                                $"(0010,0010) [Pateint Name] will be a random string value. ", "Question: Anonymize", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                GlobalVars.anonymizeStudy = false;
+                
+            }
+            else
+            {
+                GlobalVars.anonymizeStudy = true;
+            }
+
+            // we'll ask the user if he/she wants to zip up the study upon download
+            if (MessageBox.Show($"Do you also want to zip-up the study you're about to download? \r\n\r\n", "Question: Create Zip File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                GlobalVars.zipStudyAfterDownload = false;
+            }
+            else
+            {
+                GlobalVars.zipStudyAfterDownload = true;
+                
+            }
+
+            // we'll call the send button action to cstore the selected study for download
+            materialFlatButton2.PerformClick();
         }
 
 
@@ -1495,20 +1702,16 @@ namespace CernerCMove
 
             var afterSBTrim = mwlSearchResults.ToString().Replace("\0", "");
 
-            // check how many studies were found based on the PID
-            mwlStudyCount = Regex.Matches(afterSBTrim, "I: [(]0020,000d[)] UI [[]").Count;
+            //// check how many studies were found based on the PID
+            //mwlStudyCount = Regex.Matches(afterSBTrim, "I: [(]0020,000d[)] UI [[]").Count;
 
             if ((afterSBTrim.Contains("I: Received Final Find Response (Success)")))
             {
                 GlobalVars.mwlSearchResultsResults = true;
 
-                pictureBox12.Visible = true;
-                label23.Visible = true;
-                label23.Text = $"[SUCCESS] {mwlStudyCount} Studies Found for MWL Request!";
-
                 //var newRow = new List<string>();
                 //var newRow = new List<KeyValuePair<string, string>>();
-                ////List<List<string>> newRow = new List<List<string>>();
+                List<string> studySUIDsList = new List<string>();
 
                 using (StringReader reader = new StringReader(afterSBTrim))
                 {
@@ -1587,6 +1790,8 @@ namespace CernerCMove
                             {
                                 string outputSUIDpre = line.Substring(line.IndexOf('[') + 1);
                                 outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]"));
+
+                                studySUIDsList.Add(outputSUIDpost);
                             }
                             else if (line.Contains("I:     (0008,0060) CS ["))
                             {
@@ -1643,6 +1848,46 @@ namespace CernerCMove
 
                     } while (line != null);
                 }
+
+                // we'll check if the current study SUID is in the suid list
+                // if it is, then we'll skip; we're doing this because the c-find
+                // we're using is doing it at the series level so you'll see an entry
+                // of the study SUID in the datagrid multiple times 
+                for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                {
+                    var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                    //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                    var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                    if (count > 1)
+                    {
+                        metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                        studySUIDsList.Remove(studySUIDCheck);
+                    }
+
+                }
+                for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                {
+                    var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                    //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                    var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                    if (count > 1)
+                    {
+                        metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                        studySUIDsList.Remove(studySUIDCheck);
+                    }
+
+                }
+
+
+                pictureBox12.Visible = true;
+                label23.Visible = true;
+                label23.Text = $"[SUCCESS] {metroGrid2.Rows.Count} Studies Found for MWL Request!";
 
                 progressBar2.Visible = false;
             }

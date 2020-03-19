@@ -73,7 +73,16 @@ namespace CernerCMove
         public static bool addPreFixSOPUIDs = false;
 
         // this will have tell the send button that we're only going to download the study rather than download and sending it to the target
-        public static bool saveDCMButtonClicked = false; 
+        public static bool saveDCMButtonClicked = false;
+
+        // this will set true or false if the user wants to anonymize the study upon download
+        public static bool anonymizeStudy = false;
+
+        // this will set true or false if the user wants to anonymize the study upon download
+        public static bool zipStudyAfterDownload = false;
+
+        // this is the log file for anonymizing the study
+        public static string anonymizeStudyLog = ApplicationStartPath + @"\Logs\anonymizeStudyLog.txt";
 
         // this method will be callsed on the main form file to make sure the exe root folder 
         // has a Logs folder, and if not, it'll create it. 

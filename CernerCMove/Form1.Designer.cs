@@ -31,13 +31,13 @@ namespace CernerCMove
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelVersion = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -109,14 +109,6 @@ namespace CernerCMove
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModalityType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STUDYDESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AA_OID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton7 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -148,6 +140,17 @@ namespace CernerCMove
             this.mwlDateSearchChecbox = new MaterialSkin.Controls.MaterialCheckBox();
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.searchSaveFilesLocally = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialFlatButton10 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModalityType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STUDYDESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AA_OID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -158,9 +161,6 @@ namespace CernerCMove
             this.MODALITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ORDERSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchSaveFilesLocally = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton10 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.materialTabControl1.SuspendLayout();
             this.tabPageConnect.SuspendLayout();
@@ -893,14 +893,14 @@ namespace CernerCMove
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -911,14 +911,14 @@ namespace CernerCMove
             this.DT,
             this.SUID,
             this.AA_OID});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -927,14 +927,14 @@ namespace CernerCMove
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid1.Size = new System.Drawing.Size(812, 306);
@@ -1321,70 +1321,6 @@ namespace CernerCMove
             this.materialDivider3.TabIndex = 274;
             this.materialDivider3.Text = "materialDivider3";
             // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.FillWeight = 80F;
-            this.name.HeaderText = "NAME";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // pid
-            // 
-            this.pid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pid.FillWeight = 80F;
-            this.pid.HeaderText = "MRN/PID";
-            this.pid.Name = "pid";
-            this.pid.ReadOnly = true;
-            // 
-            // accession
-            // 
-            this.accession.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.accession.FillWeight = 80F;
-            this.accession.HeaderText = "ACCESSION";
-            this.accession.Name = "accession";
-            this.accession.ReadOnly = true;
-            // 
-            // ModalityType
-            // 
-            this.ModalityType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ModalityType.FillWeight = 80F;
-            this.ModalityType.HeaderText = "Modality";
-            this.ModalityType.Name = "ModalityType";
-            this.ModalityType.ReadOnly = true;
-            // 
-            // STUDYDESC
-            // 
-            this.STUDYDESC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.STUDYDESC.FillWeight = 80F;
-            this.STUDYDESC.HeaderText = "StudyDesc";
-            this.STUDYDESC.Name = "STUDYDESC";
-            this.STUDYDESC.ReadOnly = true;
-            // 
-            // DT
-            // 
-            this.DT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DT.FillWeight = 80F;
-            this.DT.HeaderText = "StudyDT";
-            this.DT.Name = "DT";
-            this.DT.ReadOnly = true;
-            // 
-            // SUID
-            // 
-            this.SUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SUID.FillWeight = 80F;
-            this.SUID.HeaderText = "SUID";
-            this.SUID.Name = "SUID";
-            this.SUID.ReadOnly = true;
-            // 
-            // AA_OID
-            // 
-            this.AA_OID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.AA_OID.HeaderText = "AA-ID";
-            this.AA_OID.Name = "AA_OID";
-            this.AA_OID.ReadOnly = true;
-            this.AA_OID.Width = 74;
-            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.SlateGray;
@@ -1550,14 +1486,14 @@ namespace CernerCMove
             this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1570,14 +1506,14 @@ namespace CernerCMove
             this.MODALITY,
             this.ORDERSTATUS,
             this.SCHDATE});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle5;
             this.metroGrid2.EnableHeadersVisualStyles = false;
             this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1586,14 +1522,14 @@ namespace CernerCMove
             this.metroGrid2.Name = "metroGrid2";
             this.metroGrid2.ReadOnly = true;
             this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid2.Size = new System.Drawing.Size(812, 302);
@@ -1655,7 +1591,7 @@ namespace CernerCMove
             this.mwlSCPAET.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mwlSCPAET.BackColor = System.Drawing.Color.Azure;
             this.mwlSCPAET.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mwlSCPAET.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlSCPAET.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mwlSCPAET.ForeColor = System.Drawing.Color.Black;
             this.mwlSCPAET.HintForeColor = System.Drawing.Color.Empty;
             this.mwlSCPAET.HintText = "";
@@ -1729,7 +1665,7 @@ namespace CernerCMove
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.SystemColors.Control;
-            this.label27.Location = new System.Drawing.Point(48, 60);
+            this.label27.Location = new System.Drawing.Point(47, 60);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(97, 21);
             this.label27.TabIndex = 337;
@@ -1762,7 +1698,7 @@ namespace CernerCMove
             this.mwlSCPHost.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mwlSCPHost.BackColor = System.Drawing.Color.Azure;
             this.mwlSCPHost.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mwlSCPHost.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mwlSCPHost.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mwlSCPHost.ForeColor = System.Drawing.Color.Black;
             this.mwlSCPHost.HintForeColor = System.Drawing.Color.Empty;
             this.mwlSCPHost.HintText = "";
@@ -1771,10 +1707,10 @@ namespace CernerCMove
             this.mwlSCPHost.LineIdleColor = System.Drawing.Color.Black;
             this.mwlSCPHost.LineMouseHoverColor = System.Drawing.Color.Transparent;
             this.mwlSCPHost.LineThickness = 4;
-            this.mwlSCPHost.Location = new System.Drawing.Point(146, 12);
+            this.mwlSCPHost.Location = new System.Drawing.Point(143, 12);
             this.mwlSCPHost.Margin = new System.Windows.Forms.Padding(4);
             this.mwlSCPHost.Name = "mwlSCPHost";
-            this.mwlSCPHost.Size = new System.Drawing.Size(208, 29);
+            this.mwlSCPHost.Size = new System.Drawing.Size(218, 29);
             this.mwlSCPHost.TabIndex = 368;
             this.mwlSCPHost.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -1804,10 +1740,10 @@ namespace CernerCMove
             this.mwlModalitySearch.LineIdleColor = System.Drawing.Color.Black;
             this.mwlModalitySearch.LineMouseHoverColor = System.Drawing.Color.Transparent;
             this.mwlModalitySearch.LineThickness = 4;
-            this.mwlModalitySearch.Location = new System.Drawing.Point(146, 99);
+            this.mwlModalitySearch.Location = new System.Drawing.Point(143, 99);
             this.mwlModalitySearch.Margin = new System.Windows.Forms.Padding(4);
             this.mwlModalitySearch.Name = "mwlModalitySearch";
-            this.mwlModalitySearch.Size = new System.Drawing.Size(85, 29);
+            this.mwlModalitySearch.Size = new System.Drawing.Size(88, 29);
             this.mwlModalitySearch.TabIndex = 373;
             this.mwlModalitySearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -1829,11 +1765,11 @@ namespace CernerCMove
             this.mwlFromDatePicker.Enabled = false;
             this.mwlFromDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mwlFromDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.mwlFromDatePicker.Location = new System.Drawing.Point(151, 56);
+            this.mwlFromDatePicker.Location = new System.Drawing.Point(143, 56);
             this.mwlFromDatePicker.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.mwlFromDatePicker.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.mwlFromDatePicker.Name = "mwlFromDatePicker";
-            this.mwlFromDatePicker.Size = new System.Drawing.Size(208, 29);
+            this.mwlFromDatePicker.Size = new System.Drawing.Size(218, 29);
             this.mwlFromDatePicker.TabIndex = 375;
             // 
             // mwlToDatePicker
@@ -1842,9 +1778,9 @@ namespace CernerCMove
             this.mwlToDatePicker.Enabled = false;
             this.mwlToDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mwlToDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.mwlToDatePicker.Location = new System.Drawing.Point(450, 56);
+            this.mwlToDatePicker.Location = new System.Drawing.Point(447, 56);
             this.mwlToDatePicker.Name = "mwlToDatePicker";
-            this.mwlToDatePicker.Size = new System.Drawing.Size(178, 29);
+            this.mwlToDatePicker.Size = new System.Drawing.Size(181, 29);
             this.mwlToDatePicker.TabIndex = 376;
             // 
             // label31
@@ -1893,77 +1829,6 @@ namespace CernerCMove
             this.bunifuElipse3.ElipseRadius = 15;
             this.bunifuElipse3.TargetControl = this.metroGrid2;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ACCESSION";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "INST. NAME";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "STUDY DESC.";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.HeaderText = "PATIENT NAME";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "MRN/PID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.HeaderText = "OTHER PID";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // STUDYSUID
-            // 
-            this.STUDYSUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.STUDYSUID.HeaderText = "STUDYSUID";
-            this.STUDYSUID.Name = "STUDYSUID";
-            this.STUDYSUID.ReadOnly = true;
-            // 
-            // MODALITY
-            // 
-            this.MODALITY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MODALITY.HeaderText = "MODALITY";
-            this.MODALITY.Name = "MODALITY";
-            this.MODALITY.ReadOnly = true;
-            // 
-            // ORDERSTATUS
-            // 
-            this.ORDERSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ORDERSTATUS.HeaderText = "ORDER STATUS";
-            this.ORDERSTATUS.Name = "ORDERSTATUS";
-            this.ORDERSTATUS.ReadOnly = true;
-            // 
-            // SCHDATE
-            // 
-            this.SCHDATE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SCHDATE.HeaderText = "SCH. DATE";
-            this.SCHDATE.Name = "SCHDATE";
-            this.SCHDATE.ReadOnly = true;
-            this.SCHDATE.Width = 97;
-            // 
             // searchSaveFilesLocally
             // 
             this.searchSaveFilesLocally.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -2010,6 +1875,149 @@ namespace CernerCMove
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 331;
             this.pictureBox10.TabStop = false;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.FillWeight = 90F;
+            this.name.HeaderText = "NAME";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // pid
+            // 
+            this.pid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pid.FillWeight = 90F;
+            this.pid.HeaderText = "MRN/PID";
+            this.pid.Name = "pid";
+            this.pid.ReadOnly = true;
+            // 
+            // accession
+            // 
+            this.accession.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.accession.FillWeight = 90F;
+            this.accession.HeaderText = "ACCESSION";
+            this.accession.Name = "accession";
+            this.accession.ReadOnly = true;
+            // 
+            // ModalityType
+            // 
+            this.ModalityType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ModalityType.FillWeight = 90F;
+            this.ModalityType.HeaderText = "Modality";
+            this.ModalityType.Name = "ModalityType";
+            this.ModalityType.ReadOnly = true;
+            // 
+            // STUDYDESC
+            // 
+            this.STUDYDESC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.STUDYDESC.FillWeight = 90F;
+            this.STUDYDESC.HeaderText = "StudyDesc";
+            this.STUDYDESC.Name = "STUDYDESC";
+            this.STUDYDESC.ReadOnly = true;
+            // 
+            // DT
+            // 
+            this.DT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DT.FillWeight = 90F;
+            this.DT.HeaderText = "StudyDT";
+            this.DT.Name = "DT";
+            this.DT.ReadOnly = true;
+            // 
+            // SUID
+            // 
+            this.SUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SUID.FillWeight = 90F;
+            this.SUID.HeaderText = "SUID";
+            this.SUID.Name = "SUID";
+            this.SUID.ReadOnly = true;
+            // 
+            // AA_OID
+            // 
+            this.AA_OID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AA_OID.HeaderText = "AA-ID";
+            this.AA_OID.Name = "AA_OID";
+            this.AA_OID.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ACCESSION";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "INST. NAME";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "STUDY DESC.";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "PATIENT NAME";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "MRN/PID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "OTHER PID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // STUDYSUID
+            // 
+            this.STUDYSUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.STUDYSUID.FillWeight = 90F;
+            this.STUDYSUID.HeaderText = "STUDYSUID";
+            this.STUDYSUID.Name = "STUDYSUID";
+            this.STUDYSUID.ReadOnly = true;
+            // 
+            // MODALITY
+            // 
+            this.MODALITY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MODALITY.FillWeight = 90F;
+            this.MODALITY.HeaderText = "MODALITY";
+            this.MODALITY.Name = "MODALITY";
+            this.MODALITY.ReadOnly = true;
+            // 
+            // ORDERSTATUS
+            // 
+            this.ORDERSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ORDERSTATUS.FillWeight = 90F;
+            this.ORDERSTATUS.HeaderText = "ORDER STATUS";
+            this.ORDERSTATUS.Name = "ORDERSTATUS";
+            this.ORDERSTATUS.ReadOnly = true;
+            // 
+            // SCHDATE
+            // 
+            this.SCHDATE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SCHDATE.FillWeight = 90F;
+            this.SCHDATE.HeaderText = "SCH. DATE";
+            this.SCHDATE.Name = "SCHDATE";
+            this.SCHDATE.ReadOnly = true;
             // 
             // Form1
             // 
@@ -2129,14 +2137,6 @@ namespace CernerCMove
         private Bunifu.Framework.UI.BunifuMaterialTextbox utilityAET;
         private PictureBox pictureBox8;
         private MaterialSkin.Controls.MaterialDivider materialDivider3;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn pid;
-        private DataGridViewTextBoxColumn accession;
-        private DataGridViewTextBoxColumn ModalityType;
-        private DataGridViewTextBoxColumn STUDYDESC;
-        private DataGridViewTextBoxColumn DT;
-        private DataGridViewTextBoxColumn SUID;
-        private DataGridViewTextBoxColumn AA_OID;
         private TabPage tabPage1;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton7;
@@ -2168,6 +2168,17 @@ namespace CernerCMove
         private MaterialSkin.Controls.MaterialCheckBox mwlDateSearchChecbox;
         private MaterialSkin.Controls.MaterialDivider materialDivider4;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private MaterialSkin.Controls.MaterialFlatButton searchSaveFilesLocally;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton10;
+        private PictureBox pictureBox10;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn pid;
+        private DataGridViewTextBoxColumn accession;
+        private DataGridViewTextBoxColumn ModalityType;
+        private DataGridViewTextBoxColumn STUDYDESC;
+        private DataGridViewTextBoxColumn DT;
+        private DataGridViewTextBoxColumn SUID;
+        private DataGridViewTextBoxColumn AA_OID;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -2178,9 +2189,6 @@ namespace CernerCMove
         private DataGridViewTextBoxColumn MODALITY;
         private DataGridViewTextBoxColumn ORDERSTATUS;
         private DataGridViewTextBoxColumn SCHDATE;
-        private MaterialSkin.Controls.MaterialFlatButton searchSaveFilesLocally;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton10;
-        private PictureBox pictureBox10;
     }
 }
 
