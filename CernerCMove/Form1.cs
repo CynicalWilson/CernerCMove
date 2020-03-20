@@ -1017,7 +1017,7 @@ namespace CernerCMove
                     Directory.CreateDirectory(saveDCMFolder);
                 }
 
-                args = $"{GlobalVars.SourceHostIPAfterTest} {GlobalVars.SourcePortAfterTest} -S -{trSynToUse} -v -aet {utilityAET.Text.Trim()} " +
+                args = $"{GlobalVars.SourceHostIPAfterTest} {GlobalVars.SourcePortAfterTest} -S +xa -{trSynToUse} -v -aet {utilityAET.Text.Trim()} " +
                 $"-aec {GlobalVars.SourceAETAfterTest} -aem {utilityAET.Text.Trim()} -k 0008,0052=\"STUDY\" " +
                 $"-k 0020,000d=\"{patientSUID}\"";
                 
@@ -1188,10 +1188,16 @@ namespace CernerCMove
                     // this will update the user that we failed to download the study successfully (invoked if the user click the save study button
                     if (GlobalVars.saveDCMButtonClicked)
                     {
+                        label19.Visible = false;
+                        pictureBox10.Visible = false;
+                        label17.Visible = false;
                         label18.Text = "Study Download Failed! Please check the MoveSCU Log!";
                     }
                     else
                     {
+                        label19.Visible = false;
+                        pictureBox10.Visible = false;
+                        label17.Visible = false;
                         label18.Text = "Study Download Failed! Will not transfer to target; check MoveSCU Log!";
                     }
 
@@ -1984,6 +1990,13 @@ namespace CernerCMove
             return sb.ToString();
         }
 
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            using (HyperionDCM.AboutBox box = new HyperionDCM.AboutBox())
+            {
+                box.ShowDialog(this);
+            }
+        }
     }
 
 }

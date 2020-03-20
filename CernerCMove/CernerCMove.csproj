@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F684CA9D-D92F-4571-A563-4435FB093545}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CernerCMove</RootNamespace>
-    <AssemblyName>CernerCMove</AssemblyName>
+    <RootNamespace>HyperionDCM</RootNamespace>
+    <AssemblyName>HyperionDCM</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,14 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>AppLogo.ico</ApplicationIcon>
+    <ApplicationIcon>letter-h-icon-png-21722-Windows.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>E:\VisualStudioProjects\GUI FRAMEWORKS\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
     <Reference Include="LollipoUi">
-      <HintPath>..\..\CernerSkyVueUtility\RefernceDLLs\LollipoUi.dll</HintPath>
+      <HintPath>E:\VisualStudioProjects\GUI FRAMEWORKS\LollipoUi\LollipoUi.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
@@ -75,6 +75,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="GlobalVars.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppLogo.ico" />
+    <Content Include="letter-h-icon-png-21722-Windows.ico" />
+    <None Include="Resources\1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
