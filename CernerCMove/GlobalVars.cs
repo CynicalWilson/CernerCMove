@@ -84,6 +84,13 @@ namespace CernerCMove
         // this is the log file for anonymizing the study
         public static string anonymizeStudyLog = ApplicationStartPath + @"\Logs\anonymizeStudyLog.txt";
 
+        // we'll set the var for which level study or series the user is going to use for the c-find
+        public static string searchCfindLevel = "";
+
+        // we'll set the var for which level study or series the user is going to use for the c-find - it's flag
+        public static string searchCfindLevelFlag = "";
+        
+
         // this method will be callsed on the main form file to make sure the exe root folder 
         // has a Logs folder, and if not, it'll create it. 
         public static void CreateLogDirectory()
