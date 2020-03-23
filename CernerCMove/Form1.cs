@@ -1235,7 +1235,7 @@ namespace CernerCMove
                     {
                         System.Diagnostics.Process process1 = new System.Diagnostics.Process();
                         process1.StartInfo.FileName = $"{GlobalVars.ApplicationStartPath}\\storescp.exe";
-                        process1.StartInfo.Arguments = $"-d 104 --default-filenames -aet CERNERDCMS -od \"{saveDCMFolder}\"";
+                        process1.StartInfo.Arguments = $"-d 104 --default-filenames -aet CERNERDCMS -od \"{saveDCMFolder.Trim()}\"";
                         process1.StartInfo.UseShellExecute = false;
                         //process1.StartInfo.RedirectStandardOutput = true;
                         process1.StartInfo.CreateNoWindow = true;
@@ -1562,7 +1562,7 @@ namespace CernerCMove
                 // NOW WE'LL SEND THE DATA TO THE TARGET PACS
                 try
                 {
-                    args = $"-d  -{trSynToUse} +sd -aec {GlobalVars.targetAETAfterTest} -aet {utilityAET.Text.Trim()} {GlobalVars.targetHostIPAfterTest} {GlobalVars.targetPortAfterTest} \"{saveDCMFolder}\" ";
+                    args = $"-d  -{trSynToUse} +sd -aec {GlobalVars.targetAETAfterTest} -aet {utilityAET.Text.Trim()} {GlobalVars.targetHostIPAfterTest} {GlobalVars.targetPortAfterTest} \"{saveDCMFolder.Trim()}\"";
 
                     pictureBox10.Visible = true;
                     label19.Text = "StoreSCU Services Started...";
