@@ -31,20 +31,19 @@ namespace CernerCMove
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.labelVersion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Connect = new System.Windows.Forms.TabPage();
             this.materialFlatButton11 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.utilityAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.targetTransferSyntax2 = new MetroFramework.Controls.MetroComboBox();
@@ -65,25 +64,20 @@ namespace CernerCMove
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.targetHostIP = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.sourceAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.sourcePort = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.pictureBoxCAMMSourceDBCheck = new System.Windows.Forms.PictureBox();
             this.LabelCAMM6SourceDBCheckValue = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelNonProdLB = new System.Windows.Forms.Label();
             this.sourceHostIP = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.Search_Send = new System.Windows.Forms.TabPage();
             this.searchPatientLevel = new MaterialSkin.Controls.MaterialCheckBox();
             this.searchStudyLevel = new MaterialSkin.Controls.MaterialCheckBox();
             this.searchSeriesLevel = new MaterialSkin.Controls.MaterialCheckBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.materialFlatButton10 = new MaterialSkin.Controls.MaterialFlatButton();
             this.searchSaveFilesLocally = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -102,9 +96,7 @@ namespace CernerCMove
             this.SUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AA_OID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyRowDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchCAMMSelect = new MetroFramework.Controls.MetroComboBox();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -120,10 +112,6 @@ namespace CernerCMove
             this.searchMRNtxtbox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label12 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSearchFailed = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.MWL = new System.Windows.Forms.TabPage();
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.mwlDateSearchChecbox = new MaterialSkin.Controls.MaterialCheckBox();
@@ -134,13 +122,74 @@ namespace CernerCMove
             this.label30 = new System.Windows.Forms.Label();
             this.mwlSCPHost = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label28 = new System.Windows.Forms.Label();
-            this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton7 = new MaterialSkin.Controls.MaterialFlatButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label22 = new System.Windows.Forms.Label();
-            this.materialFlatButton8 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.mwlSearchLog = new MaterialSkin.Controls.MaterialFlatButton();
             this.label23 = new System.Windows.Forms.Label();
             this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
+            this.materialFlatButton9 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.mwlSCPPort = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.mwlSCPAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.mwlSearchButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.label27 = new System.Windows.Forms.Label();
+            this.adhocSend = new System.Windows.Forms.TabPage();
+            this.adhocSendStoreSCULog = new MaterialSkin.Controls.MaterialFlatButton();
+            this.label36 = new System.Windows.Forms.Label();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.adhocSendButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.adhocSendLogWindow = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.adhocSendFolderSelect = new MaterialSkin.Controls.MaterialFlatButton();
+            this.adhocSendFolderPath = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.materialDivider7 = new MaterialSkin.Controls.MaterialDivider();
+            this.label32 = new System.Windows.Forms.Label();
+            this.materialFlatButton12 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.adhocSearchFileName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.materialDivider6 = new MaterialSkin.Controls.MaterialDivider();
+            this.label34 = new System.Windows.Forms.Label();
+            this.adhocSendDropdown = new MetroFramework.Controls.MetroComboBox();
+            this.materialDivider5 = new MaterialSkin.Controls.MaterialDivider();
+            this.adhocSendPort = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.adhocSendAet = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.viewImageDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCAMMSourceDBCheck = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSearchFailed = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,88 +200,38 @@ namespace CernerCMove
             this.MODALITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ORDERSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialFlatButton9 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.mwlSCPPort = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.mwlSCPAET = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.mwlSearchButton = new MaterialSkin.Controls.MaterialFlatButton();
-            this.label27 = new System.Windows.Forms.Label();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.adhocSend = new System.Windows.Forms.TabPage();
-            this.adhocSendFolderSelect = new MaterialSkin.Controls.MaterialFlatButton();
-            this.adhocSendFolderPath = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.materialDivider7 = new MaterialSkin.Controls.MaterialDivider();
-            this.label32 = new System.Windows.Forms.Label();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.materialFlatButton12 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.adhocSearchFileName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.materialDivider6 = new MaterialSkin.Controls.MaterialDivider();
-            this.label34 = new System.Windows.Forms.Label();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.adhocSendDropdown = new MetroFramework.Controls.MetroComboBox();
-            this.materialDivider5 = new MaterialSkin.Controls.MaterialDivider();
-            this.adhocSendPort = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.adhocSendAet = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.adhocSendLogWindow = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.adhocSendButton = new MaterialSkin.Controls.MaterialFlatButton();
-            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label33 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.adhocSendStoreSCULog = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialTabControl1.SuspendLayout();
             this.Connect.SuspendLayout();
+            this.Search_Send.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            this.materialContextMenuStrip1.SuspendLayout();
+            this.MWL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
+            this.adhocSend.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCAMMSourceDBCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.Search_Send.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
-            this.materialContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchFailed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.MWL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            this.adhocSend.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.SuspendLayout();
             // 
             // labelVersion
@@ -351,18 +350,6 @@ namespace CernerCMove
             this.materialDivider3.Size = new System.Drawing.Size(750, 2);
             this.materialDivider3.TabIndex = 274;
             this.materialDivider3.Text = "materialDivider3";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(16, 16);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 273;
-            this.pictureBox8.TabStop = false;
             // 
             // label20
             // 
@@ -680,19 +667,8 @@ namespace CernerCMove
             this.targetHostIP.Name = "targetHostIP";
             this.targetHostIP.Size = new System.Drawing.Size(256, 32);
             this.targetHostIP.TabIndex = 5;
-            this.targetHostIP.Text = "192.168.1.65";
+            this.targetHostIP.Text = "192.168.1.210";
             this.targetHostIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(237, 186);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 233;
-            this.pictureBox4.TabStop = false;
             // 
             // label4
             // 
@@ -752,17 +728,6 @@ namespace CernerCMove
             this.sourcePort.Text = "4444";
             this.sourcePort.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // pictureBoxCAMMSourceDBCheck
-            // 
-            this.pictureBoxCAMMSourceDBCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBoxCAMMSourceDBCheck.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCAMMSourceDBCheck.Image")));
-            this.pictureBoxCAMMSourceDBCheck.Location = new System.Drawing.Point(237, 75);
-            this.pictureBoxCAMMSourceDBCheck.Name = "pictureBoxCAMMSourceDBCheck";
-            this.pictureBoxCAMMSourceDBCheck.Size = new System.Drawing.Size(20, 20);
-            this.pictureBoxCAMMSourceDBCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxCAMMSourceDBCheck.TabIndex = 227;
-            this.pictureBoxCAMMSourceDBCheck.TabStop = false;
-            // 
             // LabelCAMM6SourceDBCheckValue
             // 
             this.LabelCAMM6SourceDBCheckValue.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -776,17 +741,6 @@ namespace CernerCMove
             this.LabelCAMM6SourceDBCheckValue.TabIndex = 226;
             this.LabelCAMM6SourceDBCheckValue.Text = "Successful!";
             this.LabelCAMM6SourceDBCheckValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(15, 182);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 222;
-            this.pictureBox2.TabStop = false;
             // 
             // label9
             // 
@@ -836,17 +790,6 @@ namespace CernerCMove
             this.label2.TabIndex = 218;
             this.label2.Text = "AET";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(15, 70);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 217;
-            this.pictureBox3.TabStop = false;
-            // 
             // labelNonProdLB
             // 
             this.labelNonProdLB.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -884,10 +827,10 @@ namespace CernerCMove
             // Search_Send
             // 
             this.Search_Send.BackColor = System.Drawing.Color.SlateGray;
+            this.Search_Send.Controls.Add(this.searchMrnAccProgress);
             this.Search_Send.Controls.Add(this.searchPatientLevel);
             this.Search_Send.Controls.Add(this.searchStudyLevel);
             this.Search_Send.Controls.Add(this.searchSeriesLevel);
-            this.Search_Send.Controls.Add(this.pictureBox10);
             this.Search_Send.Controls.Add(this.materialFlatButton10);
             this.Search_Send.Controls.Add(this.searchSaveFilesLocally);
             this.Search_Send.Controls.Add(this.materialFlatButton5);
@@ -904,7 +847,6 @@ namespace CernerCMove
             this.Search_Send.Controls.Add(this.searchCAMMAET);
             this.Search_Send.Controls.Add(this.label15);
             this.Search_Send.Controls.Add(this.label16);
-            this.Search_Send.Controls.Add(this.searchMrnAccProgress);
             this.Search_Send.Controls.Add(this.materialFlatButton1);
             this.Search_Send.Controls.Add(this.searchACCtxtbox);
             this.Search_Send.Controls.Add(this.label13);
@@ -912,10 +854,11 @@ namespace CernerCMove
             this.Search_Send.Controls.Add(this.searchMRNtxtbox);
             this.Search_Send.Controls.Add(this.label12);
             this.Search_Send.Controls.Add(this.label18);
+            this.Search_Send.Controls.Add(this.pictureBox10);
             this.Search_Send.Controls.Add(this.pictureBox6);
             this.Search_Send.Controls.Add(this.pictureBox5);
-            this.Search_Send.Controls.Add(this.pictureBoxSearchFailed);
             this.Search_Send.Controls.Add(this.pictureBox7);
+            this.Search_Send.Controls.Add(this.pictureBoxSearchFailed);
             this.Search_Send.Location = new System.Drawing.Point(4, 22);
             this.Search_Send.Name = "Search_Send";
             this.Search_Send.Padding = new System.Windows.Forms.Padding(3);
@@ -928,7 +871,7 @@ namespace CernerCMove
             this.searchPatientLevel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchPatientLevel.AutoSize = true;
             this.searchPatientLevel.Depth = 0;
-            this.searchPatientLevel.Font = new System.Drawing.Font("Roboto", 10F);
+            this.searchPatientLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.searchPatientLevel.Location = new System.Drawing.Point(450, 61);
             this.searchPatientLevel.Margin = new System.Windows.Forms.Padding(0);
             this.searchPatientLevel.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -946,7 +889,7 @@ namespace CernerCMove
             this.searchStudyLevel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchStudyLevel.AutoSize = true;
             this.searchStudyLevel.Depth = 0;
-            this.searchStudyLevel.Font = new System.Drawing.Font("Roboto", 10F);
+            this.searchStudyLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.searchStudyLevel.Location = new System.Drawing.Point(580, 61);
             this.searchStudyLevel.Margin = new System.Windows.Forms.Padding(0);
             this.searchStudyLevel.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -964,7 +907,7 @@ namespace CernerCMove
             this.searchSeriesLevel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchSeriesLevel.AutoSize = true;
             this.searchSeriesLevel.Depth = 0;
-            this.searchSeriesLevel.Font = new System.Drawing.Font("Roboto", 10F);
+            this.searchSeriesLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.searchSeriesLevel.Location = new System.Drawing.Point(701, 61);
             this.searchSeriesLevel.Margin = new System.Windows.Forms.Padding(0);
             this.searchSeriesLevel.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -976,18 +919,6 @@ namespace CernerCMove
             this.searchSeriesLevel.Text = "Series Q/R";
             this.searchSeriesLevel.UseVisualStyleBackColor = true;
             this.searchSeriesLevel.CheckedChanged += new System.EventHandler(this.searchSeriesLevel_CheckedChanged);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox10.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(24, 464);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(18, 16);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 336;
-            this.pictureBox10.TabStop = false;
             // 
             // materialFlatButton10
             // 
@@ -1131,14 +1062,14 @@ namespace CernerCMove
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -1149,15 +1080,14 @@ namespace CernerCMove
             this.DT,
             this.SUID,
             this.AA_OID});
-            this.metroGrid1.ContextMenuStrip = this.materialContextMenuStrip1;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle11;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1166,20 +1096,21 @@ namespace CernerCMove
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid1.Size = new System.Drawing.Size(812, 299);
             this.metroGrid1.TabIndex = 269;
             this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroGrid1.UseCustomBackColor = true;
+            this.metroGrid1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.metroGrid1_MouseClick);
             // 
             // name
             // 
@@ -1246,34 +1177,21 @@ namespace CernerCMove
             // 
             // materialContextMenuStrip1
             // 
-            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.materialContextMenuStrip1.Depth = 0;
             this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.sendToolStripMenuItem,
-            this.downloadToolStripMenuItem});
+            this.copyRowDataToolStripMenuItem,
+            this.viewImageDataToolStripMenuItem});
             this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(129, 70);
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(163, 48);
             // 
-            // copyToolStripMenuItem
+            // copyRowDataToolStripMenuItem
             // 
-            this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
-            // 
-            // sendToolStripMenuItem
-            // 
-            this.sendToolStripMenuItem.Name = "sendToolStripMenuItem";
-            this.sendToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.sendToolStripMenuItem.Text = "Send";
-            // 
-            // downloadToolStripMenuItem
-            // 
-            this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.downloadToolStripMenuItem.Text = "Download";
+            this.copyRowDataToolStripMenuItem.Name = "copyRowDataToolStripMenuItem";
+            this.copyRowDataToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.copyRowDataToolStripMenuItem.Text = "Copy Row Data";
+            this.copyRowDataToolStripMenuItem.Click += new System.EventHandler(this.copyRowDataToolStripMenuItem_Click);
             // 
             // searchCAMMSelect
             // 
@@ -1512,50 +1430,6 @@ namespace CernerCMove
             this.label18.Text = "Successful!";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(15, 94);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 263;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(15, 10);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 252;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBoxSearchFailed
-            // 
-            this.pictureBoxSearchFailed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBoxSearchFailed.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSearchFailed.Image")));
-            this.pictureBoxSearchFailed.Location = new System.Drawing.Point(24, 438);
-            this.pictureBoxSearchFailed.Name = "pictureBoxSearchFailed";
-            this.pictureBoxSearchFailed.Size = new System.Drawing.Size(20, 20);
-            this.pictureBoxSearchFailed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxSearchFailed.TabIndex = 328;
-            this.pictureBoxSearchFailed.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(24, 438);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 271;
-            this.pictureBox7.TabStop = false;
-            // 
             // MWL
             // 
             this.MWL.BackColor = System.Drawing.Color.SlateGray;
@@ -1568,11 +1442,9 @@ namespace CernerCMove
             this.MWL.Controls.Add(this.label30);
             this.MWL.Controls.Add(this.mwlSCPHost);
             this.MWL.Controls.Add(this.label28);
-            this.MWL.Controls.Add(this.materialFlatButton6);
-            this.MWL.Controls.Add(this.materialFlatButton7);
             this.MWL.Controls.Add(this.progressBar1);
             this.MWL.Controls.Add(this.label22);
-            this.MWL.Controls.Add(this.materialFlatButton8);
+            this.MWL.Controls.Add(this.mwlSearchLog);
             this.MWL.Controls.Add(this.label23);
             this.MWL.Controls.Add(this.metroGrid2);
             this.MWL.Controls.Add(this.materialFlatButton9);
@@ -1611,7 +1483,7 @@ namespace CernerCMove
             this.mwlDateSearchChecbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mwlDateSearchChecbox.AutoSize = true;
             this.mwlDateSearchChecbox.Depth = 0;
-            this.mwlDateSearchChecbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.mwlDateSearchChecbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.mwlDateSearchChecbox.Location = new System.Drawing.Point(649, 56);
             this.mwlDateSearchChecbox.Margin = new System.Windows.Forms.Padding(0);
             this.mwlDateSearchChecbox.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1725,40 +1597,6 @@ namespace CernerCMove
             this.label28.TabIndex = 367;
             this.label28.Text = "SCP HOST:";
             // 
-            // materialFlatButton6
-            // 
-            this.materialFlatButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialFlatButton6.AutoSize = true;
-            this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton6.Depth = 0;
-            this.materialFlatButton6.Icon = null;
-            this.materialFlatButton6.Location = new System.Drawing.Point(546, 479);
-            this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton6.Name = "materialFlatButton6";
-            this.materialFlatButton6.Primary = false;
-            this.materialFlatButton6.Size = new System.Drawing.Size(115, 36);
-            this.materialFlatButton6.TabIndex = 360;
-            this.materialFlatButton6.Text = "moveSCU Log";
-            this.materialFlatButton6.UseVisualStyleBackColor = true;
-            // 
-            // materialFlatButton7
-            // 
-            this.materialFlatButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialFlatButton7.AutoSize = true;
-            this.materialFlatButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton7.Depth = 0;
-            this.materialFlatButton7.Icon = null;
-            this.materialFlatButton7.Location = new System.Drawing.Point(423, 479);
-            this.materialFlatButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton7.Name = "materialFlatButton7";
-            this.materialFlatButton7.Primary = false;
-            this.materialFlatButton7.Size = new System.Drawing.Size(119, 36);
-            this.materialFlatButton7.TabIndex = 359;
-            this.materialFlatButton7.Text = "storeSCU Log";
-            this.materialFlatButton7.UseVisualStyleBackColor = true;
-            // 
             // progressBar1
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1783,22 +1621,23 @@ namespace CernerCMove
             this.label22.Text = "Successful!";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialFlatButton8
+            // mwlSearchLog
             // 
-            this.materialFlatButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialFlatButton8.AutoSize = true;
-            this.materialFlatButton8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton8.Depth = 0;
-            this.materialFlatButton8.Icon = null;
-            this.materialFlatButton8.Location = new System.Drawing.Point(665, 479);
-            this.materialFlatButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton8.Name = "materialFlatButton8";
-            this.materialFlatButton8.Primary = false;
-            this.materialFlatButton8.Size = new System.Drawing.Size(94, 36);
-            this.materialFlatButton8.TabIndex = 354;
-            this.materialFlatButton8.Text = "Searh Log";
-            this.materialFlatButton8.UseVisualStyleBackColor = true;
+            this.mwlSearchLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mwlSearchLog.AutoSize = true;
+            this.mwlSearchLog.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mwlSearchLog.Depth = 0;
+            this.mwlSearchLog.Icon = null;
+            this.mwlSearchLog.Location = new System.Drawing.Point(665, 479);
+            this.mwlSearchLog.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mwlSearchLog.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mwlSearchLog.Name = "mwlSearchLog";
+            this.mwlSearchLog.Primary = false;
+            this.mwlSearchLog.Size = new System.Drawing.Size(94, 36);
+            this.mwlSearchLog.TabIndex = 354;
+            this.mwlSearchLog.Text = "Searh Log";
+            this.mwlSearchLog.UseVisualStyleBackColor = true;
+            this.mwlSearchLog.Click += new System.EventHandler(this.mwlSearchLog_Click);
             // 
             // label23
             // 
@@ -1830,14 +1669,14 @@ namespace CernerCMove
             this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1849,15 +1688,16 @@ namespace CernerCMove
             this.STUDYSUID,
             this.MODALITY,
             this.ORDERSTATUS,
-            this.SCHDATE});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.SCHDATE,
+            this.Location});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle8;
             this.metroGrid2.EnableHeadersVisualStyles = false;
             this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1866,100 +1706,20 @@ namespace CernerCMove
             this.metroGrid2.Name = "metroGrid2";
             this.metroGrid2.ReadOnly = true;
             this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid2.Size = new System.Drawing.Size(812, 302);
             this.metroGrid2.TabIndex = 351;
             this.metroGrid2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroGrid2.UseCustomBackColor = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ACCESSION";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "INST. NAME";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "STUDY DESC.";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "PATIENT NAME";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "MRN/PID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "OTHER PID";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // STUDYSUID
-            // 
-            this.STUDYSUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.STUDYSUID.FillWeight = 90F;
-            this.STUDYSUID.HeaderText = "STUDYSUID";
-            this.STUDYSUID.Name = "STUDYSUID";
-            this.STUDYSUID.ReadOnly = true;
-            // 
-            // MODALITY
-            // 
-            this.MODALITY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MODALITY.FillWeight = 90F;
-            this.MODALITY.HeaderText = "MODALITY";
-            this.MODALITY.Name = "MODALITY";
-            this.MODALITY.ReadOnly = true;
-            // 
-            // ORDERSTATUS
-            // 
-            this.ORDERSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ORDERSTATUS.FillWeight = 90F;
-            this.ORDERSTATUS.HeaderText = "ORDER STATUS";
-            this.ORDERSTATUS.Name = "ORDERSTATUS";
-            this.ORDERSTATUS.ReadOnly = true;
-            // 
-            // SCHDATE
-            // 
-            this.SCHDATE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SCHDATE.FillWeight = 90F;
-            this.SCHDATE.HeaderText = "SCH. DATE";
-            this.SCHDATE.Name = "SCHDATE";
-            this.SCHDATE.ReadOnly = true;
             // 
             // materialFlatButton9
             // 
@@ -2084,84 +1844,24 @@ namespace CernerCMove
             this.label27.TabIndex = 337;
             this.label27.Text = "FROM DATE:";
             // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(11, 53);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox15.TabIndex = 366;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(166, 465);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 356;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(18, 465);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 353;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(11, 97);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox13.TabIndex = 346;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 335;
-            this.pictureBox14.TabStop = false;
-            // 
             // adhocSend
             // 
             this.adhocSend.BackColor = System.Drawing.Color.SlateGray;
             this.adhocSend.Controls.Add(this.adhocSendStoreSCULog);
-            this.adhocSend.Controls.Add(this.pictureBox21);
             this.adhocSend.Controls.Add(this.label36);
             this.adhocSend.Controls.Add(this.progressBar3);
             this.adhocSend.Controls.Add(this.label33);
             this.adhocSend.Controls.Add(this.label35);
-            this.adhocSend.Controls.Add(this.pictureBox19);
-            this.adhocSend.Controls.Add(this.pictureBox20);
             this.adhocSend.Controls.Add(this.adhocSendButton);
             this.adhocSend.Controls.Add(this.adhocSendLogWindow);
             this.adhocSend.Controls.Add(this.adhocSendFolderSelect);
             this.adhocSend.Controls.Add(this.adhocSendFolderPath);
             this.adhocSend.Controls.Add(this.materialDivider7);
             this.adhocSend.Controls.Add(this.label32);
-            this.adhocSend.Controls.Add(this.pictureBox18);
             this.adhocSend.Controls.Add(this.materialFlatButton12);
             this.adhocSend.Controls.Add(this.adhocSearchFileName);
             this.adhocSend.Controls.Add(this.materialDivider6);
             this.adhocSend.Controls.Add(this.label34);
-            this.adhocSend.Controls.Add(this.pictureBox17);
             this.adhocSend.Controls.Add(this.adhocSendDropdown);
             this.adhocSend.Controls.Add(this.materialDivider5);
             this.adhocSend.Controls.Add(this.adhocSendPort);
@@ -2169,12 +1869,122 @@ namespace CernerCMove
             this.adhocSend.Controls.Add(this.label21);
             this.adhocSend.Controls.Add(this.label26);
             this.adhocSend.Controls.Add(this.label29);
+            this.adhocSend.Controls.Add(this.pictureBox21);
+            this.adhocSend.Controls.Add(this.pictureBox19);
+            this.adhocSend.Controls.Add(this.pictureBox20);
+            this.adhocSend.Controls.Add(this.pictureBox18);
+            this.adhocSend.Controls.Add(this.pictureBox17);
             this.adhocSend.Controls.Add(this.pictureBox16);
             this.adhocSend.Location = new System.Drawing.Point(4, 22);
             this.adhocSend.Name = "adhocSend";
             this.adhocSend.Size = new System.Drawing.Size(831, 522);
             this.adhocSend.TabIndex = 3;
             this.adhocSend.Text = "Ad-Hoc Send";
+            // 
+            // adhocSendStoreSCULog
+            // 
+            this.adhocSendStoreSCULog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.adhocSendStoreSCULog.AutoSize = true;
+            this.adhocSendStoreSCULog.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.adhocSendStoreSCULog.Depth = 0;
+            this.adhocSendStoreSCULog.Icon = null;
+            this.adhocSendStoreSCULog.Location = new System.Drawing.Point(622, 475);
+            this.adhocSendStoreSCULog.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.adhocSendStoreSCULog.MouseState = MaterialSkin.MouseState.HOVER;
+            this.adhocSendStoreSCULog.Name = "adhocSendStoreSCULog";
+            this.adhocSendStoreSCULog.Primary = false;
+            this.adhocSendStoreSCULog.Size = new System.Drawing.Size(119, 36);
+            this.adhocSendStoreSCULog.TabIndex = 364;
+            this.adhocSendStoreSCULog.Text = "storeSCU Log";
+            this.adhocSendStoreSCULog.UseVisualStyleBackColor = true;
+            this.adhocSendStoreSCULog.Click += new System.EventHandler(this.adhocSendStoreSCULog_Click);
+            // 
+            // label36
+            // 
+            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.SystemColors.Control;
+            this.label36.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label36.Location = new System.Drawing.Point(47, 501);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(87, 21);
+            this.label36.TabIndex = 362;
+            this.label36.Text = "Successful!";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar3.Location = new System.Drawing.Point(757, 503);
+            this.progressBar3.MarqueeAnimationSpeed = 50;
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(56, 8);
+            this.progressBar3.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar3.TabIndex = 361;
+            // 
+            // label33
+            // 
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.SystemColors.Control;
+            this.label33.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label33.Location = new System.Drawing.Point(194, 472);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(87, 21);
+            this.label33.TabIndex = 359;
+            this.label33.Text = "Successful!";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label35
+            // 
+            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.SystemColors.Control;
+            this.label35.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label35.Location = new System.Drawing.Point(46, 473);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(87, 21);
+            this.label35.TabIndex = 357;
+            this.label35.Text = "Successful!";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // adhocSendButton
+            // 
+            this.adhocSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.adhocSendButton.AutoSize = true;
+            this.adhocSendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.adhocSendButton.Depth = 0;
+            this.adhocSendButton.Icon = null;
+            this.adhocSendButton.Location = new System.Drawing.Point(757, 475);
+            this.adhocSendButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.adhocSendButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.adhocSendButton.Name = "adhocSendButton";
+            this.adhocSendButton.Primary = false;
+            this.adhocSendButton.Size = new System.Drawing.Size(56, 36);
+            this.adhocSendButton.TabIndex = 293;
+            this.adhocSendButton.Text = "Send";
+            this.adhocSendButton.UseVisualStyleBackColor = true;
+            this.adhocSendButton.Click += new System.EventHandler(this.adhocSendButton_Click);
+            // 
+            // adhocSendLogWindow
+            // 
+            this.adhocSendLogWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.adhocSendLogWindow.BackColor = System.Drawing.SystemColors.GrayText;
+            this.adhocSendLogWindow.BorderColor = System.Drawing.Color.SeaGreen;
+            this.adhocSendLogWindow.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.adhocSendLogWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adhocSendLogWindow.ForeColor = System.Drawing.SystemColors.Window;
+            this.adhocSendLogWindow.Location = new System.Drawing.Point(18, 199);
+            this.adhocSendLogWindow.Multiline = true;
+            this.adhocSendLogWindow.Name = "adhocSendLogWindow";
+            this.adhocSendLogWindow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.adhocSendLogWindow.Size = new System.Drawing.Size(795, 267);
+            this.adhocSendLogWindow.TabIndex = 292;
             // 
             // adhocSendFolderSelect
             // 
@@ -2240,17 +2050,6 @@ namespace CernerCMove
             this.label32.TabIndex = 286;
             this.label32.Text = "Folder:";
             // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
-            this.pictureBox18.Location = new System.Drawing.Point(10, 135);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox18.TabIndex = 287;
-            this.pictureBox18.TabStop = false;
-            // 
             // materialFlatButton12
             // 
             this.materialFlatButton12.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -2314,17 +2113,6 @@ namespace CernerCMove
             this.label34.Size = new System.Drawing.Size(37, 21);
             this.label34.TabIndex = 277;
             this.label34.Text = "File:";
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
-            this.pictureBox17.Location = new System.Drawing.Point(10, 74);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox17.TabIndex = 278;
-            this.pictureBox17.TabStop = false;
             // 
             // adhocSendDropdown
             // 
@@ -2436,17 +2224,6 @@ namespace CernerCMove
             this.label29.TabIndex = 269;
             this.label29.Text = "SCP HOST:";
             // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(10, 15);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox16.TabIndex = 270;
-            this.pictureBox16.TabStop = false;
-            // 
             // materialTabSelector1
             // 
             this.materialTabSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -2478,6 +2255,22 @@ namespace CernerCMove
             this.bunifuElipse3.ElipseRadius = 15;
             this.bunifuElipse3.TargetControl = this.metroGrid2;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 15;
+            this.bunifuElipse4.TargetControl = this.adhocSendLogWindow;
+            // 
+            // viewImageDataToolStripMenuItem
+            // 
+            this.viewImageDataToolStripMenuItem.Name = "viewImageDataToolStripMenuItem";
+            this.viewImageDataToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.viewImageDataToolStripMenuItem.Text = "View Image Data";
+            this.viewImageDataToolStripMenuItem.Click += new System.EventHandler(this.viewImageDataToolStripMenuItem_Click);
+            // 
             // pictureBox9
             // 
             this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2502,77 +2295,184 @@ namespace CernerCMove
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // openFileDialog1
+            // pictureBox8
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(16, 16);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 273;
+            this.pictureBox8.TabStop = false;
             // 
-            // adhocSendLogWindow
+            // pictureBox4
             // 
-            this.adhocSendLogWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.adhocSendLogWindow.BackColor = System.Drawing.SystemColors.GrayText;
-            this.adhocSendLogWindow.BorderColor = System.Drawing.Color.SeaGreen;
-            this.adhocSendLogWindow.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.adhocSendLogWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adhocSendLogWindow.ForeColor = System.Drawing.SystemColors.Window;
-            this.adhocSendLogWindow.Location = new System.Drawing.Point(18, 199);
-            this.adhocSendLogWindow.Multiline = true;
-            this.adhocSendLogWindow.Name = "adhocSendLogWindow";
-            this.adhocSendLogWindow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.adhocSendLogWindow.Size = new System.Drawing.Size(795, 267);
-            this.adhocSendLogWindow.TabIndex = 292;
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(237, 186);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 233;
+            this.pictureBox4.TabStop = false;
             // 
-            // adhocSendButton
+            // pictureBoxCAMMSourceDBCheck
             // 
-            this.adhocSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.adhocSendButton.AutoSize = true;
-            this.adhocSendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.adhocSendButton.Depth = 0;
-            this.adhocSendButton.Icon = null;
-            this.adhocSendButton.Location = new System.Drawing.Point(757, 475);
-            this.adhocSendButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.adhocSendButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.adhocSendButton.Name = "adhocSendButton";
-            this.adhocSendButton.Primary = false;
-            this.adhocSendButton.Size = new System.Drawing.Size(56, 36);
-            this.adhocSendButton.TabIndex = 293;
-            this.adhocSendButton.Text = "Send";
-            this.adhocSendButton.UseVisualStyleBackColor = true;
-            this.adhocSendButton.Click += new System.EventHandler(this.adhocSendButton_Click);
+            this.pictureBoxCAMMSourceDBCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBoxCAMMSourceDBCheck.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCAMMSourceDBCheck.Image")));
+            this.pictureBoxCAMMSourceDBCheck.Location = new System.Drawing.Point(237, 75);
+            this.pictureBoxCAMMSourceDBCheck.Name = "pictureBoxCAMMSourceDBCheck";
+            this.pictureBoxCAMMSourceDBCheck.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxCAMMSourceDBCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCAMMSourceDBCheck.TabIndex = 227;
+            this.pictureBoxCAMMSourceDBCheck.TabStop = false;
             // 
-            // bunifuElipse4
+            // pictureBox2
             // 
-            this.bunifuElipse4.ElipseRadius = 15;
-            this.bunifuElipse4.TargetControl = this.adhocSendLogWindow;
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(15, 182);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 222;
+            this.pictureBox2.TabStop = false;
             // 
-            // label33
+            // pictureBox3
             // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.SystemColors.Control;
-            this.label33.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label33.Location = new System.Drawing.Point(194, 472);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(87, 21);
-            this.label33.TabIndex = 359;
-            this.label33.Text = "Successful!";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(15, 70);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 217;
+            this.pictureBox3.TabStop = false;
             // 
-            // label35
+            // pictureBox10
             // 
-            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.SystemColors.Control;
-            this.label35.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label35.Location = new System.Drawing.Point(46, 473);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(87, 21);
-            this.label35.TabIndex = 357;
-            this.label35.Text = "Successful!";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(24, 464);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(18, 16);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 336;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(15, 94);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 263;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(15, 10);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 252;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBoxSearchFailed
+            // 
+            this.pictureBoxSearchFailed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBoxSearchFailed.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSearchFailed.Image")));
+            this.pictureBoxSearchFailed.Location = new System.Drawing.Point(24, 438);
+            this.pictureBoxSearchFailed.Name = "pictureBoxSearchFailed";
+            this.pictureBoxSearchFailed.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxSearchFailed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSearchFailed.TabIndex = 328;
+            this.pictureBoxSearchFailed.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(24, 438);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 271;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Location = new System.Drawing.Point(11, 53);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 366;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(166, 465);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 356;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(18, 465);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 353;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(11, 97);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 346;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 335;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox21.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Location = new System.Drawing.Point(22, 503);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(18, 16);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox21.TabIndex = 363;
+            this.pictureBox21.TabStop = false;
             // 
             // pictureBox19
             // 
@@ -2596,59 +2496,131 @@ namespace CernerCMove
             this.pictureBox20.TabIndex = 358;
             this.pictureBox20.TabStop = false;
             // 
-            // progressBar3
+            // pictureBox18
             // 
-            this.progressBar3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar3.Location = new System.Drawing.Point(757, 503);
-            this.progressBar3.MarqueeAnimationSpeed = 50;
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(56, 8);
-            this.progressBar3.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar3.TabIndex = 361;
+            this.pictureBox18.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.Location = new System.Drawing.Point(10, 135);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox18.TabIndex = 287;
+            this.pictureBox18.TabStop = false;
             // 
-            // pictureBox21
+            // pictureBox17
             // 
-            this.pictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox21.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
-            this.pictureBox21.Location = new System.Drawing.Point(22, 503);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(18, 16);
-            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox21.TabIndex = 363;
-            this.pictureBox21.TabStop = false;
+            this.pictureBox17.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(10, 74);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox17.TabIndex = 278;
+            this.pictureBox17.TabStop = false;
             // 
-            // label36
+            // pictureBox16
             // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.SystemColors.Control;
-            this.label36.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label36.Location = new System.Drawing.Point(47, 501);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(87, 21);
-            this.label36.TabIndex = 362;
-            this.label36.Text = "Successful!";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBox16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
+            this.pictureBox16.Location = new System.Drawing.Point(10, 15);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 270;
+            this.pictureBox16.TabStop = false;
             // 
-            // adhocSendStoreSCULog
+            // bunifuElipse5
             // 
-            this.adhocSendStoreSCULog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.adhocSendStoreSCULog.AutoSize = true;
-            this.adhocSendStoreSCULog.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.adhocSendStoreSCULog.Depth = 0;
-            this.adhocSendStoreSCULog.Icon = null;
-            this.adhocSendStoreSCULog.Location = new System.Drawing.Point(622, 475);
-            this.adhocSendStoreSCULog.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.adhocSendStoreSCULog.MouseState = MaterialSkin.MouseState.HOVER;
-            this.adhocSendStoreSCULog.Name = "adhocSendStoreSCULog";
-            this.adhocSendStoreSCULog.Primary = false;
-            this.adhocSendStoreSCULog.Size = new System.Drawing.Size(119, 36);
-            this.adhocSendStoreSCULog.TabIndex = 364;
-            this.adhocSendStoreSCULog.Text = "storeSCU Log";
-            this.adhocSendStoreSCULog.UseVisualStyleBackColor = true;
-            this.adhocSendStoreSCULog.Click += new System.EventHandler(this.adhocSendStoreSCULog_Click);
+            this.bunifuElipse5.ElipseRadius = 15;
+            this.bunifuElipse5.TargetControl = this.materialContextMenuStrip1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ACCESSION";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "INST. NAME";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "STUDY DESC.";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "PATIENT NAME";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "MRN/PID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "OTHER PID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // STUDYSUID
+            // 
+            this.STUDYSUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.STUDYSUID.FillWeight = 90F;
+            this.STUDYSUID.HeaderText = "STUDYSUID";
+            this.STUDYSUID.Name = "STUDYSUID";
+            this.STUDYSUID.ReadOnly = true;
+            // 
+            // MODALITY
+            // 
+            this.MODALITY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MODALITY.FillWeight = 90F;
+            this.MODALITY.HeaderText = "MODALITY";
+            this.MODALITY.Name = "MODALITY";
+            this.MODALITY.ReadOnly = true;
+            // 
+            // ORDERSTATUS
+            // 
+            this.ORDERSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ORDERSTATUS.FillWeight = 90F;
+            this.ORDERSTATUS.HeaderText = "ORDER STATUS";
+            this.ORDERSTATUS.Name = "ORDERSTATUS";
+            this.ORDERSTATUS.ReadOnly = true;
+            // 
+            // SCHDATE
+            // 
+            this.SCHDATE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SCHDATE.FillWeight = 90F;
+            this.SCHDATE.HeaderText = "SCH. DATE";
+            this.SCHDATE.Name = "SCHDATE";
+            this.SCHDATE.ReadOnly = true;
+            // 
+            // Location
+            // 
+            this.Location.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Location.FillWeight = 90F;
+            this.Location.HeaderText = "LOCATION";
+            this.Location.Name = "Location";
+            this.Location.ReadOnly = true;
             // 
             // Form1
             // 
@@ -2668,38 +2640,38 @@ namespace CernerCMove
             this.materialTabControl1.ResumeLayout(false);
             this.Connect.ResumeLayout(false);
             this.Connect.PerformLayout();
+            this.Search_Send.ResumeLayout(false);
+            this.Search_Send.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            this.materialContextMenuStrip1.ResumeLayout(false);
+            this.MWL.ResumeLayout(false);
+            this.MWL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
+            this.adhocSend.ResumeLayout(false);
+            this.adhocSend.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCAMMSourceDBCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.Search_Send.ResumeLayout(false);
-            this.Search_Send.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
-            this.materialContextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchFailed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.MWL.ResumeLayout(false);
-            this.MWL.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            this.adhocSend.ResumeLayout(false);
-            this.adhocSend.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2779,12 +2751,10 @@ namespace CernerCMove
         private PictureBox pictureBox8;
         private MaterialSkin.Controls.MaterialDivider materialDivider3;
         private TabPage MWL;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton7;
         private ProgressBar progressBar1;
         private PictureBox pictureBox11;
         private Label label22;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton8;
+        private MaterialSkin.Controls.MaterialFlatButton mwlSearchLog;
         private PictureBox pictureBox12;
         private Label label23;
         private MetroFramework.Controls.MetroGrid metroGrid2;
@@ -2819,25 +2789,11 @@ namespace CernerCMove
         private DataGridViewTextBoxColumn DT;
         private DataGridViewTextBoxColumn SUID;
         private DataGridViewTextBoxColumn AA_OID;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn STUDYSUID;
-        private DataGridViewTextBoxColumn MODALITY;
-        private DataGridViewTextBoxColumn ORDERSTATUS;
-        private DataGridViewTextBoxColumn SCHDATE;
         private PictureBox pictureBox10;
         private PictureBox pictureBox9;
         private MaterialSkin.Controls.MaterialCheckBox searchStudyLevel;
         private MaterialSkin.Controls.MaterialCheckBox searchSeriesLevel;
         private MaterialSkin.Controls.MaterialCheckBox searchPatientLevel;
-        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
-        private ToolStripMenuItem copyToolStripMenuItem;
-        private ToolStripMenuItem sendToolStripMenuItem;
-        private ToolStripMenuItem downloadToolStripMenuItem;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton11;
         private TabPage adhocSend;
         private MetroFramework.Controls.MetroComboBox adhocSendDropdown;
@@ -2871,6 +2827,21 @@ namespace CernerCMove
         private PictureBox pictureBox21;
         private Label label36;
         private MaterialSkin.Controls.MaterialFlatButton adhocSendStoreSCULog;
+        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
+        private ToolStripMenuItem copyRowDataToolStripMenuItem;
+        private ToolStripMenuItem viewImageDataToolStripMenuItem;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn STUDYSUID;
+        private DataGridViewTextBoxColumn MODALITY;
+        private DataGridViewTextBoxColumn ORDERSTATUS;
+        private DataGridViewTextBoxColumn SCHDATE;
+        private DataGridViewTextBoxColumn Location;
     }
 }
 

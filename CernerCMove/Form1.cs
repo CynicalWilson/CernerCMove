@@ -121,6 +121,7 @@ namespace CernerCMove
             GlobalVars.SourceAETCechoSuccess = false;
             LabelCAMM6SourceDBCheckValue.Visible = false;
             pictureBoxCAMMSourceDBCheck.Visible = false;
+            GlobalVars.UtilityAET = utilityAET.Text.Trim();
             var currentDate = DateTime.Now;
             string sourceAETCechoTestResults = "";
 
@@ -389,23 +390,27 @@ namespace CernerCMove
             if (searchCAMMSelect.SelectedIndex < 0)
             {
                 MessageBox.Show($"Please select a CAMM server first.", "CAMM Server Field Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                searchMrnAccProgress.Visible = false;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(searchACCtxtbox.Text) && string.IsNullOrWhiteSpace(searchMRNtxtbox.Text))
             {
                 MessageBox.Show($"Please enter an MRN or Accession first.", "MRN and Accession Field Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                searchMrnAccProgress.Visible = false;
                 return;
             }
             if (!string.IsNullOrWhiteSpace(searchACCtxtbox.Text) && !string.IsNullOrWhiteSpace(searchMRNtxtbox.Text))
             {
                 MessageBox.Show($"Please enter MRN or Accession, not both.", "MRN and Accession Populated", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                searchMrnAccProgress.Visible = false;
                 return;
             }
 
             if ((searchACCtxtbox.Text == "*") || (searchMRNtxtbox.Text == "*"))
             {
                 MessageBox.Show($"Full WildCard Searches are NOT allowed; only partial ones can be used!", "Full Wildcard Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                searchMrnAccProgress.Visible = false;
                 return;
             }
 
@@ -622,6 +627,55 @@ namespace CernerCMove
                         } while (line != null);
                     }
 
+                    // we'll check if the current study SUID is in the suid list
+                    // if it is, then we'll skip; we're doing this because the c-find
+                    // we're using is doing it at the series level so you'll see an entry
+                    // of the study SUID in the datagrid multiple times 
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(studySUIDCheck);
+                        }
+
+                    }
 
                     pictureBox7.Visible = true;
                     label17.Visible = true;
@@ -650,7 +704,7 @@ namespace CernerCMove
             }
             else
             {
-                searchMrnAccProgress.Visible = false;
+                searchMrnAccProgress.Visible = true;
 
                 GlobalVars.searchMRNStringValue = searchMRNtxtbox.Text;
                 await Task.Run(() =>
@@ -807,7 +861,7 @@ namespace CernerCMove
                                 if (line.Contains("D: (0010,0010) PN ["))
                                 {
                                     string outputPNpre = line.Substring(line.IndexOf('[') + 1);
-                                    string outputPNpost = outputPNpre.Remove(outputPNpre.IndexOf("]") - 1); ;
+                                    string outputPNpost = outputPNpre.Remove(outputPNpre.IndexOf("]")); ;
                                     outputPNremoveCarrot = outputPNpost.Replace("^", ",");
                                     //newRow.Add(outputPNremoveCarrot);
                                 }
@@ -860,31 +914,46 @@ namespace CernerCMove
                     // of the study SUID in the datagrid multiple times 
                     for (int i = 0; i < metroGrid1.Rows.Count; i++)
                     {
-                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+                        var patientMRNCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
 
                         //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
 
-                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+                        var count = studySUIDsList.Where(x => x.Equals(patientMRNCheck)).Count();
 
                         if (count > 1)
                         {
                             metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
-                            studySUIDsList.Remove(studySUIDCheck);
+                            studySUIDsList.Remove(patientMRNCheck);
                         }
 
                     }
                     for (int i = 0; i < metroGrid1.Rows.Count; i++)
                     {
-                        var studySUIDCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+                        var patientMRNCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
 
                         //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
 
-                        var count = studySUIDsList.Where(x => x.Equals(studySUIDCheck)).Count();
+                        var count = studySUIDsList.Where(x => x.Equals(patientMRNCheck)).Count();
 
                         if (count > 1)
                         {
                             metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
-                            studySUIDsList.Remove(studySUIDCheck);
+                            studySUIDsList.Remove(patientMRNCheck);
+                        }
+
+                    }
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        var patientMRNCheck = metroGrid1.Rows[i].Cells[6].Value.ToString();
+
+                        //bool isRepeated = studySUIDsList.Count(x => x == studySUIDCheck) != 1;
+
+                        var count = studySUIDsList.Where(x => x.Equals(patientMRNCheck)).Count();
+
+                        if (count > 1)
+                        {
+                            metroGrid1.Rows.Remove(metroGrid1.Rows[i]);
+                            studySUIDsList.Remove(patientMRNCheck);
                         }
 
                     }
@@ -892,7 +961,7 @@ namespace CernerCMove
 
                     pictureBox7.Visible = true;
                     label17.Visible = true;
-                    label17.Text = $"[SUCCESS] {metroGrid1.Rows.Count} Studies Found for ID {GlobalVars.searchMRNStringValue}!";
+                    label17.Text = $"[SUCCESS] {metroGrid1.Rows.Count} Patient(s) Found for ID {GlobalVars.searchMRNStringValue}!";
 
                     searchMrnAccProgress.Visible = false;
                 }
@@ -1174,6 +1243,125 @@ namespace CernerCMove
                         //textBoxActions.AppendText($"     UPDATE: User elected not to begin DICOM Migration. \n\n");
                         searchResultsProgress.Visible = false;
                         return;
+                    }
+
+                    // before we download the study to send it to the target, we must first check if it exists in the target DB!
+                    // if it does exist, then we'll have to WARN THE USER!!
+
+                    StringBuilder sb5 = new StringBuilder();
+                    var args1 = "";
+
+                    if (GlobalVars.TransferSyntax == "1")
+                    {
+                        trSynToUse = "xi";
+                    }
+                    else
+                    {
+                        trSynToUse = "xe";
+                    }
+
+                    // we'll set the args for the below findscu so that the search will check the right level based on what the user selected
+                    if (GlobalVars.searchCfindLevel == "PATIENT")
+                    {
+                        args1 = $"-d -{GlobalVars.searchCfindLevelFlag} -{trSynToUse} -k 0008,0052={GlobalVars.searchCfindLevel} -k 0010,0020=\"{patientMRN.ToString().Trim()}\" -k 0010,0010 -k 0010,0021 -k 0008,0050 -k 0008,1030 -k 0008,0061 -k 0008,0060 -k 0008,0020 {GlobalVars.targetHostIPAfterTest} {GlobalVars.targetPortAfterTest} -aec {GlobalVars.targetAETAfterTest} -aet {utilityAET.Text.Trim()}";
+                    }
+                    else
+                    {
+                        args1 = $"-d -{GlobalVars.searchCfindLevelFlag} -{trSynToUse} -k 0008,0052={GlobalVars.searchCfindLevel} -k 0020,000d=\"{patientSUID}\" -k 0010,0010 -k 0010,0021 -k 0008,0050 -k 0008,1030 -k 0008,0061 -k 0008,0060 -k 0008,0020 {GlobalVars.targetHostIPAfterTest} {GlobalVars.targetPortAfterTest} -aec {GlobalVars.targetAETAfterTest} -aet {utilityAET.Text.Trim()}";
+                    }
+
+                    try
+                    {
+                        var FindMRNOrSUIDInTarger = new Process
+                        {
+                            StartInfo = new ProcessStartInfo
+                            {
+                                FileName = $"{Application.StartupPath}\\findscu.exe",
+                                //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet MoveAET",
+                                //Arguments = $"-v {_hostname} {_port} -aec {_aet} -aet CERNMIGECHO",
+                                //Arguments = $"-v -P -xi -d -k 0008,0052=PATIENT -k 0010,0020=\"{PatID}\" {CAMMHostname} {CAMMPort} -aec {CAMMAET} -aet {CallingAET}",
+                                Arguments = args1,
+                                UseShellExecute = false,
+                                RedirectStandardOutput = true,
+                                CreateNoWindow = true
+                            }
+                        };
+
+                        FindMRNOrSUIDInTarger.Start();
+
+                        while (!FindMRNOrSUIDInTarger.StandardOutput.EndOfStream)
+                        {
+
+                            //var line = SourceAETCEcho.StandardOutput.ReadLine();
+
+                            sb5.AppendLine("    " + FindMRNOrSUIDInTarger.StandardOutput.ReadLine());
+                            //sb.AppendLine("\r\n");
+
+                            //cechoAETResponse.Add(line + "\r\n");
+                            //textBoxActions.AppendText(line + "\r\n");
+
+                        }
+
+                        FindMRNOrSUIDInTarger.WaitForExit();
+
+                    }
+                    catch (Exception e1)
+                    {
+                        MessageBox.Show("There was an error while attempting to veirfy if selected row already exists in target SCP! \r\n" +
+                                    $"Error: {e1.Message} \r\n\r\n" + "Send Operation will now exit; please review the log for more detials!",
+                                    "ERROR: Unable to Verify Selected Row In Target (prior to send)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // we'll save the output to the log file
+                    try
+                    {
+                        File.Delete(GlobalVars.searchMRNInTargetResults);
+                        File.WriteAllLines(GlobalVars.searchMRNInTargetResults, new[] { sb5.ToString() });
+                    }
+                    catch (Exception outputFileCrateError)
+                    {
+
+                        MessageBox.Show("There was an error while attempting to create the verify selected row in Target output file! \r\n" +
+                                    $"Error: {outputFileCrateError.Message} \r\n\r\n" + "Please check that you're able to write to folder where this exe lives, and try again.",
+                                    "ERROR: Unable to crate selected row in Target output file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // now that we've queries the target pacs for the study the user is about to send, we'll check if it 
+                    // exist in the target, and if it does, we'll WARN the user of the possible re-write and re-announce!
+                    if ((GlobalVars.searchCfindLevel == "PATIENT") && (sb5.ToString().Contains(patientMRN.ToString())))
+                    {
+                        // now that we found a match for the patient search, we'll WARN the user about possible overwrite and re-announce
+                        if (MessageBox.Show($"The Patient you're trying to send already exists in the target SCP!!! \r\n\r\n" +
+                                    $"If you continue, the studies for this patient, in the target SCP WILL be over-written!!! \r\n\r\n" +
+                                    $"If the target SCP is CAMM, then it will also re-announce the study to Millennium!!! \r\n\r\n" +
+                                    $"ARE YOU SURE YOU WANT TO PROCEED? \r\n", "WARNING: Over-write Data in Target SCP", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        {
+                            label19.Visible = false;
+                            pictureBox10.Visible = false;
+                            label17.Visible = false;
+                            label18.Text = "Patient Already exists in Target SCP; User elected not to over-write!";
+                            label18.Visible = true;
+                            searchResultsProgress.Visible = false;
+                            return;
+                        }
+                    }
+                    else if (sb5.ToString().Contains(patientSUID.ToString()))
+                    {
+                        // now that we found a match for the patient search, we'll WARN the user about possible overwrite and re-announce
+                        if (MessageBox.Show($"The Study you're trying to send already exists in the target SCP!!! \r\n\r\n" +
+                                    $"If you continue, the study in the target SCP WILL be over-written!!! \r\n\r\n" +
+                                    $"If the target SCP is CAMM, then it will also re-announce the study to Millennium!!! \r\n\r\n" +
+                                    $"ARE YOU SURE YOU WANT TO PROCEED? \r\n", "WARNING: Over-write Data in Target SCP", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        {
+                            label19.Visible = false;
+                            pictureBox10.Visible = false;
+                            label17.Visible = false;
+                            label18.Text = "STUDY Already exists in Target SCP; User elected not to over-write!";
+                            label18.Visible = true;
+                            searchResultsProgress.Visible = false;
+                            return;
+                        }
+
                     }
                 }
 
@@ -1950,7 +2138,6 @@ namespace CernerCMove
 
             var mwlSearchResults = "";
             var args = "";
-            int mwlStudyCount = 0;
             metroGrid2.Rows.Clear();
 
             var trSynToUse = ""; // we'll use this for CAMM 7 if ILE is not allowed. 
@@ -1974,12 +2161,12 @@ namespace CernerCMove
             }
             else if ((!string.IsNullOrWhiteSpace(mwlModalitySearch.Text)) && (!mwlDateSearchChecbox.Checked))
             {
-                args = $"-v -{trSynToUse} -W -k \"(0040,0100)[0].Modality={mwlModalitySearch.Text.Trim()}\" -aet {utilityAET.Text.Trim()} -aec {mwlSCPAET.Text.Trim()} {mwlSCPHost.Text.Trim()} {mwlSCPPort.Text.Trim()}";
+                args = $"-d -{trSynToUse} -W -k \"(0040,0100)[0].Modality={mwlModalitySearch.Text.Trim()}\" -aet {utilityAET.Text.Trim()} -aec {mwlSCPAET.Text.Trim()} {mwlSCPHost.Text.Trim()} {mwlSCPPort.Text.Trim()}";
             }
             else if ((string.IsNullOrWhiteSpace(mwlModalitySearch.Text)) &&
                 (mwlDateSearchChecbox.Checked))
             {
-                args = $"-v -{trSynToUse} -W -k \"(0040,0100)[3].ScheduledProcedureStepStartDate={mwlFromDatePicker.Text.Trim()}-{mwlToDatePicker.Text.Trim()}\" -aet {utilityAET.Text.Trim()} -aec {mwlSCPAET.Text.Trim()} {mwlSCPHost.Text.Trim()} {mwlSCPPort.Text.Trim()}";
+                args = $"-d -{trSynToUse} -W -k \"(0040,0100)[3].ScheduledProcedureStepStartDate={mwlFromDatePicker.Text.Trim()}-{mwlToDatePicker.Text.Trim()}\" -aet {utilityAET.Text.Trim()} -aec {mwlSCPAET.Text.Trim()} {mwlSCPHost.Text.Trim()} {mwlSCPPort.Text.Trim()}";
             }
 
             await Task.Run(() =>
@@ -1992,7 +2179,7 @@ namespace CernerCMove
             //// check how many studies were found based on the PID
             //mwlStudyCount = Regex.Matches(afterSBTrim, "I: [(]0020,000d[)] UI [[]").Count;
 
-            if ((afterSBTrim.Contains("I: Received Final Find Response (Success)")))
+            if ((afterSBTrim.Contains("D: DIMSE Status                  : 0x0000: Success")))
             {
                 GlobalVars.mwlSearchResultsResults = true;
 
@@ -2013,6 +2200,7 @@ namespace CernerCMove
                     var outputModalityTypepost = "";
                     var outputOrderStatus = "";
                     var outputSchedDatepost = "";
+                    var outputLocationpost = "";
                     
                     
                     do
@@ -2020,87 +2208,87 @@ namespace CernerCMove
                         line = reader.ReadLine();
                         if (line != null)
                         {
-                            if (line.Contains("I: (0008,0050) SH ["))
+                            if (line.Contains("D: (0008,0050) SH ["))
                             {
                                 string outputAccpre = line.Substring(line.IndexOf('[') + 1);
                                 outputAccpost = outputAccpre.Remove(outputAccpre.IndexOf("]"));
                             }
-                            else if (line.Contains("I: (0008,0050) SH ("))
+                            else if (line.Contains("D: (0008,0050) SH ("))
                             {
                                 outputAccpost = "N/A";
                             }
-                            else if (line.Contains("I: (0008,0080) LO ["))
+                            else if (line.Contains("D: (0008,0080) LO ["))
                             {
                                 string outputInstNamepre = line.Substring(line.IndexOf('[') + 1);
                                 outputInstName = outputInstNamepre.Remove(outputInstNamepre.IndexOf("]"));
                             }
-                            else if (line.Contains("I: (0008,0080) LO ("))
+                            else if (line.Contains("D: (0008,0080) LO ("))
                             {
                                 outputInstName = "N/A";
                             }
-                            else if (line.Contains("I: (0008,1030) LO ["))
+                            else if (line.Contains("D: (0008,1030) LO ["))
                             {
                                 string outputStudyDescpre = line.Substring(line.IndexOf('[') + 1);
                                 outputStudyDescpost = outputStudyDescpre.Remove(outputStudyDescpre.IndexOf("]"));
                             }
-                            else if (line.Contains("I: (0008,1030) LO ("))
+                            else if (line.Contains("D: (0008,1030) LO ("))
                             {
                                 outputStudyDescpost = "N/A";
                             }
-                            else if (line.Contains("I: (0010,0010) PN ["))
+                            else if (line.Contains("D: (0010,0010) PN ["))
                             {
                                 string outputPNpre = line.Substring(line.IndexOf('[') + 1);
                                 string outputPNpost = outputPNpre.Remove(outputPNpre.IndexOf("]") - 1); ;
                                 outputPNremoveCarrot = outputPNpost.Replace("^", ",");
                                 //newRow.Add(outputPNremoveCarrot);
                             }
-                            else if (line.Contains($"I: (0010,0020) LO ["))
+                            else if (line.Contains($"D: (0010,0020) LO ["))
                             {
                                 string outputMRNpre = line.Substring(line.IndexOf('[') + 1);
                                 outputMRNpost = outputMRNpre.Remove(outputMRNpre.IndexOf("]")); ;
                                 //newRow.Add(outputMRNpost);
                             }
-                            else if (line.Contains("I: (0010,0020) LO ("))
+                            else if (line.Contains("D: (0010,0020) LO ("))
                             {
                                 outputMRNpost = "N/A";
                             }
-                            else if (line.Contains("I: (0010,1000) LO ["))
+                            else if (line.Contains("D: (0010,1000) LO ["))
                             {
                                 string outputOtherPadIDpre = line.Substring(line.IndexOf('[') + 1);
                                 outputOtherPatID = outputOtherPadIDpre.Remove(outputOtherPadIDpre.IndexOf("]"));
                             }
-                            else if (line.Contains("I: (0010,1000) LO ("))
+                            else if (line.Contains("D: (0010,1000) LO ("))
                             {
                                 outputOtherPatID = "N/A";
                             }
-                            else if (line.Contains("I: (0020,000d) UI ["))
+                            else if (line.Contains("D: (0020,000d) UI ["))
                             {
                                 string outputSUIDpre = line.Substring(line.IndexOf('[') + 1);
                                 outputSUIDpost = outputSUIDpre.Remove(outputSUIDpre.IndexOf("]"));
 
                                 studySUIDsList.Add(outputSUIDpost);
                             }
-                            else if (line.Contains("I:     (0008,0060) CS ["))
+                            else if (line.Contains("D:     (0008,0060) CS ["))
                             {
                                 string outputModalityTypepre = line.Substring(line.IndexOf('[') + 1);
                                 outputModalityTypepost = outputModalityTypepre.Remove(outputModalityTypepre.IndexOf("]"));
 
                             }
-                            else if (line.Contains("I:     (0008,0060) CS ["))
+                            else if (line.Contains("D:     (0008,0060) CS ["))
                             {
                                 outputModalityTypepost = "N/A";
                             }
-                            else if (line.Contains("I: (0032,000a) CS ["))
+                            else if (line.Contains("D: (0032,000a) CS ["))
                             {
                                 string outputOrderStatuspre = line.Substring(line.IndexOf('[') + 1);
                                 outputOrderStatus = outputOrderStatuspre.Remove(outputOrderStatuspre.IndexOf("]"));
 
                             }
-                            else if (line.Contains("I: (0032,000a) CS ("))
+                            else if (line.Contains("D: (0032,000a) CS ("))
                             {
                                 outputOrderStatus = "N/A";
                             }
-                            else if (line.Contains("I:     (0040,0002) DA ["))
+                            else if (line.Contains("D:     (0040,0002) DA ["))
                             {
                                 string outputDTpre = line.Substring(line.IndexOf('[') + 1);
                                 outputSchedDatepost = outputDTpre.Remove(outputDTpre.IndexOf("]"));
@@ -2108,7 +2296,21 @@ namespace CernerCMove
                                 outputSchedDatepost = outputSchedDatepost.Insert(7, "-");
 
                             }
-                            
+                            else if (line.Contains("D:     (0040,0002) DA ("))
+                            {
+                                outputSchedDatepost = "N/A";
+                            }
+                            else if (line.Contains("D: (0038,0300) LO ["))
+                            {
+                                string outputLocationpre = line.Substring(line.IndexOf('[') + 1);
+                                outputLocationpost = outputLocationpre.Remove(outputLocationpre.IndexOf("]"));
+
+                            }
+                            else if (line.Contains("D: (0038,0300) LO ("))
+                            {
+                                outputLocationpost = "N/A";
+                            }
+
                             if ((!string.IsNullOrEmpty(outputAccpost)) && (!string.IsNullOrEmpty(outputInstName))
                                      && (!string.IsNullOrEmpty(outputStudyDescpost))
                                      && (!string.IsNullOrEmpty(outputPNremoveCarrot))
@@ -2119,7 +2321,7 @@ namespace CernerCMove
                                      && (!string.IsNullOrEmpty(outputOrderStatus))
                                      && (!string.IsNullOrEmpty(outputSchedDatepost)))
                             {
-                                metroGrid2.Rows.Add(outputAccpost, outputInstName, outputStudyDescpost, outputPNremoveCarrot, outputMRNpost, outputOtherPatID, outputSUIDpost, outputModalityTypepost, outputOrderStatus, outputSchedDatepost);
+                                metroGrid2.Rows.Add(outputAccpost, outputInstName, outputStudyDescpost, outputPNremoveCarrot, outputMRNpost, outputOtherPatID, outputSUIDpost, outputModalityTypepost, outputOrderStatus, outputSchedDatepost, outputLocationpost);
                                 outputAccpost = "";
                                 outputInstName = "";
                                 outputStudyDescpost = "";
@@ -2130,6 +2332,7 @@ namespace CernerCMove
                                 outputModalityTypepost = "";
                                 outputOrderStatus = "";
                                 outputSchedDatepost = "";
+                                outputLocationpost = "";
                             }
                         }
 
@@ -2255,6 +2458,19 @@ namespace CernerCMove
             }
 
             return sb.ToString();
+        }
+
+        private void mwlSearchLog_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(GlobalVars.mwlSearchResultsLog))
+            {
+                System.Diagnostics.Process.Start(GlobalVars.mwlSearchResultsLog);
+            }
+            else
+            {
+                MessageBox.Show($"The log file has not yet been generated!",
+                     $"Log File Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         //----------------------------------------------------------------------\\ ABOUT TAB //----------------------------------------------------------------------
@@ -2472,6 +2688,100 @@ namespace CernerCMove
                      $"Log File Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void metroGrid1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                //ContextMenu m = new ContextMenu();
+                //m.MenuItems.Add(new MenuItem("Cut"));
+                //m.MenuItems.Add(new MenuItem("Copy"));
+                //m.MenuItems.Add(new MenuItem("Paste"));
+
+                int currentMouseOverRow = metroGrid1.HitTest(e.X, e.Y).RowIndex;
+                materialContextMenuStrip1.Items[1].Enabled = false;
+
+                if (currentMouseOverRow >= 0)
+                {
+                    metroGrid1.Rows[currentMouseOverRow].Selected = true;
+                    //GlobalVars.selectedRowAndHeaderCopied = metroGrid1.GetClipboardContent().ToString();
+                    //m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+                    //materialContextMenuStrip1.Items.Add(string.Format("Do something to row {0}", currentMouseOverRow.ToString()));
+                    var patientNameRowValue = metroGrid1.Rows[currentMouseOverRow].Cells[0].Value.ToString();
+                    var patientMRNRowValue = metroGrid1.Rows[currentMouseOverRow].Cells[1].Value.ToString();
+                    var patientAccRowValue = metroGrid1.Rows[currentMouseOverRow].Cells[2].Value.ToString();
+                    var patientSUIDRowValue = metroGrid1.Rows[currentMouseOverRow].Cells[6].Value.ToString();
+
+
+                    if (patientSUIDRowValue != "N/A")
+                    {
+                        //var studySUIDValue = metroGrid1.Rows[currentMouseOverRow].Cells[6].Value.ToString();
+                        GlobalVars.userSelectedSUIDRowValue = patientSUIDRowValue;
+                        GlobalVars.userSelectedPatientNameRowValue = patientNameRowValue;
+                        GlobalVars.userSelectedAccRowValue = patientAccRowValue;
+                        GlobalVars.userSelectedMRNRowValue = patientMRNRowValue;
+                        materialContextMenuStrip1.Items[1].Enabled = true;
+                    }
+                    else
+                    {
+                        materialContextMenuStrip1.Items[0].Enabled = false;
+                    }
+
+                    materialContextMenuStrip1.Show(metroGrid1, new Point(e.X, e.Y));
+                }
+
+                //m.Show(metroGrid1, new Point(e.X, e.Y));
+
+            }
+        }
+
+        private void copyRowDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(metroGrid1.GetClipboardContent());
+            //MessageBox.Show($"You selected row index: {GlobalVars.cfindGridSelectedRowIndexSUID} \r\n",
+            //                $"SELECTED ROW INDEX", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void viewImageDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            GlobalVars.downloadedStudyFolder = $@"{GlobalVars.downloadedDicomDataLocation}{GlobalVars.userSelectedMRNRowValue}";
+
+            try
+            {
+                if (Directory.Exists(GlobalVars.downloadedStudyFolder))
+                {
+                    var fileCount = Directory.EnumerateFiles(GlobalVars.downloadedStudyFolder).Count();
+                    if (fileCount != 0)
+                    {
+                        using (HyperionDCM.viewImagesFromSUID box1 = new HyperionDCM.viewImagesFromSUID())
+                        {
+                            box1.ShowDialog(this);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"In order to view Image SOP Details for the selected Study, you'll first have to download the study. \r\n",
+                                        $"INFORMATION: View Image SOP Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"In order to view Image SOP Details for the selected Study, you'll first have to download the study. \r\n",
+                                    $"INFORMATION: View Image SOP Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+
+        }
+
     }
 
 }
